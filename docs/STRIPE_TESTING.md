@@ -1,0 +1,107 @@
+# Stripe End-to-End Testing (Local)
+
+This document explains how to test the Stripe Checkout + webhook flow locally for this project (Windows PowerShell examples).
+
+Prerequisites
+- Node.js and project dependencies installed (`npm install`).
+- Run the app locally: `npm run dev` (default: `http://localhost:3000`).
+- Stripe CLI installed: https://stripe.com/docs/stripe-cli
+- Environment variables set (see below).
+
+Required environment variables (example)
+
+Set these in your local environment or `.env` when running dev:
+
+- `MONGODB_URI` — MongoDB connection string
+- `JWT_SECRET` — app JWT secret
+- `NEXT_PUBLIC_BASE_URL` — e.g. `http://localhost:3000`
+- `STRIPE_SECRET_KEY` — your Stripe secret key (sk_test_...)
+- `STRIPE_WEBHOOK_SECRET` — webhook signing secret (set after you run the Stripe listen command)
+- `STRIPE_CURRENCY` — optional (e.g. `vnd`), default code in app assumes VND-like zero-decimal handling
+
+ - `MONGODB_URI` — MongoDB connection string
+ - `NEXT_PUBLIC_BASE_URL` — e.g. `http://localhost:3000`
+ - `STRIPE_SECRET_KEY` — your Stripe secret key (sk_test_...)
+ - `STRIPE_WEBHOOK_SECRET` — webhook signing secret (set after you run the Stripe listen command)
+ - `STRIPE_CURRENCY` — optional (e.g. `vnd`), default code in app assumes VND-like zero-decimal handling
+
+Quick test steps (PowerShell)
+
+1) Start dev server
+
+```powershell
+# from repo root
+npm install
+npm run dev
+```
+
+2) Start Stripe CLI listener (new PowerShell window)
+
+```powershell
+# listen and forward events to local webhook endpoint
+stripe listen --forward-to "http://localhost:3000/api/payments/webhook"
+```
+
+- After running the above command, Stripe CLI will display the webhook signing secret (starts with `whsec_`). Copy that value and set it in your environment as `STRIPE_WEBHOOK_SECRET` before continuing, or export it in the same shell where your dev server runs.
+
+3) Seed admin & seller (optional)
+
+Open in browser: `http://localhost:3000/api/seed` or run:
+
+```powershell
+curl http://localhost:3000/api/seed
+```
+
+Default seed credentials (unless overridden by env vars):
+
+- Admin: `admin@example.com` / `Password123`
+- Seller: `seller@example.com` / `Password123`
+
+4) Place a test order with card payment
+
+- Open the site, add items to cart, go to checkout `http://localhost:3000/thanh-toan`.
+- Choose payment method **Thẻ** (card) and click **Thanh toán bằng thẻ (Stripe)**. The app will call `/api/payments/checkout` to create a Stripe Checkout session and redirect you to Stripe Checkout.
+- Use Stripe test card numbers on the Checkout page (e.g., `4242 4242 4242 4242`, any future expiry, any CVC) to complete the payment.
+
+5) Observe events and webhook processing
+
+- When payment completes, Stripe will send `checkout.session.completed` to the Stripe CLI which forwards it to `http://localhost:3000/api/payments/webhook`.
+- The webhook handler persists the raw event to `WebhookEvent` collection and processes it (marks order `paymentStatus: 'paid'`, sets `paidAt`, and attempts to decrement stock if not reserved).
+- Admin can view events at `http://localhost:3000/admin/webhooks` (requires admin login). Use the Retry button to replay processing if needed.
+
+6) Verify order confirmation
+
+- After successful payment, Stripe redirects back to `http://localhost:3000/xac-nhan-don-hang/{orderId}?session_id={CHECKOUT_SESSION_ID}`.
+- The confirmation page calls `/api/payments/session/{session_id}` to verify session and update order status if necessary, then fetches `/api/orders/{orderId}` to display payment and order status.
+
+Useful Stripe CLI commands
+
+- Trigger a test checkout.session.completed event (useful for replaying without completing a real checkout):
+
+```powershell
+# This triggers a sample event forwarded to your local webhook
+stripe trigger checkout.session.completed
+```
+
+- List events in your Stripe account (dev):
+
+```powershell
+stripe events list --limit 5
+```
+
+Troubleshooting
+- If your webhook is not received, ensure the Stripe CLI is running and forwarding to the correct URL.
+- If signature verification fails, ensure `STRIPE_WEBHOOK_SECRET` is set to the `whsec_...` value printed by `stripe listen`.
+- If stock update fails and order is `on-hold`, open admin webhooks UI and inspect the raw event; retry processing via the admin UI.
+
+Notes and recommendations
+- In production, configure a stable webhook endpoint (HTTPS) and set webhook signing secret in your deployment.
+- Consider adding more robust retry/backoff and alerting (email/SMS) when `on-hold` events occur.
+- For currencies with decimals (e.g., USD), ensure product price units and `unit_amount` conversion are correct (code multiplies by 100 by default unless a zero-decimal currency is set).
+
+If you want, tôi có thể:
+- Thêm a small `npm` script to run `stripe listen` and export `STRIPE_WEBHOOK_SECRET` automatically (dev convenience).
+- Add end-to-end test script harness that calls the checkout API directly and triggers `stripe trigger`.
+
+---
+Generated by dev assistant — follow the steps above to test payments locally.

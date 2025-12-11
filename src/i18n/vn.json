@@ -1,0 +1,31 @@
+{
+  "site": {
+    "tagline": "Tương lai mua sắm"
+  },
+  "top": {
+    "announcement": "Miễn phí giao hàng toàn quốc cho đơn hàng từ 500k"
+  },
+  "nav": {
+    "home": "Trang chủ",
+    "products": "Sản phẩm",
+    "promotions": "Khuyến mãi",
+    "contact": "Liên hệ"
+  },
+  "search": {
+    "placeholder": "Tìm kiếm sản phẩm..."
+  },
+  "cart": "Giỏ hàng",
+  "account": {
+    "myAccount": "Tài khoản của tôi",
+    "orders": "Đơn hàng"
+  },
+  "auth": {
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "logout": "Đăng xuất"
+  },
+  "actions": {
+    "loginWithGoogle": "Đăng nhập với Google",
+    "loginWithFacebook": "Đăng nhập với Facebook"
+  }
+}

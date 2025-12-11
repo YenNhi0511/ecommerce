@@ -21,7 +21,8 @@ const generateProducts = () => {
       images: [`/placeholder-${i % 5 + 1}.jpg`], // Placeholder images
       category,
       brand,
-      stock: Math.floor(Math.random() * 100) + 1,
+      stock: 100,
+      sold: 0,
       rating: Math.floor(Math.random() * 5) + 1,
       features: [
         'Tính năng 1',

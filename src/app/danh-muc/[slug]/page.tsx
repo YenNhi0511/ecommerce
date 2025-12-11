@@ -191,18 +191,18 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                     <div className="p-3">
                       <h3 className="font-medium text-sm mb-2 line-clamp-2 h-10">{product.name}</h3>
                       <div className="flex items-baseline space-x-2 mb-1">
-                        <p className="text-red-600 font-bold text-base">{product.price.toLocaleString()}₫</p>
-                        {product.originalPrice && (
-                          <p className="text-gray-400 line-through text-xs">{product.originalPrice.toLocaleString()}₫</p>
-                        )}
+                        {(() => {
+                          const displayPrice = product.originalPrice && product.originalPrice > product.price ? product.originalPrice : product.price;
+                          return <p className="text-red-600 font-bold text-base">{displayPrice.toLocaleString()}₫</p>;
+                        })()}
                       </div>
-                      <div className="flex items-center justify-between text-xs">
-                        <div className="flex items-center">
-                          <span className="text-yellow-400">⭐</span>
-                          <span className="ml-1 text-gray-600">{product.rating || 5}</span>
+                        <div className="flex items-center justify-between text-xs">
+                          <div className="flex items-center">
+                            <span className="text-yellow-400">⭐</span>
+                            <span className="ml-1 text-gray-600">{product.rating || 5}</span>
+                          </div>
+                          <span className="text-gray-400">Đã bán {product.sold || 0}</span>
                         </div>
-                        <span className="text-gray-400">Đã bán {Math.floor(Math.random() * 1000)}</span>
-                      </div>
                     </div>
                   </Link>
                 ))}

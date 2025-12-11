@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import Product from '@/models/Product';
+import { getUserFromRequest } from '@/lib/auth';
 
 export async function GET(request: NextRequest) {
   try {
@@ -13,8 +14,18 @@ export async function GET(request: NextRequest) {
     const brand = searchParams.get('brand');
     const search = searchParams.get('search');
     const sort = searchParams.get('sort') || 'createdAt';
+    const mine = searchParams.get('mine');
 
     const query: any = { isActive: true };
+
+    // If requesting "mine=true", only return products createdBy the authenticated seller
+    if (mine === 'true') {
+      const user: any = await getUserFromRequest(request as any);
+      if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      // sellers and admins allowed; other roles get forbidden
+      if (!['seller', 'admin'].includes(user.role)) return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+      query.createdBy = user._id;
+    }
 
     if (category) query.category = category;
     if (brand) query.brand = brand;
@@ -48,8 +59,13 @@ export async function POST(request: NextRequest) {
   try {
     await dbConnect();
 
+    // Only sellers or admins may create products
+    const user: any = await getUserFromRequest(request as any);
+    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    if (!['seller', 'admin'].includes(user.role)) return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+
     const body = await request.json();
-    const product = new Product(body);
+    const product = new Product({ ...body, createdBy: user._id });
     await product.save();
 
     return NextResponse.json(product, { status: 201 });

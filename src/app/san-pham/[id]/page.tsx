@@ -93,25 +93,25 @@ export default async function ProductDetailPage({ params }: PageProps) {
                   <div className="flex items-center">
                     <span className="text-yellow-400">⭐</span>
                     <span className="ml-1 font-medium">{prod.rating || 5}</span>
-                    <span className="ml-1 text-gray-500">(123 đánh giá)</span>
+                    <span className="ml-1 text-gray-500">({prod.reviews || 0} đánh giá)</span>
                   </div>
                   <div className="h-4 w-px bg-gray-300"></div>
-                  <span className="text-gray-600">Đã bán {Math.floor(Math.random() * 5000)}</span>
+                  <span className="text-gray-600">Đã bán {prod.sold || 0}</span>
                 </div>
               </div>
 
               {/* Price section */}
               <div className="bg-gray-50 rounded-lg p-4">
                 <div className="flex items-baseline space-x-3 mb-2">
-                  <span className="text-3xl font-bold text-red-600">{prod.price.toLocaleString()}₫</span>
-                  {prod.originalPrice && (
-                    <>
-                      <span className="text-lg text-gray-400 line-through">{prod.originalPrice.toLocaleString()}₫</span>
-                      <span className="px-2 py-1 bg-red-100 text-red-600 text-xs font-bold rounded">
-                        -{Math.round((1 - prod.price / prod.originalPrice) * 100)}%
-                      </span>
-                    </>
-                  )}
+                  {(() => {
+                    const displayPrice = prod.originalPrice && prod.originalPrice > prod.price ? prod.originalPrice : prod.price;
+                    return (
+                      <span className="text-3xl font-bold text-red-600">{displayPrice.toLocaleString()}₫</span>
+                    );
+                  })()}
+                </div>
+                <div className="text-sm text-gray-600">
+                  {prod.stock > 0 ? `Tồn kho: ${prod.stock}` : 'Hết hàng'}
                 </div>
               </div>
 
@@ -139,6 +139,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
               {/* Action buttons */}
               <div className="flex space-x-3 pt-4">
                 <AddToCartButton product={prod} />
+                <WishlistButton productId={prod._id} />
                 <Link 
                   href="/gio-hang" 
                   className="flex-1 bg-gradient-to-r from-red-600 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-red-700 hover:to-orange-600 transition text-center"
@@ -215,19 +216,17 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 <div className="p-3">
                   <h3 className="font-medium text-sm mb-2 line-clamp-2 h-10">{relProd.name}</h3>
                   <div className="flex items-baseline space-x-2 mb-1">
-                    <p className="text-red-600 font-bold text-base">{relProd.price.toLocaleString()}₫</p>
-                    {relProd.originalPrice && (
-                      <p className="text-gray-400 line-through text-xs">
-                        {relProd.originalPrice.toLocaleString()}₫
-                      </p>
-                    )}
+                    {(() => {
+                      const displayPrice = relProd.originalPrice && relProd.originalPrice > relProd.price ? relProd.originalPrice : relProd.price;
+                      return <p className="text-red-600 font-bold text-base">{displayPrice.toLocaleString()}₫</p>;
+                    })()}
                   </div>
                   <div className="flex items-center justify-between text-xs">
                     <div className="flex items-center">
                       <span className="text-yellow-400">⭐</span>
                       <span className="ml-1 text-gray-600">{relProd.rating || 5}</span>
                     </div>
-                    <span className="text-gray-400">Đã bán {Math.floor(Math.random() * 1000)}</span>
+                    <span className="text-gray-400">Đã bán {relProd.sold || 0}</span>
                   </div>
                 </div>
               </Link>
@@ -241,3 +240,4 @@ export default async function ProductDetailPage({ params }: PageProps) {
 
 // Import at top
 import ReviewSection from '@/components/ReviewSection';
+import WishlistButton from '@/components/WishlistButton';

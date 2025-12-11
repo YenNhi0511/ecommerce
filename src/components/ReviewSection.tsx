@@ -37,7 +37,12 @@ export default function ReviewSection({ productId }: ReviewSectionProps) {
       
       if (response.ok) {
         setReviews(data.reviews);
-        setStats(data.stats);
+        // If no reviews, show default initial rating 5 with 1 review as requested
+        if (!data.stats || (data.stats.totalReviews || 0) === 0) {
+          setStats({ averageRating: 5, totalReviews: 1 });
+        } else {
+          setStats(data.stats);
+        }
       }
     } catch (err) {
       console.error('Error fetching reviews:', err);
@@ -80,7 +85,24 @@ export default function ReviewSection({ productId }: ReviewSectionProps) {
       setSuccess('Đánh giá của bạn đã được gửi!');
       setComment('');
       setRating(5);
-      fetchReviews(); // Refresh reviews
+      // Optimistic update: append the new review locally to improve UX
+      const newReview: Review = {
+        _id: data.review?._id || String(Date.now()),
+        userName: data.review?.userName || user.name,
+        rating,
+        comment,
+        createdAt: data.review?.createdAt || new Date().toISOString(),
+      };
+
+      setReviews(prev => [newReview, ...prev]);
+      // Update stats locally to show immediate feedback
+      setStats(prev => ({
+        averageRating: ((prev.averageRating * prev.totalReviews) + rating) / (prev.totalReviews + 1),
+        totalReviews: prev.totalReviews + 1,
+      }));
+
+      // Try to refresh from server in background to ensure consistency
+      fetchReviews();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Đã xảy ra lỗi');
     } finally {

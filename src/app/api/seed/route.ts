@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import Product from '@/models/Product';
+import bcrypt from 'bcryptjs';
+import User from '@/models/User';
 
 // Database mới với sản phẩm thật và hình ảnh chất lượng cao
 
@@ -375,7 +377,7 @@ const generateProducts = async () => {
     ...accessories
   ];
 
-  return allProducts.map(product => ({
+    return allProducts.map(product => ({
     name: product.name,
     description: product.desc,
     price: product.price,
@@ -383,7 +385,8 @@ const generateProducts = async () => {
     images: [product.image],
     category: product.category,
     brand: product.brand,
-    stock: product.stock,
+      stock: 100,
+      sold: 0,
     rating: product.rating,
     features: [
       'Bảo hành chính hãng',
@@ -407,6 +410,23 @@ export async function GET() {
 
     // Clear existing products
     await Product.deleteMany({});
+
+    // Create default admin and seller if not exists
+    const adminEmail = process.env.SEED_ADMIN_EMAIL || 'admin@example.com';
+    const sellerEmail = process.env.SEED_SELLER_EMAIL || 'seller@example.com';
+    const defaultPassword = process.env.SEED_PASSWORD || 'Password123';
+
+    const existingAdmin = await User.findOne({ email: adminEmail });
+    if (!existingAdmin) {
+      const hashed = await bcrypt.hash(defaultPassword, 10);
+      await User.create({ name: 'Admin', email: adminEmail, password: hashed, role: 'admin' });
+    }
+
+    const existingSeller = await User.findOne({ email: sellerEmail });
+    if (!existingSeller) {
+      const hashed = await bcrypt.hash(defaultPassword, 10);
+      await User.create({ name: 'Seller', email: sellerEmail, password: hashed, role: 'seller' });
+    }
 
     // Insert new products
     const products = await generateProducts();

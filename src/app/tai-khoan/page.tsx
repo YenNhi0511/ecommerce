@@ -1,10 +1,14 @@
-'use client';
+"use client";
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useAuth } from '@/context/AuthContext';
 
 export default function AccountPage() {
   const [activeTab, setActiveTab] = useState('profile');
+  const [pwForm, setPwForm] = useState({ oldPassword: '', newPassword: '', confirmPassword: '' });
+  const [pwMessage, setPwMessage] = useState({ type: '' as 'error' | 'success' | '', text: '' });
+  const { user, token } = useAuth();
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -81,6 +85,60 @@ export default function AccountPage() {
                     Cập nhật
                   </button>
                 </form>
+
+                {/* Change password */}
+                <div className="mt-6 border-t pt-6">
+                  <h3 className="text-lg font-semibold mb-4">Đổi mật khẩu</h3>
+                  {pwMessage.text && (
+                    <div className={`${pwMessage.type === 'error' ? 'bg-red-100 border-red-400 text-red-700' : 'bg-green-100 border-green-400 text-green-700'} mb-4 p-3 rounded`}>
+                      {pwMessage.text}
+                    </div>
+                  )}
+                  <form onSubmit={async (e) => {
+                    e.preventDefault();
+                    setPwMessage({ type: '', text: '' });
+                    if (pwForm.newPassword !== pwForm.confirmPassword) {
+                      setPwMessage({ type: 'error', text: 'Mật khẩu mới và xác nhận không khớp' });
+                      return;
+                    }
+                    if (!token) {
+                      setPwMessage({ type: 'error', text: 'Vui lòng đăng nhập trước khi đổi mật khẩu' });
+                      return;
+                    }
+
+                    try {
+                      const resp = await fetch('/api/auth/change-password', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+                        body: JSON.stringify({
+                          oldPassword: pwForm.oldPassword,
+                          newPassword: pwForm.newPassword,
+                        })
+                      });
+
+                      const data = await resp.json();
+                      if (!resp.ok) throw new Error(data.error || 'Đổi mật khẩu thất bại');
+                      setPwMessage({ type: 'success', text: data.message || 'Đổi mật khẩu thành công' });
+                      setPwForm({ oldPassword: '', newPassword: '', confirmPassword: '' });
+                    } catch (err) {
+                      setPwMessage({ type: 'error', text: err instanceof Error ? err.message : 'Đã xảy ra lỗi' });
+                    }
+                  }} className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium mb-1">Mật khẩu cũ</label>
+                      <input type="password" value={pwForm.oldPassword} onChange={(e) => setPwForm({...pwForm, oldPassword: e.target.value})} className="w-full px-3 py-2 border border-gray-300 rounded-lg" required />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1">Mật khẩu mới</label>
+                      <input type="password" value={pwForm.newPassword} onChange={(e) => setPwForm({...pwForm, newPassword: e.target.value})} className="w-full px-3 py-2 border border-gray-300 rounded-lg" required />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1">Xác nhận mật khẩu mới</label>
+                      <input type="password" value={pwForm.confirmPassword} onChange={(e) => setPwForm({...pwForm, confirmPassword: e.target.value})} className="w-full px-3 py-2 border border-gray-300 rounded-lg" required />
+                    </div>
+                    <button type="submit" className="bg-red-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-700">Đổi mật khẩu</button>
+                  </form>
+                </div>
               </div>
             )}
 

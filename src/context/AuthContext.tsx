@@ -7,12 +7,13 @@ interface User {
   name: string;
   email: string;
   phone?: string;
+  role?: string;
 }
 
 interface AuthContextType {
   user: User | null;
   token: string | null;
-  login: (email: string, password: string) => Promise<void>;
+  login: (email: string, password: string) => Promise<User>;
   register: (name: string, email: string, password: string, phone?: string) => Promise<void>;
   logout: () => void;
   isLoading: boolean;
@@ -54,6 +55,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setToken(data.token);
     localStorage.setItem('user', JSON.stringify(data.user));
     localStorage.setItem('token', data.token);
+    return data.user as User;
   };
 
   const register = async (name: string, email: string, password: string, phone?: string) => {
