@@ -226,11 +226,7 @@ export default async function Home() {
                     )}
                   </div>
 
-                  {product.discount > 0 && (
-                    <div className="absolute top-4 left-4 bg-[#FF6B6B] text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
-                      -{product.discount}%
-                    </div>
-                  )}
+                  {/* discounts hidden on listing; show base price only */}
 
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-lg">
@@ -259,14 +255,12 @@ export default async function Home() {
 
                   <div className="flex items-center justify-between">
                     <div className="flex flex-col">
-                      <span className="text-2xl font-bold text-[#FF6B6B]">
-                        {product.price.toLocaleString('vi-VN')}₫
-                      </span>
-                      {product.originalPrice > product.price && (
-                        <span className="text-sm text-[#B0D0E8] line-through">
-                          {product.originalPrice.toLocaleString('vi-VN')}₫
-                        </span>
-                      )}
+                      {(() => {
+                        const displayPrice = product.originalPrice && product.originalPrice > product.price ? product.originalPrice : product.price;
+                        return (
+                          <span className="text-2xl font-bold text-[#FF6B6B]">{displayPrice.toLocaleString('vi-VN')}₫</span>
+                        );
+                      })()}
                     </div>
 
                     <button className="bg-gradient-to-r from-[#00D4FF] to-[#00B8E6] text-[#0A1A2F] p-3 rounded-full hover:shadow-lg transition-all duration-300 hover:scale-110">

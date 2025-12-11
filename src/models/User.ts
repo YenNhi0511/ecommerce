@@ -5,7 +5,7 @@ const UserSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   avatar: { type: String },
-  role: { type: String, enum: ['user', 'admin'], default: 'user' },
+  role: { type: String, enum: ['customer', 'seller', 'admin'], default: 'customer' },
   addresses: [{
     street: String,
     city: String,
@@ -15,6 +15,7 @@ const UserSchema = new mongoose.Schema({
     isDefault: { type: Boolean, default: false },
   }],
   wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
+  refreshTokens: [{ type: String }],
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });

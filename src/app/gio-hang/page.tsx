@@ -100,10 +100,7 @@ export default function CartPage() {
                   <span className="text-gray-600">Tạm tính ({cart.length} sản phẩm)</span>
                   <span className="font-medium">{total.toLocaleString()}₫</span>
                 </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Phí vận chuyển</span>
-                  <span className="font-medium text-green-600">Miễn phí</span>
-                </div>
+                {/* shipping removed: totals are based on products only */}
               </div>
               <div className="flex justify-between mb-6">
                 <span className="text-base font-bold text-gray-800">Tổng cộng</span>
@@ -126,10 +123,7 @@ export default function CartPage() {
             {/* Policies */}
             <div className="bg-white rounded-lg shadow-sm p-4 mt-4">
               <div className="space-y-3 text-xs text-gray-600">
-                <div className="flex items-center space-x-2">
-                  <span>✓</span>
-                  <span>Miễn phí vận chuyển cho đơn hàng trên 500K</span>
-                </div>
+                {/* shipping policy hidden since shipping cost removed */}
                 <div className="flex items-center space-x-2">
                   <span>✓</span>
                   <span>Đổi trả miễn phí trong 7 ngày</span>

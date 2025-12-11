@@ -29,8 +29,15 @@ export default function LoginPage() {
     setError('');
     
     try {
-      await login(formData.email, formData.password);
-      router.push('/');
+      const u = await login(formData.email, formData.password);
+      // Redirect based on role
+      if (u?.role === 'admin') {
+        router.push('/admin');
+      } else if (u?.role === 'seller') {
+        router.push('/seller');
+      } else {
+        router.push('/');
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Đã xảy ra lỗi khi đăng nhập');
     } finally {

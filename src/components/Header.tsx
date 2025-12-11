@@ -4,10 +4,12 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
+import { useLocale } from '@/context/LocaleContext';
 
 export default function Header() {
   const { getTotalItems } = useCart();
   const { user, logout } = useAuth();
+  const { locale, setLocale, t } = useLocale();
   const cartCount = getTotalItems();
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
@@ -34,7 +36,7 @@ export default function Header() {
         <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-center text-sm font-medium">
             <span className="animate-pulse">🚀</span>
-            <span className="mx-2">Miễn phí giao hàng toàn quốc cho đơn hàng từ 500k</span>
+            <span className="mx-2">{t('top.announcement', 'Miễn phí giao hàng toàn quốc cho đơn hàng từ 500k')}</span>
             <span className="animate-pulse">🚀</span>
           </div>
         </div>
@@ -52,14 +54,14 @@ export default function Header() {
               <div className="text-2xl font-bold bg-gradient-to-r from-[#00D4FF] to-[#00B8E6] bg-clip-text text-transparent">
                 TechZone
               </div>
-              <div className="text-xs text-[#B0D0E8] -mt-1">Future of Shopping</div>
+              <div className="text-xs text-[#B0D0E8] -mt-1">{t('site.tagline', 'Future of Shopping')}</div>
             </div>
           </Link>
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link href="/" className="text-[#E0F7FF] hover:text-[#00D4FF] font-medium transition-colors duration-200 relative group">
-              Trang chủ
+              {t('nav.home', 'Trang chủ')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00D4FF] group-hover:w-full transition-all duration-300"></span>
             </Link>
             <div className="relative group">
@@ -69,7 +71,7 @@ export default function Header() {
                 onMouseLeave={() => setShowCategories(false)}
                 className="text-[#E0F7FF] hover:text-[#00D4FF] font-medium transition-colors duration-200 flex items-center space-x-1"
               >
-                <span>Sản phẩm</span>
+                <span>{t('nav.products', 'Sản phẩm')}</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
@@ -95,11 +97,11 @@ export default function Header() {
               )}
             </div>
             <Link href="/khuyen-mai" className="text-[#E0F7FF] hover:text-[#00D4FF] font-medium transition-colors duration-200 relative group">
-              Khuyến mãi
+              {t('nav.promotions', 'Khuyến mãi')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00D4FF] group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link href="/lien-he" className="text-[#E0F7FF] hover:text-[#00D4FF] font-medium transition-colors duration-200 relative group">
-              Liên hệ
+              {t('nav.contact', 'Liên hệ')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00D4FF] group-hover:w-full transition-all duration-300"></span>
             </Link>
           </nav>
@@ -113,7 +115,7 @@ export default function Header() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Tìm kiếm sản phẩm..."
+                  placeholder={t('search.placeholder', 'Tìm kiếm sản phẩm...')}
                   className="w-80 px-4 py-2 pl-10 border border-[#00D4FF] rounded-full focus:outline-none focus:ring-2 focus:ring-[#00D4FF] focus:border-transparent transition-all duration-200 bg-[#0F2B52] text-[#E0F7FF] placeholder-[#B0D0E8]"
                 />
                 <svg className="absolute left-3 top-2.5 w-5 h-5 text-[#B0D0E8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -150,16 +152,16 @@ export default function Header() {
                 </button>
                 <div className="absolute right-0 top-full mt-2 w-48 bg-[#0F2B52] rounded-xl shadow-2xl border border-[#00D4FF] py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   <Link href="/tai-khoan" className="block px-4 py-2 text-[#E0F7FF] hover:bg-[#00D4FF]/20 hover:text-[#00D4FF] transition-colors duration-200">
-                    Tài khoản của tôi
+                    {t('account.myAccount', 'Tài khoản của tôi')}
                   </Link>
                   <Link href="/don-hang" className="block px-4 py-2 text-[#E0F7FF] hover:bg-[#00D4FF]/20 hover:text-[#00D4FF] transition-colors duration-200">
-                    Đơn hàng
+                    {t('account.orders', 'Đơn hàng')}
                   </Link>
                   <button
                     onClick={logout}
                     className="block w-full text-left px-4 py-2 text-[#E0F7FF] hover:bg-[#FF6B6B]/20 hover:text-[#FF6B6B] transition-colors duration-200"
                   >
-                    Đăng xuất
+                    {t('auth.logout', 'Đăng xuất')}
                   </button>
                 </div>
               </div>
@@ -169,16 +171,24 @@ export default function Header() {
                   href="/dang-nhap"
                   className="text-[#E0F7FF] hover:text-[#00D4FF] font-medium transition-colors duration-200"
                 >
-                  Đăng nhập
+                  {t('auth.login', 'Đăng nhập')}
                 </Link>
                 <Link
                   href="/dang-ky"
                   className="bg-gradient-to-r from-[#00D4FF] to-[#00B8E6] text-white px-4 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-200 hover:scale-105"
                 >
-                  Đăng ký
+                  {t('auth.register', 'Đăng ký')}
                 </Link>
               </div>
             )}
+
+            {/* Language toggle */}
+            <div className="ml-2">
+              <select value={locale} onChange={(e) => setLocale(e.target.value as any)} className="bg-[#0F2B52] text-[#E0F7FF] border border-[#00D4FF] rounded px-2 py-1">
+                <option value="vn">VN</option>
+                <option value="en">EN</option>
+              </select>
+            </div>
 
             {/* Mobile menu button */}
             <button className="md:hidden p-2 hover:bg-[#00D4FF]/20 rounded-full transition-colors duration-200">

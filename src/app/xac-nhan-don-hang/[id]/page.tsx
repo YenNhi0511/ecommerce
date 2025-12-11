@@ -1,41 +1,142 @@
-import Link from 'next/link';
+"use client";
 
-interface PageProps {
-  params: { id: string };
+import { useEffect, useState } from "react";
+import { useRouter, useParams } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
+
+interface OrderItem {
+  product:
+    | {
+        _id?: string;
+        name?: string;
+      }
+    | string;
+  quantity: number;
+  price: number;
 }
 
-export default function OrderConfirmationPage({ params }: PageProps) {
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8 text-center">
-        <div className="text-green-500 text-6xl mb-4">✓</div>
-        <h1 className="text-3xl font-bold mb-4">Đặt hàng thành công!</h1>
-        <p className="text-gray-600 mb-6">
-          Cảm ơn bạn đã đặt hàng. Đơn hàng của bạn đã được xác nhận.
-        </p>
+interface Order {
+  _id: string;
+  paymentStatus: string;
+  orderStatus: string;
+  totalAmount: number;
+  items: OrderItem[];
+}
 
-        <div className="bg-gray-50 rounded-lg p-6 mb-6">
-          <h2 className="text-xl font-bold mb-4">Chi tiết đơn hàng</h2>
-          <div className="text-left space-y-2">
-            <p><strong>Mã đơn hàng:</strong> #{params.id}</p>
-            <p><strong>Trạng thái:</strong> Đang xử lý</p>
-            <p><strong>Thời gian đặt:</strong> {new Date().toLocaleString('vi-VN')}</p>
-            <p><strong>Tổng tiền:</strong> 30.000.000đ</p>
-          </div>
+/**
+ * Trang xác nhận đơn hàng sau khi thanh toán (MoMo / Stripe).
+ * - Đợi AuthContext load xong (isLoading === false) rồi mới gọi API.
+ * - Nếu không có token thì bắt đăng nhập lại.
+ */
+export default function OrderConfirmation() {
+  const params = useParams();
+  const id = params?.id as string | undefined;
+
+  const { token, isLoading } = useAuth();
+  const [order, setOrder] = useState<Order | null>(null);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!id) return;
+
+    // Đợi AuthContext load xong
+    if (isLoading) return;
+
+    // Đã load xong nhưng không có token -> yêu cầu đăng nhập
+    if (!token) {
+      alert("Bạn cần đăng nhập để xem chi tiết đơn hàng.");
+      router.push("/dang-nhap");
+      return;
+    }
+
+    (async () => {
+      try {
+        // Nếu redirect từ Stripe với session_id thì xác nhận session trước
+        const search = new URL(window.location.href).searchParams;
+        const sessionId = search.get("session_id");
+        if (sessionId) {
+          await fetch(
+            `/api/payments/session/${encodeURIComponent(sessionId)}`
+          );
+        }
+
+        const resp = await fetch(`/api/orders/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const data = (await resp.json()) as { order: Order; error?: string };
+
+        if (!resp.ok) {
+          throw new Error(data.error || "Không thể lấy đơn hàng");
+        }
+
+        setOrder(data.order);
+      } catch (err: unknown) {
+        console.error(err);
+        const message =
+          err instanceof Error ? err.message : "Đã xảy ra lỗi";
+        alert(message);
+        router.push("/");
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, [id, token, isLoading, router]);
+
+  if (loading) return <div className="p-6">Đang tải...</div>;
+  if (!order) return <div className="p-6">Không tìm thấy đơn hàng</div>;
+
+  return (
+    <div className="container mx-auto p-6">
+      <h1 className="text-2xl font-bold mb-4">Xác nhận đơn hàng</h1>
+      <div className="bg-white p-6 rounded shadow">
+        <div className="mb-3">
+          Mã đơn: <strong>{order._id}</strong>
+        </div>
+        <div className="mb-3">
+          Trạng thái thanh toán:{" "}
+          <strong>{order.paymentStatus}</strong>
+        </div>
+        <div className="mb-3">
+          Trạng thái đơn hàng:{" "}
+          <strong>{order.orderStatus}</strong>
+        </div>
+        <div className="mb-3">
+          Tổng:{" "}
+          <strong>
+            {Number(order.totalAmount).toLocaleString("vi-VN")}₫
+          </strong>
         </div>
 
-        <p className="text-gray-600 mb-6">
-          Bạn sẽ nhận được email xác nhận đơn hàng trong vài phút tới.
-          Chúng tôi sẽ thông báo khi đơn hàng được giao.
-        </p>
-
-        <div className="space-x-4">
-          <Link href="/" className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">
-            Tiếp tục mua sắm
-          </Link>
-          <Link href="/tai-khoan" className="bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-700">
-            Xem đơn hàng
-          </Link>
+        <div className="mt-4">
+          <h3 className="font-semibold mb-2">Sản phẩm</h3>
+          <ul>
+            {order.items.map((it) => (
+              <li
+                key={
+                  typeof it.product === "string"
+                    ? it.product
+                    : it.product._id ?? Math.random().toString()
+                }
+                className="py-2 border-b"
+              >
+                <div className="flex justify-between">
+                  <div>
+                    {typeof it.product === "string"
+                      ? it.product
+                      : it.product.name ?? ""}
+                  </div>
+                  <div>
+                    {it.quantity} ×{" "}
+                    {Number(it.price).toLocaleString("vi-VN")}₫
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

@@ -53,10 +53,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
             : item
         );
       }
+      const basePrice = product.originalPrice && product.originalPrice > product.price ? product.originalPrice : product.price;
       return [...prev, {
         _id: product._id,
         name: product.name,
-        price: product.price,
+        price: basePrice,
         image: product.images?.[0] || '',
         quantity: 1,
         brand: product.brand

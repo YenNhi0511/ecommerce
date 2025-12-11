@@ -102,9 +102,21 @@ export async function POST(request: NextRequest) {
       rating,
       comment,
     });
+    // After creating review, update product's reviews array and recompute rating
+    const agg = await Review.aggregate([
+      { $match: { productId: new (require('mongoose').Types.ObjectId)(productId) } },
+      { $group: { _id: null, averageRating: { $avg: '$rating' }, totalReviews: { $sum: 1 } } },
+    ]);
+    const stats = agg[0] || { averageRating: 0, totalReviews: 0 };
+
+    // push review id to product.reviews and update rating
+    await Product.findByIdAndUpdate(productId, {
+      $push: { reviews: review._id },
+      $set: { rating: stats.averageRating || 0 },
+    });
 
     return NextResponse.json(
-      { message: 'Review created successfully', review },
+      { message: 'Review created successfully', review, stats },
       { status: 201 }
     );
   } catch (error) {

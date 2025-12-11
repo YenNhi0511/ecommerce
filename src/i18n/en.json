@@ -1,0 +1,31 @@
+{
+  "site": {
+    "tagline": "Future of Shopping"
+  },
+  "top": {
+    "announcement": "Free shipping nationwide for orders from 500k"
+  },
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "promotions": "Promotions",
+    "contact": "Contact"
+  },
+  "search": {
+    "placeholder": "Search products..."
+  },
+  "cart": "Cart",
+  "account": {
+    "myAccount": "My account",
+    "orders": "Orders"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout"
+  },
+  "actions": {
+    "loginWithGoogle": "Sign in with Google",
+    "loginWithFacebook": "Sign in with Facebook"
+  }
+}
