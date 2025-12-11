@@ -1,0 +1,112 @@
+<mxfile host="app.diagrams.net" modified="2024-12-11" agent="5.0" version="24.0.0" type="device">
+  <diagram id="category-page" name="Category Page">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1800" background="#ffffff">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- HEADER MODAL -->
+        <mxCell id="header-modal" value="" style="rounded=8;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="30" width="1100" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="header-title" value="HEADER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#ffffff;strokeWidth=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="1080" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="header-content" value="Logo | Tìm kiếm | Menu | Giỏ hàng | Tài khoản" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ffffff;strokeWidth=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="1080" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- BREADCRUMB MODAL -->
+        <mxCell id="breadcrumb-modal" value="" style="rounded=8;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="150" width="1100" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="breadcrumb-content" value="Trang chủ › Danh mục › Điện thoại" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#ffffff;strokeWidth=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="1080" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- MAIN CONTENT MODAL (contains filter + products) -->
+        <mxCell id="main-modal" value="" style="rounded=8;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="230" width="1100" height="680" as="geometry"/>
+        </mxCell>
+        <mxCell id="main-title" value="DANH MỤC: ĐIỆN THOẠI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#ffffff;strokeWidth=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="240" width="1080" height="25" as="geometry"/>
+        </mxCell>
+        
+        <!-- FILTERS SECTION -->
+        <mxCell id="filters-section" value="" style="rounded=2;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#d0d0d0;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="275" width="220" height="620" as="geometry"/>
+        </mxCell>
+        <mxCell id="filter-label" value="BỘ LỌC" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#ffffff;strokeWidth=0;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="285" width="200" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="filter-price" value="Khoảng giá&#10;Từ: [____] Đến: [____]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;strokeWidth=1;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="70" y="315" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="filter-brand" value="Thương hiệu&#10;☑ Apple&#10;☐ Samsung&#10;☐ Xiaomi&#10;☐ Khác" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;strokeWidth=1;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="70" y="385" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="filter-rating" value="Đánh giá&#10;⭐⭐⭐⭐⭐&#10;⭐⭐⭐⭐&#10;⭐⭐⭐&#10;⭐⭐" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;strokeWidth=1;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="70" y="485" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="filter-buttons" value="[LỌC NGAY]&#10;[XÓA]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;strokeWidth=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="70" y="575" width="200" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- PRODUCTS GRID -->
+        <mxCell id="sort-bar" value="Sắp xếp: [Mới nhất ▼] | Hiển thị: [12 ▼]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#d0d0d0;strokeWidth=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="290" y="275" width="800" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Product 1 -->
+        <mxCell id="prod1" value="[Image]&#10;Sản phẩm 1&#10;9.999.000₫&#10;⭐⭐⭐⭐⭐&#10;[Thêm vào giỏ]" style="rounded=2;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d0d0d0;strokeWidth=1;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="290" y="315" width="180" height="140" as="geometry"/>
+        </mxCell>
+        <!-- Product 2 -->
+        <mxCell id="prod2" value="[Image]&#10;Sản phẩm 2&#10;12.999.000₫&#10;⭐⭐⭐⭐&#10;[Thêm vào giỏ]" style="rounded=2;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d0d0d0;strokeWidth=1;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="480" y="315" width="180" height="140" as="geometry"/>
+        </mxCell>
+        <!-- Product 3 -->
+        <mxCell id="prod3" value="[Image]&#10;Sản phẩm 3&#10;8.999.000₫&#10;⭐⭐⭐⭐⭐&#10;[Thêm vào giỏ]" style="rounded=2;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d0d0d0;strokeWidth=1;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="670" y="315" width="180" height="140" as="geometry"/>
+        </mxCell>
+        <!-- Product 4 -->
+        <mxCell id="prod4" value="[Image]&#10;Sản phẩm 4&#10;14.999.000₫&#10;⭐⭐⭐⭐⭐&#10;[Thêm vào giỏ]" style="rounded=2;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d0d0d0;strokeWidth=1;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="860" y="315" width="180" height="140" as="geometry"/>
+        </mxCell>
+        
+        <!-- Product 5 -->
+        <mxCell id="prod5" value="[Image]&#10;Sản phẩm 5&#10;11.999.000₫&#10;⭐⭐⭐⭐&#10;[Thêm vào giỏ]" style="rounded=2;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d0d0d0;strokeWidth=1;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="290" y="465" width="180" height="140" as="geometry"/>
+        </mxCell>
+        <!-- Product 6 -->
+        <mxCell id="prod6" value="[Image]&#10;Sản phẩm 6&#10;10.999.000₫&#10;⭐⭐⭐⭐⭐&#10;[Thêm vào giỏ]" style="rounded=2;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d0d0d0;strokeWidth=1;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="480" y="465" width="180" height="140" as="geometry"/>
+        </mxCell>
+        <!-- Product 7 -->
+        <mxCell id="prod7" value="[Image]&#10;Sản phẩm 7&#10;13.999.000₫&#10;⭐⭐⭐⭐⭐&#10;[Thêm vào giỏ]" style="rounded=2;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d0d0d0;strokeWidth=1;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="670" y="465" width="180" height="140" as="geometry"/>
+        </mxCell>
+        <!-- Product 8 -->
+        <mxCell id="prod8" value="[Image]&#10;Sản phẩm 8&#10;9.499.000₫&#10;⭐⭐⭐⭐&#10;[Thêm vào giỏ]" style="rounded=2;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d0d0d0;strokeWidth=1;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="860" y="465" width="180" height="140" as="geometry"/>
+        </mxCell>
+        
+        <!-- PAGINATION -->
+        <mxCell id="pagination" value="Trang: ← | 1 2 3 4 5 | →" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#d0d0d0;strokeWidth=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="290" y="615" width="800" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- FOOTER MODAL -->
+        <mxCell id="footer-modal" value="" style="rounded=8;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="930" width="1100" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="footer-title" value="FOOTER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#ffffff;strokeWidth=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="940" width="1080" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="footer-content" value="© 2024 Công ty TNHH | Liên hệ | Chính sách bảo mật | Điều khoản sử dụng" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#ffffff;strokeWidth=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="60" y="970" width="1080" height="50" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

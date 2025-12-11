@@ -1,0 +1,95 @@
+<mxfile host="app.diagrams.net" modified="2024-12-11" agent="5.0" version="24.0.0" type="device">
+  <diagram id="product-detail" name="Product Detail Page">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1800" background="#ffffff">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- HEADER MODAL -->
+        <mxCell id="header-modal" value="" style="rounded=8;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="30" width="1100" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="header-title" value="HEADER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#ffffff;strokeWidth=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="1080" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="header-content" value="Logo | Tim kiem | Menu | Gio hang | Tai khoan" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ffffff;strokeWidth=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="1080" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- BREADCRUMB MODAL -->
+        <mxCell id="breadcrumb-modal" value="" style="rounded=8;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="150" width="1100" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="breadcrumb-content" value="Trang chu | Dien thoai | iPhone 15 Pro" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#ffffff;strokeWidth=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="1080" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- PRODUCT DETAIL MODAL -->
+        <mxCell id="product-modal" value="" style="rounded=8;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="230" width="1100" height="380" as="geometry"/>
+        </mxCell>
+        <mxCell id="product-title" value="CHI TIET SAN PHAM" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#ffffff;strokeWidth=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="240" width="1080" height="25" as="geometry"/>
+        </mxCell>
+        
+        <!-- IMAGE SECTION -->
+        <mxCell id="image-section" value="" style="rounded=2;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#d0d0d0;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="275" width="450" height="320" as="geometry"/>
+        </mxCell>
+        <mxCell id="image-label" value="Hinh anh san pham" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#ffffff;strokeWidth=0;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="285" width="430" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="main-image" value="[ANH CHINH]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;strokeWidth=1;fontSize=9;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="70" y="315" width="290" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="thumbnails" value="[T1][T2][T3][T4]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;strokeWidth=1;fontSize=8;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="70" y="555" width="290" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- INFO SECTION -->
+        <mxCell id="info-section" value="" style="rounded=2;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#d0d0d0;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="275" width="610" height="320" as="geometry"/>
+        </mxCell>
+        <mxCell id="info-label" value="Thong tin va Gia" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#ffffff;strokeWidth=0;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="285" width="590" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="product-info" value="Ten: iPhone 15 Pro Max&#10;Gia: 29.999.000&#10;Giam gia: -5.000.000&#10;Gia cuoi: 24.999.000&#10;Danh gia: 5 sao (1234 danh gia)&#10;Tinh trang: Con hang (45 sp)&#10;So luong: [1]&#10;[THEM VAO GIO]&#10;[MUA NGAY]&#10;[YEU THICH]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ffffff;strokeWidth=0;fontSize=8;align=left;verticalAlign=top;padding=10;" vertex="1" parent="1">
+          <mxGeometry x="540" y="315" width="590" height="270" as="geometry"/>
+        </mxCell>
+        
+        <!-- SPECIFICATIONS MODAL -->
+        <mxCell id="specs-modal" value="" style="rounded=8;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="630" width="1100" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="specs-title" value="THONG SO KY THUAT" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#ffffff;strokeWidth=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="640" width="1080" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="specs-content" value="CPU: A17 Pro | RAM: 8GB | Luu tru: 256GB | Man hinh: 6.1 inch&#10;Camera: 48MP | Pin: 3582 mAh | Sac: 20W | He dieu hanh: iOS 17&#10;Trong luong: 187g | Kich thuoc: 147.6 x 71.6 x 8.8 mm" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#ffffff;strokeWidth=0;fontSize=8;align=left;verticalAlign=top;padding=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="675" width="1080" height="105" as="geometry"/>
+        </mxCell>
+        
+        <!-- DESCRIPTION MODAL -->
+        <mxCell id="description-modal" value="" style="rounded=8;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="810" width="1100" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="description-title" value="MO TA CHI TIET" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#ffffff;strokeWidth=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="820" width="1080" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="description-content" value="iPhone 15 Pro Max mang den hieu nang tuyet voi voi chip A17 Pro, man hinh Dynamic Island, camera 48MP, va thiet ke titanium ben bi. Voi pin xa dai ca ngay, ho tro sac nhanh 20W va tinh nang Action Button, day la dien thoai thong minh hang dau." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#ffffff;strokeWidth=0;fontSize=8;align=left;verticalAlign=top;padding=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="855" width="1080" height="85" as="geometry"/>
+        </mxCell>
+        
+        <!-- FOOTER MODAL -->
+        <mxCell id="footer-modal" value="" style="rounded=8;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="970" width="1100" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="footer-title" value="FOOTER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#ffffff;strokeWidth=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="980" width="1080" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="footer-content" value="(c) 2024 Cong ty TNHH | Lien he | Chinh sach | Dieu khoan" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#ffffff;strokeWidth=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1010" width="1080" height="50" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
