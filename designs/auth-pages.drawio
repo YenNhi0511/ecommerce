@@ -1,0 +1,62 @@
+<mxfile host="app.diagrams.net" modified="2024-12-11" agent="5.0" version="24.0.0" type="device">
+  <diagram id="auth-pages" name="Auth Pages">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1600" background="#ffffff">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- HEADER MODAL -->
+        <mxCell id="header-modal" value="" style="rounded=8;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="30" width="1100" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="header-title" value="HEADER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#ffffff;strokeWidth=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="1080" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="header-content" value="Logo | Tìm kiếm | Menu | Giỏ hàng" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ffffff;strokeWidth=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="1080" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- LOGIN FORM MODAL -->
+        <mxCell id="login-modal" value="" style="rounded=8;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="150" width="520" height="500" as="geometry"/>
+        </mxCell>
+        <mxCell id="login-title" value="ĐĂNG NHẬP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#ffffff;strokeWidth=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="500" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="login-form" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#d0d0d0;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="195" width="500" height="440" as="geometry"/>
+        </mxCell>
+        <mxCell id="login-content" value="Email hoặc Tên đăng nhập&#10;[____________________________]&#10;&#10;Mật khẩu&#10;[____________________________]&#10;&#10;[ ✓ ] Nhớ tôi&#10;&#10;[ĐĂNG NHẬP]&#10;&#10;─── HOẶC ───&#10;&#10;[🔵 Facebook]&#10;[🔴 Google]&#10;[⬜ Apple]&#10;&#10;━━━━━━━━━━━━━━━━━━━━━━━━━━━&#10;Quên mật khẩu?&#10;Chưa có tài khoản? Đăng ký ngay" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ffffff;strokeWidth=0;fontSize=8;align=left;verticalAlign=top;padding=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="195" width="500" height="440" as="geometry"/>
+        </mxCell>
+        
+        <!-- REGISTER FORM MODAL -->
+        <mxCell id="register-modal" value="" style="rounded=8;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="630" y="150" width="520" height="500" as="geometry"/>
+        </mxCell>
+        <mxCell id="register-title" value="ĐĂNG KÝ TÀI KHOẢN MỚI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#ffffff;strokeWidth=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="160" width="500" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="register-form" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#d0d0d0;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="195" width="500" height="440" as="geometry"/>
+        </mxCell>
+        <mxCell id="register-content" value="Họ và tên&#10;[____________________________]&#10;&#10;Email&#10;[____________________________]&#10;&#10;Số điện thoại&#10;[____________________________]&#10;&#10;Mật khẩu&#10;[____________________________]&#10;&#10;Xác nhận mật khẩu&#10;[____________________________]&#10;&#10;[ ] Tôi đồng ý với Điều khoản &amp; Chính sách bảo mật&#10;&#10;[ĐĂNG KÝ]&#10;&#10;─── HOẶC ───&#10;&#10;[🔵 Facebook]  [🔴 Google]  [⬜ Apple]&#10;&#10;Đã có tài khoản? Đăng nhập" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ffffff;strokeWidth=0;fontSize=8;align=left;verticalAlign=top;padding=10;" vertex="1" parent="1">
+          <mxGeometry x="640" y="195" width="500" height="440" as="geometry"/>
+        </mxCell>
+        
+        <!-- FOOTER MODAL -->
+        <mxCell id="footer-modal" value="" style="rounded=8;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="670" width="1100" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="footer-title" value="FOOTER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#ffffff;strokeWidth=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="680" width="1080" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="footer-content" value="© 2024 Công ty TNHH | Liên hệ | Chính sách bảo mật | Điều khoản sử dụng" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#ffffff;strokeWidth=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="60" y="710" width="1080" height="50" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
