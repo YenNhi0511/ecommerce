@@ -46,11 +46,11 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Generate JWT access token
+    // Generate JWT access token (longer for admin)
     const token = jwt.sign(
-      { userId: user._id, email: user.email },
+      { userId: user._id, email: user.email, role: user.role },
       JWT_SECRET,
-      { expiresIn: '15m' }
+      { expiresIn: user.role === 'admin' ? '7d' : '15m' }
     );
 
     // Create refresh token (rotating)

@@ -2,13 +2,17 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 
 export default function AccountPage() {
   const [activeTab, setActiveTab] = useState('profile');
   const [pwForm, setPwForm] = useState({ oldPassword: '', newPassword: '', confirmPassword: '' });
   const [pwMessage, setPwMessage] = useState({ type: '' as 'error' | 'success' | '', text: '' });
-  const { user, token } = useAuth();
+  const [upgradeLoading, setUpgradeLoading] = useState(false);
+  const [upgradeMessage, setUpgradeMessage] = useState({ type: '' as 'error' | 'success' | '', text: '' });
+  const { user, token, upgradeSeller } = useAuth();
+  const router = useRouter();
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -53,38 +57,74 @@ export default function AccountPage() {
             {activeTab === 'profile' && (
               <div>
                 <h2 className="text-xl font-bold mb-4">Thông tin cá nhân</h2>
+                {upgradeMessage.text && (
+                  <div className={`${upgradeMessage.type === 'error' ? 'bg-red-100 border-red-400 text-red-700' : 'bg-green-100 border-green-400 text-green-700'} mb-4 p-3 rounded`}>
+                    {upgradeMessage.text}
+                  </div>
+                )}
                 <form className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium mb-1">Họ tên</label>
                     <input
                       type="text"
-                      defaultValue="Nguyễn Văn A"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      defaultValue={user?.name || ""}
+                      disabled
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed"
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-1">Email</label>
                     <input
                       type="email"
-                      defaultValue="nguyenvana@example.com"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      defaultValue={user?.email || ""}
+                      disabled
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Số điện thoại</label>
-                    <input
-                      type="tel"
-                      defaultValue="0123456789"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
+                    <label className="block text-sm font-medium mb-1">Loại tài khoản</label>
+                    <div className="px-3 py-2 border border-gray-300 rounded-lg bg-gray-100">
+                      {user?.role === 'customer' ? 'Khách hàng' : user?.role === 'seller' ? 'Người bán' : 'Admin'}
+                    </div>
                   </div>
-                  <button
-                    type="submit"
-                    className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700"
-                  >
-                    Cập nhật
-                  </button>
                 </form>
+
+                {/* Upgrade to seller section */}
+                {user?.role === 'customer' && (
+                  <div className="mt-6 border-t pt-6">
+                    <h3 className="text-lg font-semibold mb-4 text-blue-600">Nâng cấp tài khoản</h3>
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                      <p className="text-gray-700 mb-3">
+                        Nâng cấp tài khoản của bạn lên Người bán để có thể bán sản phẩm trên sàn thương mại điện tử của chúng tôi.
+                      </p>
+                      <button
+                        onClick={async () => {
+                          setUpgradeLoading(true);
+                          setUpgradeMessage({ type: '', text: '' });
+                          try {
+                            if (!user?.email) throw new Error('Email không được tìm thấy');
+                            await upgradeSeller(user.email);
+                            setUpgradeMessage({ type: 'success', text: 'Nâng cấp thành công! Chuyển hướng...' });
+                            setTimeout(() => {
+                              router.push('/seller');
+                            }, 1500);
+                          } catch (err) {
+                            setUpgradeMessage({ 
+                              type: 'error', 
+                              text: err instanceof Error ? err.message : 'Nâng cấp thất bại'
+                            });
+                          } finally {
+                            setUpgradeLoading(false);
+                          }
+                        }}
+                        disabled={upgradeLoading}
+                        className="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                      >
+                        {upgradeLoading ? 'Đang xử lý...' : 'Nâng cấp lên Người bán'}
+                      </button>
+                    </div>
+                  </div>
+                )}
 
                 {/* Change password */}
                 <div className="mt-6 border-t pt-6">

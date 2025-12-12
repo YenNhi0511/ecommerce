@@ -1,0 +1,47 @@
+{
+  "smartphones": {
+    "1": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535057/tmdt_ecommerce/smartphones-1.jpg",
+    "2": "https://images.unsplash.com/photo-1610945265078-d86fbc861f90?auto=format&fit=crop&q=80&w=800",
+    "3": "https://images.unsplash.com/photo-1664478546384-d57ffe74a797?auto=format&fit=crop&q=80&w=800",
+    "4": "https://images.unsplash.com/photo-1658428269781-a6c8f4989608?auto=format&fit=crop&q=80&w=800",
+    "5": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535085/tmdt_ecommerce/smartphones-5.jpg",
+    "6": "https://images.unsplash.com/photo-1627845348881-8b093273e2e5?auto=format&fit=crop&q=80&w=800",
+    "7": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535096/tmdt_ecommerce/smartphones-7.jpg",
+    "8": "https://images.unsplash.com/photo-1610945264803-c22b62d2a7b6?auto=format&fit=crop&q=80&w=800",
+    "9": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535107/tmdt_ecommerce/smartphones-9.jpg",
+    "10": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535108/tmdt_ecommerce/smartphones-10.jpg",
+    "11": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535109/tmdt_ecommerce/smartphones-11.jpg",
+    "12": "https://images.unsplash.com/photo-1546194294-817db4e432df?auto=format&fit=crop&q=80&w=800"
+  },
+  "laptops": {
+    "1": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535122/tmdt_ecommerce/laptops-1.jpg",
+    "2": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535123/tmdt_ecommerce/laptops-2.jpg",
+    "3": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535125/tmdt_ecommerce/laptops-3.jpg",
+    "4": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535126/tmdt_ecommerce/laptops-4.jpg",
+    "5": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535127/tmdt_ecommerce/laptops-5.jpg",
+    "6": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535128/tmdt_ecommerce/laptops-6.jpg"
+  },
+  "tablets": {
+    "1": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535129/tmdt_ecommerce/tablets-1.jpg",
+    "2": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535130/tmdt_ecommerce/tablets-2.jpg",
+    "3": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535132/tmdt_ecommerce/tablets-3.jpg",
+    "4": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535134/tmdt_ecommerce/tablets-4.jpg",
+    "5": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535135/tmdt_ecommerce/tablets-5.jpg"
+  },
+  "accessories": {
+    "1": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535136/tmdt_ecommerce/accessories-1.jpg",
+    "2": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535137/tmdt_ecommerce/accessories-2.jpg",
+    "3": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535139/tmdt_ecommerce/accessories-3.jpg",
+    "4": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535140/tmdt_ecommerce/accessories-4.jpg",
+    "5": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535141/tmdt_ecommerce/accessories-5.jpg",
+    "6": "https://images.unsplash.com/photo-1622457746212-c1473cb5ecc9?w=800&h=800&fit=crop&crop=center",
+    "7": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535152/tmdt_ecommerce/accessories-7.jpg",
+    "8": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535153/tmdt_ecommerce/accessories-8.jpg",
+    "9": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535154/tmdt_ecommerce/accessories-9.jpg",
+    "10": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535155/tmdt_ecommerce/accessories-10.jpg",
+    "11": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535156/tmdt_ecommerce/accessories-11.jpg",
+    "12": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535157/tmdt_ecommerce/accessories-12.jpg",
+    "13": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535159/tmdt_ecommerce/accessories-13.jpg",
+    "14": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765535160/tmdt_ecommerce/accessories-14.jpg"
+  }
+}

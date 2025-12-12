@@ -15,6 +15,7 @@ interface AuthContextType {
   token: string | null;
   login: (email: string, password: string) => Promise<User>;
   register: (name: string, email: string, password: string, phone?: string) => Promise<void>;
+  upgradeSeller: (email: string) => Promise<void>;
   logout: () => void;
   isLoading: boolean;
 }
@@ -75,6 +76,27 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     await login(email, password);
   };
 
+  const upgradeSeller = async (email: string) => {
+    const response = await fetch('/api/auth/upgrade-seller', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || 'Nâng cấp thất bại');
+    }
+
+    // Update user role in state
+    if (user) {
+      const updatedUser = { ...user, role: 'seller' };
+      setUser(updatedUser);
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+    }
+  };
+
   const logout = () => {
     setUser(null);
     setToken(null);
@@ -83,7 +105,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, login, register, logout, isLoading }}>
+    <AuthContext.Provider value={{ user, token, login, register, upgradeSeller, logout, isLoading }}>
       {children}
     </AuthContext.Provider>
   );

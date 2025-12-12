@@ -1,5 +1,6 @@
 'use client';
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { useAnalytics } from './AnalyticsContext';
 
 interface CartItem {
   _id: string;
@@ -24,6 +25,7 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
+  const analytics = useAnalytics();
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -46,14 +48,21 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const addToCart = (product: any) => {
     setCart(prev => {
       const existing = prev.find(item => item._id === product._id);
+      const quantity = existing ? existing.quantity + 1 : 1;
+      const basePrice = product.originalPrice && product.originalPrice > product.price ? product.originalPrice : product.price;
+      
+      // Track analytics
+      if (analytics) {
+        analytics.trackAddToCart(product._id, product.name, 1, basePrice);
+      }
+      
       if (existing) {
         return prev.map(item =>
           item._id === product._id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity }
             : item
         );
       }
-      const basePrice = product.originalPrice && product.originalPrice > product.price ? product.originalPrice : product.price;
       return [...prev, {
         _id: product._id,
         name: product.name,
@@ -66,6 +75,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
   };
 
   const removeFromCart = (productId: string) => {
+    const item = cart.find(i => i._id === productId);
+    if (item && analytics) {
+      analytics.trackEvent('CART_REMOVE', {
+        productId,
+        productName: item.name,
+        quantity: item.quantity,
+      });
+    }
     setCart(prev => prev.filter(item => item._id !== productId));
   };
 

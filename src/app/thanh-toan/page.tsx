@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
+import { useAnalytics } from '@/context/AnalyticsContext';
 
 export default function CheckoutPage() {
   const { cart, getTotalPrice, clearCart } = useCart();
@@ -28,6 +29,7 @@ export default function CheckoutPage() {
 
   const { token } = useAuth();
   const router = useRouter();
+  const analytics = useAnalytics();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,6 +42,12 @@ export default function CheckoutPage() {
       });
       const data = await resp.json();
       if (!resp.ok) throw new Error(data.error || 'Đặt hàng thất bại');
+      
+      // Track checkout success
+      if (analytics) {
+        analytics.trackCheckout(data.orderId, grandTotal);
+      }
+      
       // Clear cart and redirect to confirmation
       clearCart();
       // If user chose ATM (MoMo sandbox), request a MoMo payment and redirect

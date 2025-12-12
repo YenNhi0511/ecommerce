@@ -4,9 +4,10 @@ import Link from 'next/link';
 import dbConnect from '@/lib/mongodb';
 import Product from '@/models/Product';
 import AddToCartButton from '@/components/AddToCartButton';
+import ProductViewTracker from '@/components/ProductViewTracker';
 
 interface PageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 async function getProduct(id: string) {
@@ -26,7 +27,8 @@ async function getRelatedProducts(category: string, currentId: string) {
 }
 
 export default async function ProductDetailPage({ params }: PageProps) {
-  const product = await getProduct(params.id as string);
+  const { id } = await params;
+  const product = await getProduct(id);
 
   if (!product) {
     notFound();
@@ -37,6 +39,13 @@ export default async function ProductDetailPage({ params }: PageProps) {
 
   return (
     <div className="bg-gray-50 min-h-screen">
+      {/* Product view tracking */}
+      <ProductViewTracker 
+        productId={prod._id.toString()} 
+        productName={prod.name} 
+        category={prod.category} 
+      />
+      
       <div className="container mx-auto px-4 py-6">
         {/* Breadcrumb */}
         <div className="flex items-center space-x-2 text-sm text-gray-600 mb-4">

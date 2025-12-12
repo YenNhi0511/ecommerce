@@ -4,9 +4,9 @@ import Product from '@/models/Product';
 import bcrypt from 'bcryptjs';
 import User from '@/models/User';
 
-// Database mới với sản phẩm thật và hình ảnh chất lượng cao
+// Database với hình ảnh từ DummyJSON -> Cloudinary
 
-// ĐIỆN THOẠI CAO CẤP - Hình ảnh từ nguồn chính thức
+// ĐIỆN THOẠI CAO CẤP
 const smartphones = [
   {
     name: 'iPhone 15 Pro Max 256GB',
@@ -14,7 +14,8 @@ const smartphones = [
     price: 34990000,
     originalPrice: 36990000,
     category: 'Điện thoại',
-    image: 'https://cdn.tgdd.vn/Products/Images/42/305658/iphone-15-pro-max-blue-thumbnew-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539853/tmdt_ecommerce/smartphones-1.webp',
+    localImage: '/products/smartphones-1.jpg',
     desc: 'iPhone 15 Pro Max với chip A17 Pro, camera 48MP, khung titan, màn hình Super Retina XDR 6.7 inch',
     stock: 50,
     rating: 5
@@ -25,7 +26,7 @@ const smartphones = [
     price: 29990000,
     originalPrice: 33990000,
     category: 'Điện thoại',
-    image: 'https://cdn.tgdd.vn/Products/Images/42/320721/samsung-galaxy-s24-ultra-grey-thumbnew-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539857/tmdt_ecommerce/smartphones-2.webp',
     desc: 'Galaxy S24 Ultra với Snapdragon 8 Gen 3, camera 200MP, bút S Pen tích hợp, màn hình Dynamic AMOLED 2X 6.8 inch',
     stock: 45,
     rating: 5
@@ -36,7 +37,7 @@ const smartphones = [
     price: 25990000,
     originalPrice: 27990000,
     category: 'Điện thoại',
-    image: 'https://cdn.tgdd.vn/Products/Images/42/289700/iphone-14-pro-vang-thumb-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539861/tmdt_ecommerce/smartphones-3.webp',
     desc: 'iPhone 14 Pro với chip A16 Bionic, Dynamic Island, camera 48MP, màn hình ProMotion 120Hz',
     stock: 38,
     rating: 5
@@ -47,7 +48,7 @@ const smartphones = [
     price: 40990000,
     originalPrice: 44990000,
     category: 'Điện thoại',
-    image: 'https://cdn.tgdd.vn/Products/Images/42/307174/samsung-galaxy-z-fold5-kem-256gb-thumbnew-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539864/tmdt_ecommerce/smartphones-4.webp',
     desc: 'Galaxy Z Fold5 màn hình gập, Snapdragon 8 Gen 2, màn hình chính 7.6 inch, camera 50MP',
     stock: 25,
     rating: 5
@@ -58,7 +59,7 @@ const smartphones = [
     price: 27990000,
     originalPrice: 29990000,
     category: 'Điện thoại',
-    image: 'https://cdn.tgdd.vn/Products/Images/42/322096/xiaomi-14-ultra-black-thumbnew-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539866/tmdt_ecommerce/smartphones-5.webp',
     desc: 'Xiaomi 14 Ultra với camera Leica, Snapdragon 8 Gen 3, màn hình 2K+ 120Hz, sạc nhanh 90W',
     stock: 30,
     rating: 5
@@ -69,7 +70,7 @@ const smartphones = [
     price: 22990000,
     originalPrice: 24990000,
     category: 'Điện thoại',
-    image: 'https://cdn.tgdd.vn/Products/Images/42/313220/oppo-find-n3-flip-pink-thumbnew-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539870/tmdt_ecommerce/smartphones-6.webp',
     desc: 'OPPO Find N3 Flip màn hình gập dọc, camera 50MP, chip MediaTek Dimensity 9200',
     stock: 28,
     rating: 4
@@ -80,7 +81,7 @@ const smartphones = [
     price: 17990000,
     originalPrice: 18990000,
     category: 'Điện thoại',
-    image: 'https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pink-1-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539873/tmdt_ecommerce/smartphones-7.webp',
     desc: 'iPhone 13 với chip A15 Bionic, camera kép 12MP, màn hình Super Retina XDR 6.1 inch',
     stock: 55,
     rating: 5
@@ -91,9 +92,53 @@ const smartphones = [
     price: 14290000,
     originalPrice: 15990000,
     category: 'Điện thoại',
-    image: 'https://cdn.tgdd.vn/Products/Images/42/316771/samsung-galaxy-s23-fe-xanh-thumbnew-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539875/tmdt_ecommerce/smartphones-8.webp',
     desc: 'Galaxy S23 FE với Exynos 2200, camera 50MP, màn hình Dynamic AMOLED 2X, pin 4500mAh',
     stock: 42,
+    rating: 4
+  },
+  {
+    name: 'Xiaomi Redmi Note 13 Pro 8GB',
+    brand: 'Xiaomi',
+    price: 7490000,
+    originalPrice: 8490000,
+    category: 'Điện thoại',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539877/tmdt_ecommerce/smartphones-9.webp',
+    desc: 'Redmi Note 13 Pro camera 200MP, Snapdragon 7s Gen 2, màn hình AMOLED 120Hz',
+    stock: 80,
+    rating: 4
+  },
+  {
+    name: 'OPPO Reno11 F 5G 8GB',
+    brand: 'OPPO',
+    price: 8990000,
+    originalPrice: 9990000,
+    category: 'Điện thoại',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539879/tmdt_ecommerce/smartphones-10.webp',
+    desc: 'OPPO Reno11 F camera 64MP, MediaTek Dimensity 7050, màn hình AMOLED 120Hz',
+    stock: 65,
+    rating: 4
+  },
+  {
+    name: 'Vivo V30 5G 12GB',
+    brand: 'Vivo',
+    price: 12990000,
+    originalPrice: 13990000,
+    category: 'Điện thoại',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539881/tmdt_ecommerce/smartphones-11.webp',
+    desc: 'Vivo V30 camera chân dung 50MP, Snapdragon 7 Gen 3, màn hình AMOLED cong',
+    stock: 50,
+    rating: 4
+  },
+  {
+    name: 'Realme 12 Pro+ 5G 12GB',
+    brand: 'Realme',
+    price: 11490000,
+    originalPrice: 12490000,
+    category: 'Điện thoại',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539884/tmdt_ecommerce/smartphones-12.webp',
+    desc: 'Realme 12 Pro+ camera tele 64MP, Snapdragon 7s Gen 2, màn hình AMOLED 120Hz',
+    stock: 60,
     rating: 4
   }
 ];
@@ -106,7 +151,7 @@ const laptops = [
     price: 52990000,
     originalPrice: 55990000,
     category: 'Laptop',
-    image: 'https://cdn.tgdd.vn/Products/Images/44/309016/macbook-pro-14-inch-m3-pro-2023-xam-thumbnew-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539886/tmdt_ecommerce/laptops-1.webp',
     desc: 'MacBook Pro 14 inch với chip M3 Pro, RAM 18GB, SSD 512GB, màn hình Liquid Retina XDR',
     stock: 20,
     rating: 5
@@ -117,7 +162,7 @@ const laptops = [
     price: 42990000,
     originalPrice: 45990000,
     category: 'Laptop',
-    image: 'https://cdn.tgdd.vn/Products/Images/44/289908/dell-xps-13-plus-i7-1360p-win11-thumb-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539888/tmdt_ecommerce/laptops-2.webp',
     desc: 'Dell XPS 13 Plus với Intel Core i7 Gen 13, RAM 16GB, SSD 512GB, màn hình OLED 13.4 inch',
     stock: 18,
     rating: 5
@@ -128,7 +173,7 @@ const laptops = [
     price: 44990000,
     originalPrice: 49990000,
     category: 'Laptop',
-    image: 'https://cdn.tgdd.vn/Products/Images/44/316988/asus-rog-strix-g16-i9-13980hx-thumb-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539891/tmdt_ecommerce/laptops-3.webp',
     desc: 'ASUS ROG Strix G16 gaming laptop, Intel i9 Gen 13, RTX 4060, RAM 16GB, màn hình 165Hz',
     stock: 15,
     rating: 5
@@ -139,7 +184,7 @@ const laptops = [
     price: 124990000,
     originalPrice: 139990000,
     category: 'Laptop',
-    image: 'https://cdn.tgdd.vn/Products/Images/44/303391/msi-titan-gt77-hx-13vi-i9-13950hx-thumb-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539893/tmdt_ecommerce/laptops-4.webp',
     desc: 'MSI Titan GT77 HX siêu phẩm gaming, Intel i9 Gen 13, RTX 4090, RAM 64GB, màn hình 4K 144Hz',
     stock: 5,
     rating: 5
@@ -150,7 +195,7 @@ const laptops = [
     price: 42990000,
     originalPrice: 46990000,
     category: 'Laptop',
-    image: 'https://cdn.tgdd.vn/Products/Images/44/306243/lenovo-thinkpad-x1-carbon-gen-11-i7-1355u-thumb-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539895/tmdt_ecommerce/laptops-5.webp',
     desc: 'Lenovo ThinkPad X1 Carbon Gen 11, Intel i7 Gen 13, RAM 16GB, SSD 512GB, siêu mỏng nhẹ',
     stock: 22,
     rating: 5
@@ -161,7 +206,7 @@ const laptops = [
     price: 24990000,
     originalPrice: 26990000,
     category: 'Laptop',
-    image: 'https://cdn.tgdd.vn/Products/Images/44/307205/hp-envy-13-ba1535tu-i7-1195g7-thumb-1-1-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539897/tmdt_ecommerce/laptops-6.webp',
     desc: 'HP Envy 13 với AMD Ryzen 7, RAM 16GB, SSD 512GB, màn hình Full HD, thiết kế cao cấp',
     stock: 28,
     rating: 4
@@ -176,7 +221,7 @@ const tablets = [
     price: 21990000,
     originalPrice: 23990000,
     category: 'Máy tính bảng',
-    image: 'https://cdn.tgdd.vn/Products/Images/522/325530/ipad-pro-11-inch-m2-wifi-128gb-2022-xam-thumb-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539899/tmdt_ecommerce/tablets-1.webp',
     desc: 'iPad Pro 11 inch với chip M2, màn hình Liquid Retina, Apple Pencil Gen 2, Face ID',
     stock: 32,
     rating: 5
@@ -187,7 +232,7 @@ const tablets = [
     price: 14990000,
     originalPrice: 16990000,
     category: 'Máy tính bảng',
-    image: 'https://cdn.tgdd.vn/Products/Images/522/325515/ipad-air-5-wifi-64gb-2022-xanh-duong-thumb-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539901/tmdt_ecommerce/tablets-2.webp',
     desc: 'iPad Air 5 với chip M1, màn hình 10.9 inch, Touch ID, hỗ trợ Apple Pencil',
     stock: 45,
     rating: 5
@@ -198,7 +243,7 @@ const tablets = [
     price: 29990000,
     originalPrice: 32990000,
     category: 'Máy tính bảng',
-    image: 'https://cdn.tgdd.vn/Products/Images/522/309816/samsung-galaxy-tab-s9-ultra-5g-xam-thumb-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539904/tmdt_ecommerce/tablets-3.webp',
     desc: 'Galaxy Tab S9 Ultra với màn hình 14.6 inch, S Pen, Snapdragon 8 Gen 2, chống nước IP68',
     stock: 18,
     rating: 5
@@ -209,7 +254,7 @@ const tablets = [
     price: 10990000,
     originalPrice: 11990000,
     category: 'Máy tính bảng',
-    image: 'https://cdn.tgdd.vn/Products/Images/522/319839/samsung-galaxy-tab-s9-fe-wifi-xam-thumb-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539906/tmdt_ecommerce/tablets-4.webp',
     desc: 'Galaxy Tab S9 FE với màn hình 10.9 inch, S Pen đi kèm, pin 8000mAh',
     stock: 40,
     rating: 4
@@ -220,7 +265,7 @@ const tablets = [
     price: 8990000,
     originalPrice: 9990000,
     category: 'Máy tính bảng',
-    image: 'https://cdn.tgdd.vn/Products/Images/522/309816/samsung-galaxy-tab-s9-ultra-5g-xam-thumb-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539908/tmdt_ecommerce/tablets-5.webp',
     desc: 'Xiaomi Pad 6 với Snapdragon 870, màn hình 11 inch 144Hz, loa 4 cạnh Dolby Atmos',
     stock: 35,
     rating: 4
@@ -235,7 +280,7 @@ const accessories = [
     price: 6490000,
     originalPrice: 6990000,
     category: 'Phụ kiện',
-    image: 'https://cdn.tgdd.vn/Products/Images/54/289780/tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-mqd83-thumb-1-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539912/tmdt_ecommerce/accessories-1.webp',
     desc: 'AirPods Pro 2 với chip H2, chống ồn chủ động ANC, âm thanh không gian, sạc USB-C',
     stock: 50,
     rating: 5
@@ -246,7 +291,7 @@ const accessories = [
     price: 8990000,
     originalPrice: 9990000,
     category: 'Phụ kiện',
-    image: 'https://cdn.tgdd.vn/Products/Images/54/308860/tai-nghe-chup-tai-bluetooth-sony-wh-1000xm5-bac-thumb-1-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539915/tmdt_ecommerce/accessories-2.webp',
     desc: 'Sony WH-1000XM5 chống ồn hàng đầu, âm thanh LDAC, pin 30 giờ, thiết kế cao cấp',
     stock: 35,
     rating: 5
@@ -256,7 +301,7 @@ const accessories = [
     brand: 'Anker',
     price: 2490000,
     category: 'Phụ kiện',
-    image: 'https://cdn.tgdd.vn/Products/Images/57/320243/sac-du-phong-polymer-24000mah-type-c-pd-anker-737-a1289-den-thumb-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539917/tmdt_ecommerce/accessories-3.webp',
     desc: 'Anker 737 PowerCore 24000mAh, sạc nhanh 140W, 2 cổng USB-C + 1 USB-A, màn hình LED',
     stock: 60,
     rating: 5
@@ -266,7 +311,7 @@ const accessories = [
     brand: 'Logitech',
     price: 2490000,
     category: 'Phụ kiện',
-    image: 'https://cdn.tgdd.vn/Products/Images/86/304891/chuot-khong-day-logitech-mx-master-3s-den-thumb-1-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539919/tmdt_ecommerce/accessories-4.webp',
     desc: 'Logitech MX Master 3S cảm biến 8000 DPI, pin 70 ngày, kết nối đa thiết bị',
     stock: 45,
     rating: 5
@@ -275,55 +320,61 @@ const accessories = [
     name: 'Chuột Apple Magic Mouse',
     brand: 'Apple',
     price: 2290000,
-    image: 'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=800&h=800&fit=crop&crop=center',
-    desc: 'Chuột không dây, bề mặt Multi-Touch, sạc Lightning, tương thích Mac'
+    category: 'Phụ kiện',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539922/tmdt_ecommerce/accessories-5.webp',
+    desc: 'Chuột không dây, bề mặt Multi-Touch, sạc Lightning, tương thích Mac',
+    stock: 50,
+    rating: 4
   },
   {
     name: 'Chuột Logitech G Pro X Superlight',
     brand: 'Logitech',
     price: 3290000,
-    image: 'https://images.unsplash.com/photo-1622457746212-c1473cb5ecc9?w=800&h=800&fit=crop&crop=center',
-    desc: 'Chuột gaming siêu nhẹ 63g, Hero 25K sensor, wireless, pin 70 giờ'
+    category: 'Phụ kiện',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539924/tmdt_ecommerce/accessories-6.webp',
+    desc: 'Chuột gaming siêu nhẹ 63g, Hero 25K sensor, wireless, pin 70 giờ',
+    stock: 45,
+    rating: 5
   },
-
   {
     name: 'Bàn phím Keychron K8 Pro',
     brand: 'Keychron',
     price: 2990000,
-    image: 'https://images.unsplash.com/photo-1595225476474-87563907a212?w=800&h=800&fit=crop&crop=center',
-    desc: 'Bàn phím cơ TKL, Hot-swap, RGB, kết nối wireless/có dây, switch Gateron'
+    category: 'Phụ kiện',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539927/tmdt_ecommerce/accessories-7.webp',
+    desc: 'Bàn phím cơ TKL, Hot-swap, RGB, kết nối wireless/có dây, switch Gateron',
+    stock: 40,
+    rating: 4
   },
   {
     name: 'Bàn phím Apple Magic Keyboard',
     brand: 'Apple',
     price: 2990000,
     originalPrice: 3290000,
-    image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800&h=800&fit=crop&crop=center',
-    desc: 'Bàn phím không dây, pin sạc, scissor mechanism, layout Mac'
+    category: 'Phụ kiện',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539930/tmdt_ecommerce/accessories-8.webp',
+    desc: 'Bàn phím không dây, pin sạc, scissor mechanism, layout Mac',
+    stock: 35,
+    rating: 5
   },
-  {
-    name: 'Bàn phím Logitech MX Keys',
-    brand: 'Logitech',
-    price: 2690000,
-    image: 'https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=800&h=800&fit=crop&crop=center',
-    desc: 'Bàn phím full-size, đèn nền thông minh, kết nối 3 thiết bị, pin 10 ngày'
-  },
-  {
-    name: 'Bàn phím Corsair K70 RGB Pro',
-    brand: 'Corsair',
-    price: 3990000,
-    image: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=800&h=800&fit=crop&crop=center',
-    desc: 'Bàn phím gaming cơ, Cherry MX switch, RGB Capellix, PBT keycaps'
-  },
-
   {
     name: 'Bàn phím Logitech MX Keys',
     brand: 'Logitech',
     price: 2690000,
     category: 'Phụ kiện',
-    image: 'https://cdn.tgdd.vn/Products/Images/4547/228089/ban-phim-khong-day-logitech-mx-keys-den-thumb-1-600x600.jpg',
-    desc: 'Logitech MX Keys bàn phím full-size, đèn nền thông minh, kết nối 3 thiết bị',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539932/tmdt_ecommerce/accessories-9.webp',
+    desc: 'Bàn phím full-size, đèn nền thông minh, kết nối 3 thiết bị, pin 10 ngày',
     stock: 40,
+    rating: 5
+  },
+  {
+    name: 'Bàn phím Corsair K70 RGB Pro',
+    brand: 'Corsair',
+    price: 3990000,
+    category: 'Phụ kiện',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539934/tmdt_ecommerce/accessories-10.webp',
+    desc: 'Bàn phím gaming cơ, Cherry MX switch, RGB Capellix, PBT keycaps',
+    stock: 30,
     rating: 5
   },
   {
@@ -331,7 +382,7 @@ const accessories = [
     brand: 'Anker',
     price: 1790000,
     category: 'Phụ kiện',
-    image: 'https://cdn.tgdd.vn/Products/Images/58/319851/sac-anker-3-cong-usb-type-c-120w-gan-prime-a2340-den-thumb-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539936/tmdt_ecommerce/accessories-11.webp',
     desc: 'Anker 737 sạc GaN 120W, 3 cổng, sạc nhanh laptop/điện thoại, nhỏ gọn',
     stock: 55,
     rating: 5
@@ -341,7 +392,7 @@ const accessories = [
     brand: 'Apple',
     price: 1290000,
     category: 'Phụ kiện',
-    image: 'https://cdn.tgdd.vn/Products/Images/4555/322089/op-lung-iphone-15-pro-max-apple-silicone-magsafe-thumb-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539938/tmdt_ecommerce/accessories-12.webp',
     desc: 'Ốp lưng Apple Silicone MagSafe chính hãng, bảo vệ toàn diện, nhiều màu sắc',
     stock: 70,
     rating: 5
@@ -351,7 +402,7 @@ const accessories = [
     brand: 'Anker',
     price: 390000,
     category: 'Phụ kiện',
-    image: 'https://cdn.tgdd.vn/Products/Images/58/235570/cap-type-c-anker-powerline-iii-a8853-1-8m-trang-thumb-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539941/tmdt_ecommerce/accessories-13.webp',
     desc: 'Cáp USB-C to USB-C 1.8m, sạc nhanh 100W, bọc nylon siêu bền',
     stock: 80,
     rating: 4
@@ -361,81 +412,122 @@ const accessories = [
     brand: 'Baseus',
     price: 290000,
     category: 'Phụ kiện',
-    image: 'https://cdn.tgdd.vn/Products/Images/6667/280543/gia-do-dien-thoai-o-to-baseus-gravity-car-mount-thumb-600x600.jpg',
+    image: 'https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539943/tmdt_ecommerce/accessories-14.webp',
     desc: 'Giá đỡ điện thoại ô tô Baseus, cơ chế trọng lực, xoay 360 độ',
     stock: 65,
     rating: 4
   }
 ];
 
-// Hàm tạo sản phẩm từ dữ liệu thật
 const generateProducts = async () => {
-  const allProducts = [
-    ...smartphones,
-    ...laptops,
-    ...tablets,
-    ...accessories
-  ];
+  const allProducts = [...smartphones, ...laptops, ...tablets, ...accessories];
+  const colors = ['Đen', 'Trắng', 'Xanh', 'Đỏ', 'Vàng', 'Tím', 'Hồng'];
+  const storages = ['64GB', '128GB', '256GB', '512GB', '1TB'];
+  const rams = ['4GB', '6GB', '8GB', '12GB', '16GB'];
+  
+  const expandedProducts = [];
+  const totalNeeded = 200;
+  const productsPerBase = Math.ceil(totalNeeded / allProducts.length);
+  
+  for (const product of allProducts) {
+    const variantsToCreate = Math.min(productsPerBase, totalNeeded - expandedProducts.length);
+    
+    for (let i = 0; i < variantsToCreate; i++) {
+      const color = colors[i % colors.length];
+      const storage = storages[i % storages.length];
+      const ram = rams[i % rams.length];
+      const priceVariation = (i * 500000);
+      
+      expandedProducts.push({
+        name: `${product.name} ${color} ${storage}`,
+        description: `${product.desc}. Phiên bản ${color} - ${ram} RAM - ${storage} bộ nhớ.`,
+        price: product.price + priceVariation,
+        originalPrice: product.originalPrice ? product.originalPrice + priceVariation : undefined,
+        images: [product.image],
+        category: product.category,
+        brand: product.brand,
+        stock: Math.floor(Math.random() * 50) + 50,
+        sold: Math.floor(Math.random() * 100),
+        rating: product.rating || 4 + (Math.random() * 1),
+        features: [
+          'Bảo hành chính hãng',
+          'Giao hàng nhanh toàn quốc',
+          'Hỗ trợ đổi trả trong 7 ngày',
+          'Sản phẩm chính hãng 100%',
+          `Màu ${color}`,
+          `Bộ nhớ ${storage}`,
+          `RAM ${ram}`
+        ],
+        specifications: {
+          'Thương hiệu': product.brand || 'Không xác định',
+          'Danh mục': product.category,
+          'Màu sắc': color,
+          'Bộ nhớ': storage,
+          'RAM': ram,
+          'Tình trạng': 'Còn hàng',
+          'Bảo hành': '12 tháng'
+        },
+        isActive: true
+      });
+      
+      if (expandedProducts.length >= totalNeeded) break;
+    }
+    if (expandedProducts.length >= totalNeeded) break;
+  }
 
-    return allProducts.map(product => ({
-    name: product.name,
-    description: product.desc,
-    price: product.price,
-    originalPrice: product.originalPrice,
-    images: [product.image],
-    category: product.category,
-    brand: product.brand,
-      stock: 100,
-      sold: 0,
-    rating: product.rating,
-    features: [
-      'Bảo hành chính hãng',
-      'Giao hàng nhanh toàn quốc',
-      'Hỗ trợ đổi trả trong 7 ngày',
-      'Sản phẩm chính hãng 100%'
-    ],
-    specifications: {
-      'Thương hiệu': product.brand,
-      'Danh mục': product.category,
-      'Tình trạng': 'Còn hàng',
-      'Bảo hành': '12 tháng'
-    },
-    isActive: true
-  }));
+  return expandedProducts;
 };
 
 export async function GET() {
   try {
+    console.log('🌱 Starting seed...');
     await dbConnect();
+    console.log('✅ MongoDB connected');
 
-    // Clear existing products
-    await Product.deleteMany({});
+    const deletedCount = await Product.deleteMany({});
+    console.log(`🗑️  Cleared ${deletedCount.deletedCount} products`);
 
-    // Create default admin and seller if not exists
     const adminEmail = process.env.SEED_ADMIN_EMAIL || 'admin@example.com';
-    const sellerEmail = process.env.SEED_SELLER_EMAIL || 'seller@example.com';
-    const defaultPassword = process.env.SEED_PASSWORD || 'Password123';
+    const defaultPassword = process.env.SEED_PASSWORD || 'admin123';
 
     const existingAdmin = await User.findOne({ email: adminEmail });
     if (!existingAdmin) {
       const hashed = await bcrypt.hash(defaultPassword, 10);
-      await User.create({ name: 'Admin', email: adminEmail, password: hashed, role: 'admin' });
+      await User.create({ 
+        name: 'Admin', 
+        email: adminEmail, 
+        password: hashed, 
+        role: 'admin' 
+      });
+      console.log(`✅ Admin created (email: ${adminEmail}, password: ${defaultPassword})`);
     }
 
-    const existingSeller = await User.findOne({ email: sellerEmail });
-    if (!existingSeller) {
-      const hashed = await bcrypt.hash(defaultPassword, 10);
-      await User.create({ name: 'Seller', email: sellerEmail, password: hashed, role: 'seller' });
-    }
-
-    // Insert new products
+    console.log('📦 Generating 200 products...');
     const products = await generateProducts();
+    
+    console.log('💾 Saving to database...');
     await Product.insertMany(products);
-
-    return NextResponse.json({ message: `Seeded ${products.length} products successfully` });
+    
+    const finalCount = await Product.countDocuments({});
+    const categoryCount = {
+      'Điện thoại': await Product.countDocuments({ category: 'Điện thoại' }),
+      'Laptop': await Product.countDocuments({ category: 'Laptop' }),
+      'Máy tính bảng': await Product.countDocuments({ category: 'Máy tính bảng' }),
+      'Phụ kiện': await Product.countDocuments({ category: 'Phụ kiện' })
+    };
+    
+    return NextResponse.json({ 
+      success: true,
+      message: `✅ Seeded ${finalCount} products with DummyJSON images via Cloudinary!`,
+      count: finalCount,
+      categories: categoryCount
+    });
   } catch (error) {
-    console.error('Error seeding products:', error);
-    return NextResponse.json({ error: 'Failed to seed products' }, { status: 500 });
+    console.error('❌ Error:', error);
+    return NextResponse.json({ 
+      success: false,
+      error: error instanceof Error ? error.message : 'Failed to seed' 
+    }, { status: 500 });
   }
 }
 

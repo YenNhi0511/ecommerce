@@ -1,0 +1,382 @@
+[
+  {
+    "id": "product-1",
+    "title": "Apple MacBook Pro 14 Inch Space Grey",
+    "brand": "Apple",
+    "price": 1999.99,
+    "category": "laptops",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533514/tmdt_ecommerce/product-1.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533514/tmdt_ecommerce/product-1.webp",
+    "localPath": "/products/product-1.jpg"
+  },
+  {
+    "id": "product-2",
+    "title": "Asus Zenbook Pro Dual Screen Laptop",
+    "brand": "Asus",
+    "price": 1799.99,
+    "category": "laptops",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533515/tmdt_ecommerce/product-2.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533515/tmdt_ecommerce/product-2.webp",
+    "localPath": "/products/product-2.jpg"
+  },
+  {
+    "id": "product-3",
+    "title": "Huawei Matebook X Pro",
+    "brand": "Huawei",
+    "price": 1399.99,
+    "category": "laptops",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533517/tmdt_ecommerce/product-3.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533517/tmdt_ecommerce/product-3.webp",
+    "localPath": "/products/product-3.jpg"
+  },
+  {
+    "id": "product-4",
+    "title": "Lenovo Yoga 920",
+    "brand": "Lenovo",
+    "price": 1099.99,
+    "category": "laptops",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533519/tmdt_ecommerce/product-4.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533519/tmdt_ecommerce/product-4.webp",
+    "localPath": "/products/product-4.jpg"
+  },
+  {
+    "id": "product-5",
+    "title": "New DELL XPS 13 9300 Laptop",
+    "brand": "Dell",
+    "price": 1499.99,
+    "category": "laptops",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533520/tmdt_ecommerce/product-5.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533520/tmdt_ecommerce/product-5.webp",
+    "localPath": "/products/product-5.jpg"
+  },
+  {
+    "id": "product-6",
+    "title": "Amazon Echo Plus",
+    "brand": "Amazon",
+    "price": 99.99,
+    "category": "mobile-accessories",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533521/tmdt_ecommerce/product-6.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533521/tmdt_ecommerce/product-6.webp",
+    "localPath": "/products/product-6.jpg"
+  },
+  {
+    "id": "product-7",
+    "title": "Apple Airpods",
+    "brand": "Apple",
+    "price": 129.99,
+    "category": "mobile-accessories",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533523/tmdt_ecommerce/product-7.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533523/tmdt_ecommerce/product-7.webp",
+    "localPath": "/products/product-7.jpg"
+  },
+  {
+    "id": "product-8",
+    "title": "Apple AirPods Max Silver",
+    "brand": "Apple",
+    "price": 549.99,
+    "category": "mobile-accessories",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533524/tmdt_ecommerce/product-8.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533524/tmdt_ecommerce/product-8.webp",
+    "localPath": "/products/product-8.jpg"
+  },
+  {
+    "id": "product-9",
+    "title": "Apple Airpower Wireless Charger",
+    "brand": "Apple",
+    "price": 79.99,
+    "category": "mobile-accessories",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533526/tmdt_ecommerce/product-9.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533526/tmdt_ecommerce/product-9.webp",
+    "localPath": "/products/product-9.jpg"
+  },
+  {
+    "id": "product-10",
+    "title": "Apple HomePod Mini Cosmic Grey",
+    "brand": "Apple",
+    "price": 99.99,
+    "category": "mobile-accessories",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533528/tmdt_ecommerce/product-10.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533528/tmdt_ecommerce/product-10.webp",
+    "localPath": "/products/product-10.jpg"
+  },
+  {
+    "id": "product-11",
+    "title": "Apple iPhone Charger",
+    "brand": "Apple",
+    "price": 19.99,
+    "category": "mobile-accessories",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533530/tmdt_ecommerce/product-11.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533530/tmdt_ecommerce/product-11.webp",
+    "localPath": "/products/product-11.jpg"
+  },
+  {
+    "id": "product-12",
+    "title": "Apple MagSafe Battery Pack",
+    "brand": "Apple",
+    "price": 99.99,
+    "category": "mobile-accessories",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533531/tmdt_ecommerce/product-12.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533531/tmdt_ecommerce/product-12.webp",
+    "localPath": "/products/product-12.jpg"
+  },
+  {
+    "id": "product-13",
+    "title": "Apple Watch Series 4 Gold",
+    "brand": "Apple",
+    "price": 349.99,
+    "category": "mobile-accessories",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533533/tmdt_ecommerce/product-13.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533533/tmdt_ecommerce/product-13.webp",
+    "localPath": "/products/product-13.jpg"
+  },
+  {
+    "id": "product-14",
+    "title": "Beats Flex Wireless Earphones",
+    "brand": "Beats",
+    "price": 49.99,
+    "category": "mobile-accessories",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533534/tmdt_ecommerce/product-14.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533534/tmdt_ecommerce/product-14.webp",
+    "localPath": "/products/product-14.jpg"
+  },
+  {
+    "id": "product-15",
+    "title": "iPhone 12 Silicone Case with MagSafe Plum",
+    "brand": "Apple",
+    "price": 29.99,
+    "category": "mobile-accessories",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533536/tmdt_ecommerce/product-15.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533536/tmdt_ecommerce/product-15.webp",
+    "localPath": "/products/product-15.jpg"
+  },
+  {
+    "id": "product-16",
+    "title": "Monopod",
+    "brand": "TechGear",
+    "price": 19.99,
+    "category": "mobile-accessories",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533537/tmdt_ecommerce/product-16.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533537/tmdt_ecommerce/product-16.webp",
+    "localPath": "/products/product-16.jpg"
+  },
+  {
+    "id": "product-17",
+    "title": "Selfie Lamp with iPhone",
+    "brand": "GadgetMaster",
+    "price": 14.99,
+    "category": "mobile-accessories",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533539/tmdt_ecommerce/product-17.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533539/tmdt_ecommerce/product-17.webp",
+    "localPath": "/products/product-17.jpg"
+  },
+  {
+    "id": "product-18",
+    "title": "Selfie Stick Monopod",
+    "brand": "SnapTech",
+    "price": 12.99,
+    "category": "mobile-accessories",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533541/tmdt_ecommerce/product-18.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533541/tmdt_ecommerce/product-18.webp",
+    "localPath": "/products/product-18.jpg"
+  },
+  {
+    "id": "product-19",
+    "title": "TV Studio Camera Pedestal",
+    "brand": "ProVision",
+    "price": 499.99,
+    "category": "mobile-accessories",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533543/tmdt_ecommerce/product-19.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533543/tmdt_ecommerce/product-19.webp",
+    "localPath": "/products/product-19.jpg"
+  },
+  {
+    "id": "product-20",
+    "title": "iPhone 5s",
+    "brand": "Apple",
+    "price": 199.99,
+    "category": "smartphones",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533544/tmdt_ecommerce/product-20.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533544/tmdt_ecommerce/product-20.webp",
+    "localPath": "/products/product-20.jpg"
+  },
+  {
+    "id": "product-21",
+    "title": "iPhone 6",
+    "brand": "Apple",
+    "price": 299.99,
+    "category": "smartphones",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533546/tmdt_ecommerce/product-21.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533546/tmdt_ecommerce/product-21.webp",
+    "localPath": "/products/product-21.jpg"
+  },
+  {
+    "id": "product-22",
+    "title": "iPhone 13 Pro",
+    "brand": "Apple",
+    "price": 1099.99,
+    "category": "smartphones",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533547/tmdt_ecommerce/product-22.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533547/tmdt_ecommerce/product-22.webp",
+    "localPath": "/products/product-22.jpg"
+  },
+  {
+    "id": "product-23",
+    "title": "iPhone X",
+    "brand": "Apple",
+    "price": 899.99,
+    "category": "smartphones",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533549/tmdt_ecommerce/product-23.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533549/tmdt_ecommerce/product-23.webp",
+    "localPath": "/products/product-23.jpg"
+  },
+  {
+    "id": "product-24",
+    "title": "Oppo A57",
+    "brand": "Oppo",
+    "price": 249.99,
+    "category": "smartphones",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533550/tmdt_ecommerce/product-24.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533550/tmdt_ecommerce/product-24.webp",
+    "localPath": "/products/product-24.jpg"
+  },
+  {
+    "id": "product-25",
+    "title": "Oppo F19 Pro Plus",
+    "brand": "Oppo",
+    "price": 399.99,
+    "category": "smartphones",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533552/tmdt_ecommerce/product-25.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533552/tmdt_ecommerce/product-25.webp",
+    "localPath": "/products/product-25.jpg"
+  },
+  {
+    "id": "product-26",
+    "title": "Oppo K1",
+    "brand": "Oppo",
+    "price": 299.99,
+    "category": "smartphones",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533554/tmdt_ecommerce/product-26.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533554/tmdt_ecommerce/product-26.webp",
+    "localPath": "/products/product-26.jpg"
+  },
+  {
+    "id": "product-27",
+    "title": "Realme C35",
+    "brand": "Realme",
+    "price": 149.99,
+    "category": "smartphones",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533555/tmdt_ecommerce/product-27.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533555/tmdt_ecommerce/product-27.webp",
+    "localPath": "/products/product-27.jpg"
+  },
+  {
+    "id": "product-28",
+    "title": "Realme X",
+    "brand": "Realme",
+    "price": 299.99,
+    "category": "smartphones",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533557/tmdt_ecommerce/product-28.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533557/tmdt_ecommerce/product-28.webp",
+    "localPath": "/products/product-28.jpg"
+  },
+  {
+    "id": "product-29",
+    "title": "Realme XT",
+    "brand": "Realme",
+    "price": 349.99,
+    "category": "smartphones",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533559/tmdt_ecommerce/product-29.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533559/tmdt_ecommerce/product-29.webp",
+    "localPath": "/products/product-29.jpg"
+  },
+  {
+    "id": "product-30",
+    "title": "Samsung Galaxy S7",
+    "brand": "Samsung",
+    "price": 299.99,
+    "category": "smartphones",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533560/tmdt_ecommerce/product-30.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533560/tmdt_ecommerce/product-30.webp",
+    "localPath": "/products/product-30.jpg"
+  },
+  {
+    "id": "product-31",
+    "title": "Samsung Galaxy S8",
+    "brand": "Samsung",
+    "price": 499.99,
+    "category": "smartphones",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533562/tmdt_ecommerce/product-31.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533562/tmdt_ecommerce/product-31.webp",
+    "localPath": "/products/product-31.jpg"
+  },
+  {
+    "id": "product-32",
+    "title": "Samsung Galaxy S10",
+    "brand": "Samsung",
+    "price": 699.99,
+    "category": "smartphones",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533563/tmdt_ecommerce/product-32.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533563/tmdt_ecommerce/product-32.webp",
+    "localPath": "/products/product-32.jpg"
+  },
+  {
+    "id": "product-33",
+    "title": "Vivo S1",
+    "brand": "Vivo",
+    "price": 249.99,
+    "category": "smartphones",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533565/tmdt_ecommerce/product-33.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533565/tmdt_ecommerce/product-33.webp",
+    "localPath": "/products/product-33.jpg"
+  },
+  {
+    "id": "product-34",
+    "title": "Vivo V9",
+    "brand": "Vivo",
+    "price": 299.99,
+    "category": "smartphones",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533566/tmdt_ecommerce/product-34.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533566/tmdt_ecommerce/product-34.webp",
+    "localPath": "/products/product-34.jpg"
+  },
+  {
+    "id": "product-35",
+    "title": "Vivo X21",
+    "brand": "Vivo",
+    "price": 499.99,
+    "category": "smartphones",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533568/tmdt_ecommerce/product-35.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533568/tmdt_ecommerce/product-35.webp",
+    "localPath": "/products/product-35.jpg"
+  },
+  {
+    "id": "product-36",
+    "title": "iPad Mini 2021 Starlight",
+    "brand": "Apple",
+    "price": 499.99,
+    "category": "tablets",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533569/tmdt_ecommerce/product-36.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533569/tmdt_ecommerce/product-36.webp",
+    "localPath": "/products/product-36.jpg"
+  },
+  {
+    "id": "product-37",
+    "title": "Samsung Galaxy Tab S8 Plus Grey",
+    "brand": "Samsung",
+    "price": 599.99,
+    "category": "tablets",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533571/tmdt_ecommerce/product-37.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533571/tmdt_ecommerce/product-37.webp",
+    "localPath": "/products/product-37.jpg"
+  },
+  {
+    "id": "product-38",
+    "title": "Samsung Galaxy Tab White",
+    "brand": "Samsung",
+    "price": 349.99,
+    "category": "tablets",
+    "image": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533572/tmdt_ecommerce/product-38.webp",
+    "cloudinaryUrl": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765533572/tmdt_ecommerce/product-38.webp",
+    "localPath": "/products/product-38.jpg"
+  }
+]

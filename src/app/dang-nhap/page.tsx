@@ -101,15 +101,6 @@ export default function LoginPage() {
             </Link>
           </p>
         </div>
-
-        <div className="mt-4">
-          <button className="w-full bg-red-600 text-white py-2 rounded-lg font-semibold hover:bg-red-700 mb-2">
-            Đăng nhập với Google
-          </button>
-          <button className="w-full bg-blue-800 text-white py-2 rounded-lg font-semibold hover:bg-blue-900">
-            Đăng nhập với Facebook
-          </button>
-        </div>
       </div>
     </div>
   );

@@ -1,0 +1,282 @@
+[
+  {
+    "id": "phone-1",
+    "fileName": "phone-1.jpg",
+    "localPath": "/products/phone-1.jpg",
+    "title": "iPhone 5s",
+    "brand": "Apple",
+    "price": 199.99,
+    "category": "smartphones",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/thumbnail.webp"
+  },
+  {
+    "id": "phone-2",
+    "fileName": "phone-2.jpg",
+    "localPath": "/products/phone-2.jpg",
+    "title": "iPhone 6",
+    "brand": "Apple",
+    "price": 299.99,
+    "category": "smartphones",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/thumbnail.webp"
+  },
+  {
+    "id": "phone-3",
+    "fileName": "phone-3.jpg",
+    "localPath": "/products/phone-3.jpg",
+    "title": "iPhone 13 Pro",
+    "brand": "Apple",
+    "price": 1099.99,
+    "category": "smartphones",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/thumbnail.webp"
+  },
+  {
+    "id": "phone-4",
+    "fileName": "phone-4.jpg",
+    "localPath": "/products/phone-4.jpg",
+    "title": "iPhone X",
+    "brand": "Apple",
+    "price": 899.99,
+    "category": "smartphones",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/thumbnail.webp"
+  },
+  {
+    "id": "phone-5",
+    "fileName": "phone-5.jpg",
+    "localPath": "/products/phone-5.jpg",
+    "title": "Oppo A57",
+    "brand": "Oppo",
+    "price": 249.99,
+    "category": "smartphones",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/thumbnail.webp"
+  },
+  {
+    "id": "phone-6",
+    "fileName": "phone-6.jpg",
+    "localPath": "/products/phone-6.jpg",
+    "title": "Oppo F19 Pro Plus",
+    "brand": "Oppo",
+    "price": 399.99,
+    "category": "smartphones",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/thumbnail.webp"
+  },
+  {
+    "id": "phone-7",
+    "fileName": "phone-7.jpg",
+    "localPath": "/products/phone-7.jpg",
+    "title": "Oppo K1",
+    "brand": "Oppo",
+    "price": 299.99,
+    "category": "smartphones",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/thumbnail.webp"
+  },
+  {
+    "id": "phone-8",
+    "fileName": "phone-8.jpg",
+    "localPath": "/products/phone-8.jpg",
+    "title": "Realme C35",
+    "brand": "Realme",
+    "price": 149.99,
+    "category": "smartphones",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/thumbnail.webp"
+  },
+  {
+    "id": "phone-9",
+    "fileName": "phone-9.jpg",
+    "localPath": "/products/phone-9.jpg",
+    "title": "Realme X",
+    "brand": "Realme",
+    "price": 299.99,
+    "category": "smartphones",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-x/thumbnail.webp"
+  },
+  {
+    "id": "phone-10",
+    "fileName": "phone-10.jpg",
+    "localPath": "/products/phone-10.jpg",
+    "title": "Realme XT",
+    "brand": "Realme",
+    "price": 349.99,
+    "category": "smartphones",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/thumbnail.webp"
+  },
+  {
+    "id": "phone-11",
+    "fileName": "phone-11.jpg",
+    "localPath": "/products/phone-11.jpg",
+    "title": "Samsung Galaxy S7",
+    "brand": "Samsung",
+    "price": 299.99,
+    "category": "smartphones",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/thumbnail.webp"
+  },
+  {
+    "id": "phone-12",
+    "fileName": "phone-12.jpg",
+    "localPath": "/products/phone-12.jpg",
+    "title": "Samsung Galaxy S8",
+    "brand": "Samsung",
+    "price": 499.99,
+    "category": "smartphones",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/thumbnail.webp"
+  },
+  {
+    "id": "laptop-1",
+    "fileName": "laptop-1.jpg",
+    "localPath": "/products/laptop-1.jpg",
+    "title": "Apple MacBook Pro 14 Inch Space Grey",
+    "brand": "Apple",
+    "price": 1999.99,
+    "category": "laptops",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/thumbnail.webp"
+  },
+  {
+    "id": "laptop-2",
+    "fileName": "laptop-2.jpg",
+    "localPath": "/products/laptop-2.jpg",
+    "title": "Asus Zenbook Pro Dual Screen Laptop",
+    "brand": "Asus",
+    "price": 1799.99,
+    "category": "laptops",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/thumbnail.webp"
+  },
+  {
+    "id": "laptop-3",
+    "fileName": "laptop-3.jpg",
+    "localPath": "/products/laptop-3.jpg",
+    "title": "Huawei Matebook X Pro",
+    "brand": "Huawei",
+    "price": 1399.99,
+    "category": "laptops",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/thumbnail.webp"
+  },
+  {
+    "id": "laptop-4",
+    "fileName": "laptop-4.jpg",
+    "localPath": "/products/laptop-4.jpg",
+    "title": "Lenovo Yoga 920",
+    "brand": "Lenovo",
+    "price": 1099.99,
+    "category": "laptops",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/thumbnail.webp"
+  },
+  {
+    "id": "laptop-5",
+    "fileName": "laptop-5.jpg",
+    "localPath": "/products/laptop-5.jpg",
+    "title": "New DELL XPS 13 9300 Laptop",
+    "brand": "Dell",
+    "price": 1499.99,
+    "category": "laptops",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/thumbnail.webp"
+  },
+  {
+    "id": "tablet-1",
+    "fileName": "tablet-1.jpg",
+    "localPath": "/products/tablet-1.jpg",
+    "title": "iPad Mini 2021 Starlight",
+    "brand": "Apple",
+    "price": 499.99,
+    "category": "tablets",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/thumbnail.webp"
+  },
+  {
+    "id": "tablet-2",
+    "fileName": "tablet-2.jpg",
+    "localPath": "/products/tablet-2.jpg",
+    "title": "Samsung Galaxy Tab S8 Plus Grey",
+    "brand": "Samsung",
+    "price": 599.99,
+    "category": "tablets",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/thumbnail.webp"
+  },
+  {
+    "id": "tablet-3",
+    "fileName": "tablet-3.jpg",
+    "localPath": "/products/tablet-3.jpg",
+    "title": "Samsung Galaxy Tab White",
+    "brand": "Samsung",
+    "price": 349.99,
+    "category": "tablets",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/thumbnail.webp"
+  },
+  {
+    "id": "accessory-1",
+    "fileName": "accessory-1.jpg",
+    "localPath": "/products/accessory-1.jpg",
+    "title": "Brown Leather Belt Watch",
+    "brand": "Fashion Timepieces",
+    "price": 89.99,
+    "category": "mens-watches",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/mens-watches/brown-leather-belt-watch/thumbnail.webp"
+  },
+  {
+    "id": "accessory-2",
+    "fileName": "accessory-2.jpg",
+    "localPath": "/products/accessory-2.jpg",
+    "title": "Longines Master Collection",
+    "brand": "Longines",
+    "price": 1499.99,
+    "category": "mens-watches",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/thumbnail.webp"
+  },
+  {
+    "id": "accessory-3",
+    "fileName": "accessory-3.jpg",
+    "localPath": "/products/accessory-3.jpg",
+    "title": "Rolex Cellini Date Black Dial",
+    "brand": "Rolex",
+    "price": 8999.99,
+    "category": "mens-watches",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-date-black-dial/thumbnail.webp"
+  },
+  {
+    "id": "accessory-4",
+    "fileName": "accessory-4.jpg",
+    "localPath": "/products/accessory-4.jpg",
+    "title": "Rolex Cellini Moonphase",
+    "brand": "Rolex",
+    "price": 12999.99,
+    "category": "mens-watches",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-moonphase/thumbnail.webp"
+  },
+  {
+    "id": "accessory-5",
+    "fileName": "accessory-5.jpg",
+    "localPath": "/products/accessory-5.jpg",
+    "title": "Rolex Datejust",
+    "brand": "Rolex",
+    "price": 10999.99,
+    "category": "mens-watches",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/thumbnail.webp"
+  },
+  {
+    "id": "accessory-6",
+    "fileName": "accessory-6.jpg",
+    "localPath": "/products/accessory-6.jpg",
+    "title": "Rolex Submariner Watch",
+    "brand": "Rolex",
+    "price": 13999.99,
+    "category": "mens-watches",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/thumbnail.webp"
+  },
+  {
+    "id": "accessory-7",
+    "fileName": "accessory-7.jpg",
+    "localPath": "/products/accessory-7.jpg",
+    "title": "Amazon Echo Plus",
+    "brand": "Amazon",
+    "price": 99.99,
+    "category": "mobile-accessories",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/amazon-echo-plus/thumbnail.webp"
+  },
+  {
+    "id": "accessory-8",
+    "fileName": "accessory-8.jpg",
+    "localPath": "/products/accessory-8.jpg",
+    "title": "Apple Airpods",
+    "brand": "Apple",
+    "price": 129.99,
+    "category": "mobile-accessories",
+    "originalUrl": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/thumbnail.webp"
+  }
+]

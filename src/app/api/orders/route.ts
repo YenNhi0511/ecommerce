@@ -44,9 +44,8 @@ export async function POST(request: NextRequest) {
     }
 
     const user = await getUserFromRequest(request);
-    if (!user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+    // Allow guest checkout - user is optional
+    const userId = user?._id || null;
 
     await dbConnect();
 
@@ -89,7 +88,7 @@ export async function POST(request: NextRequest) {
     const isCod = paymentMethod === 'cod';
 
     const order = await Order.create({
-      user: user._id,
+      user: userId,
       items: orderItems,
       itemsTotal,
       shippingFee,
@@ -106,13 +105,15 @@ export async function POST(request: NextRequest) {
     const orderIdStr = String(order._id);
 
     try {
-      await recordAudit(user, 'create_order', 'order', orderIdStr, {
-        itemsTotal,
-        shippingFee,
-        totalAmount,
-        paymentMethod,
-        couponCode,
-      });
+      if (user) {
+        await recordAudit(user, 'create_order', 'order', orderIdStr, {
+          itemsTotal,
+          shippingFee,
+          totalAmount,
+          paymentMethod,
+          couponCode,
+        });
+      }
     } catch {
       // audit lỗi thì bỏ qua, không ảnh hưởng flow chính
     }

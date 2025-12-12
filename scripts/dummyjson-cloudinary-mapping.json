@@ -1,0 +1,47 @@
+{
+  "smartphones": {
+    "1": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539853/tmdt_ecommerce/smartphones-1.webp",
+    "2": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539857/tmdt_ecommerce/smartphones-2.webp",
+    "3": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539861/tmdt_ecommerce/smartphones-3.webp",
+    "4": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539864/tmdt_ecommerce/smartphones-4.webp",
+    "5": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539866/tmdt_ecommerce/smartphones-5.webp",
+    "6": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539870/tmdt_ecommerce/smartphones-6.webp",
+    "7": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539873/tmdt_ecommerce/smartphones-7.webp",
+    "8": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539875/tmdt_ecommerce/smartphones-8.webp",
+    "9": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539877/tmdt_ecommerce/smartphones-9.webp",
+    "10": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539879/tmdt_ecommerce/smartphones-10.webp",
+    "11": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539881/tmdt_ecommerce/smartphones-11.webp",
+    "12": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539884/tmdt_ecommerce/smartphones-12.webp"
+  },
+  "laptops": {
+    "1": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539886/tmdt_ecommerce/laptops-1.webp",
+    "2": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539888/tmdt_ecommerce/laptops-2.webp",
+    "3": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539891/tmdt_ecommerce/laptops-3.webp",
+    "4": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539893/tmdt_ecommerce/laptops-4.webp",
+    "5": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539895/tmdt_ecommerce/laptops-5.webp",
+    "6": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539897/tmdt_ecommerce/laptops-6.webp"
+  },
+  "tablets": {
+    "1": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539899/tmdt_ecommerce/tablets-1.webp",
+    "2": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539901/tmdt_ecommerce/tablets-2.webp",
+    "3": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539904/tmdt_ecommerce/tablets-3.webp",
+    "4": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539906/tmdt_ecommerce/tablets-4.webp",
+    "5": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539908/tmdt_ecommerce/tablets-5.webp"
+  },
+  "accessories": {
+    "1": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539912/tmdt_ecommerce/accessories-1.webp",
+    "2": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539915/tmdt_ecommerce/accessories-2.webp",
+    "3": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539917/tmdt_ecommerce/accessories-3.webp",
+    "4": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539919/tmdt_ecommerce/accessories-4.webp",
+    "5": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539922/tmdt_ecommerce/accessories-5.webp",
+    "6": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539924/tmdt_ecommerce/accessories-6.webp",
+    "7": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539927/tmdt_ecommerce/accessories-7.webp",
+    "8": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539930/tmdt_ecommerce/accessories-8.webp",
+    "9": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539932/tmdt_ecommerce/accessories-9.webp",
+    "10": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539934/tmdt_ecommerce/accessories-10.webp",
+    "11": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539936/tmdt_ecommerce/accessories-11.webp",
+    "12": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539938/tmdt_ecommerce/accessories-12.webp",
+    "13": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539941/tmdt_ecommerce/accessories-13.webp",
+    "14": "https://res.cloudinary.com/dcpfzg46o/image/upload/v1765539943/tmdt_ecommerce/accessories-14.webp"
+  }
+}

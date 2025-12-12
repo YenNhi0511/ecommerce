@@ -1,0 +1,323 @@
+// ĐIỆN THOẠI (12 products)
+const smartphones = [
+  {
+    name: 'iPhone 5s',
+    brand: 'Apple',
+    price: 4800000,
+    originalPrice: 5520000,
+    category: 'Điện thoại',
+    image: '/products/phone-1.jpg',
+    desc: 'iPhone 5s - Sản phẩm chính hãng với thiết kế cao cấp và hiệu năng mạnh mẽ',
+    stock: 67,
+    rating: 5
+  },
+  {
+    name: 'iPhone 6',
+    brand: 'Apple',
+    price: 7200000,
+    originalPrice: 8280000,
+    category: 'Điện thoại',
+    image: '/products/phone-2.jpg',
+    desc: 'iPhone 6 - Sản phẩm chính hãng với thiết kế cao cấp và hiệu năng mạnh mẽ',
+    stock: 72,
+    rating: 5
+  },
+  {
+    name: 'iPhone 13 Pro',
+    brand: 'Apple',
+    price: 26400000,
+    originalPrice: 30360000,
+    category: 'Điện thoại',
+    image: '/products/phone-3.jpg',
+    desc: 'iPhone 13 Pro - Sản phẩm chính hãng với thiết kế cao cấp và hiệu năng mạnh mẽ',
+    stock: 70,
+    rating: 5
+  },
+  {
+    name: 'iPhone X',
+    brand: 'Apple',
+    price: 21600000,
+    originalPrice: 24840000,
+    category: 'Điện thoại',
+    image: '/products/phone-4.jpg',
+    desc: 'iPhone X - Sản phẩm chính hãng với thiết kế cao cấp và hiệu năng mạnh mẽ',
+    stock: 78,
+    rating: 4
+  },
+  {
+    name: 'Oppo A57',
+    brand: 'Oppo',
+    price: 6000000,
+    originalPrice: 6900000,
+    category: 'Điện thoại',
+    image: '/products/phone-5.jpg',
+    desc: 'Oppo A57 - Sản phẩm chính hãng với thiết kế cao cấp và hiệu năng mạnh mẽ',
+    stock: 78,
+    rating: 4
+  },
+  {
+    name: 'Oppo F19 Pro Plus',
+    brand: 'Oppo',
+    price: 9600000,
+    originalPrice: 11040000,
+    category: 'Điện thoại',
+    image: '/products/phone-6.jpg',
+    desc: 'Oppo F19 Pro Plus - Sản phẩm chính hãng với thiết kế cao cấp và hiệu năng mạnh mẽ',
+    stock: 99,
+    rating: 4
+  },
+  {
+    name: 'Oppo K1',
+    brand: 'Oppo',
+    price: 7200000,
+    originalPrice: 8280000,
+    category: 'Điện thoại',
+    image: '/products/phone-7.jpg',
+    desc: 'Oppo K1 - Sản phẩm chính hãng với thiết kế cao cấp và hiệu năng mạnh mẽ',
+    stock: 77,
+    rating: 4
+  },
+  {
+    name: 'Realme C35',
+    brand: 'Realme',
+    price: 3600000,
+    originalPrice: 4140000,
+    category: 'Điện thoại',
+    image: '/products/phone-8.jpg',
+    desc: 'Realme C35 - Sản phẩm chính hãng với thiết kế cao cấp và hiệu năng mạnh mẽ',
+    stock: 74,
+    rating: 4
+  },
+  {
+    name: 'Realme X',
+    brand: 'Realme',
+    price: 7200000,
+    originalPrice: 8280000,
+    category: 'Điện thoại',
+    image: '/products/phone-9.jpg',
+    desc: 'Realme X - Sản phẩm chính hãng với thiết kế cao cấp và hiệu năng mạnh mẽ',
+    stock: 62,
+    rating: 4
+  },
+  {
+    name: 'Realme XT',
+    brand: 'Realme',
+    price: 8400000,
+    originalPrice: 9660000,
+    category: 'Điện thoại',
+    image: '/products/phone-10.jpg',
+    desc: 'Realme XT - Sản phẩm chính hãng với thiết kế cao cấp và hiệu năng mạnh mẽ',
+    stock: 77,
+    rating: 5
+  },
+  {
+    name: 'Samsung Galaxy S7',
+    brand: 'Samsung',
+    price: 7200000,
+    originalPrice: 8280000,
+    category: 'Điện thoại',
+    image: '/products/phone-11.jpg',
+    desc: 'Samsung Galaxy S7 - Sản phẩm chính hãng với thiết kế cao cấp và hiệu năng mạnh mẽ',
+    stock: 79,
+    rating: 4
+  },
+  {
+    name: 'Samsung Galaxy S8',
+    brand: 'Samsung',
+    price: 12000000,
+    originalPrice: 13800000,
+    category: 'Điện thoại',
+    image: '/products/phone-12.jpg',
+    desc: 'Samsung Galaxy S8 - Sản phẩm chính hãng với thiết kế cao cấp và hiệu năng mạnh mẽ',
+    stock: 52,
+    rating: 5
+  }
+];
+
+// LAPTOP (5 products)
+const laptops = [
+  {
+    name: 'Apple MacBook Pro 14 Inch Space Grey',
+    brand: 'Apple',
+    price: 48000000,
+    originalPrice: 52800000,
+    category: 'Laptop',
+    image: '/products/laptop-1.jpg',
+    desc: 'Apple MacBook Pro 14 Inch Space Grey - Laptop cao cấp với hiệu năng vượt trội, thiết kế sang trọng',
+    stock: 26,
+    rating: 5
+  },
+  {
+    name: 'Asus Zenbook Pro Dual Screen Laptop',
+    brand: 'Asus',
+    price: 43200000,
+    originalPrice: 47520000,
+    category: 'Laptop',
+    image: '/products/laptop-2.jpg',
+    desc: 'Asus Zenbook Pro Dual Screen Laptop - Laptop cao cấp với hiệu năng vượt trội, thiết kế sang trọng',
+    stock: 44,
+    rating: 5
+  },
+  {
+    name: 'Huawei Matebook X Pro',
+    brand: 'Huawei',
+    price: 33600000,
+    originalPrice: 36960000,
+    category: 'Laptop',
+    image: '/products/laptop-3.jpg',
+    desc: 'Huawei Matebook X Pro - Laptop cao cấp với hiệu năng vượt trội, thiết kế sang trọng',
+    stock: 33,
+    rating: 5
+  },
+  {
+    name: 'Lenovo Yoga 920',
+    brand: 'Lenovo',
+    price: 26400000,
+    originalPrice: 29040000,
+    category: 'Laptop',
+    image: '/products/laptop-4.jpg',
+    desc: 'Lenovo Yoga 920 - Laptop cao cấp với hiệu năng vượt trội, thiết kế sang trọng',
+    stock: 27,
+    rating: 5
+  },
+  {
+    name: 'New DELL XPS 13 9300 Laptop',
+    brand: 'Dell',
+    price: 36000000,
+    originalPrice: 39600000,
+    category: 'Laptop',
+    image: '/products/laptop-5.jpg',
+    desc: 'New DELL XPS 13 9300 Laptop - Laptop cao cấp với hiệu năng vượt trội, thiết kế sang trọng',
+    stock: 24,
+    rating: 5
+  }
+];
+
+// TABLET (3 products)
+const tablets = [
+  {
+    name: 'iPad Mini 2021 Starlight',
+    brand: 'Apple',
+    price: 12000000,
+    originalPrice: 13440000,
+    category: 'Máy tính bảng',
+    image: '/products/tablet-1.jpg',
+    desc: 'iPad Mini 2021 Starlight - Máy tính bảng hiện đại với màn hình lớn và pin trâu',
+    stock: 43,
+    rating: 4
+  },
+  {
+    name: 'Samsung Galaxy Tab S8 Plus Grey',
+    brand: 'Samsung',
+    price: 14400000,
+    originalPrice: 16128000,
+    category: 'Máy tính bảng',
+    image: '/products/tablet-2.jpg',
+    desc: 'Samsung Galaxy Tab S8 Plus Grey - Máy tính bảng hiện đại với màn hình lớn và pin trâu',
+    stock: 38,
+    rating: 4
+  },
+  {
+    name: 'Samsung Galaxy Tab White',
+    brand: 'Samsung',
+    price: 8400000,
+    originalPrice: 9408000,
+    category: 'Máy tính bảng',
+    image: '/products/tablet-3.jpg',
+    desc: 'Samsung Galaxy Tab White - Máy tính bảng hiện đại với màn hình lớn và pin trâu',
+    stock: 67,
+    rating: 4
+  }
+];
+
+// PHỤ KIỆN (8 products)
+const accessories = [
+  {
+    name: 'Brown Leather Belt Watch',
+    brand: 'Fashion Timepieces',
+    price: 2160000,
+    originalPrice: 2592000,
+    category: 'Phụ kiện',
+    image: '/products/accessory-1.jpg',
+    desc: 'Brown Leather Belt Watch - Phụ kiện chất lượng cao, thiết kế tinh tế',
+    stock: 86,
+    rating: 5
+  },
+  {
+    name: 'Longines Master Collection',
+    brand: 'Longines',
+    price: 36000000,
+    originalPrice: 43200000,
+    category: 'Phụ kiện',
+    image: '/products/accessory-2.jpg',
+    desc: 'Longines Master Collection - Phụ kiện chất lượng cao, thiết kế tinh tế',
+    stock: 41,
+    rating: 5
+  },
+  {
+    name: 'Rolex Cellini Date Black Dial',
+    brand: 'Rolex',
+    price: 216000000,
+    originalPrice: 259200000,
+    category: 'Phụ kiện',
+    image: '/products/accessory-3.jpg',
+    desc: 'Rolex Cellini Date Black Dial - Phụ kiện chất lượng cao, thiết kế tinh tế',
+    stock: 50,
+    rating: 4
+  },
+  {
+    name: 'Rolex Cellini Moonphase',
+    brand: 'Rolex',
+    price: 312000000,
+    originalPrice: 374400000,
+    category: 'Phụ kiện',
+    image: '/products/accessory-4.jpg',
+    desc: 'Rolex Cellini Moonphase - Phụ kiện chất lượng cao, thiết kế tinh tế',
+    stock: 95,
+    rating: 5
+  },
+  {
+    name: 'Rolex Datejust',
+    brand: 'Rolex',
+    price: 264000000,
+    originalPrice: 316800000,
+    category: 'Phụ kiện',
+    image: '/products/accessory-5.jpg',
+    desc: 'Rolex Datejust - Phụ kiện chất lượng cao, thiết kế tinh tế',
+    stock: 42,
+    rating: 4
+  },
+  {
+    name: 'Rolex Submariner Watch',
+    brand: 'Rolex',
+    price: 336000000,
+    originalPrice: 403200000,
+    category: 'Phụ kiện',
+    image: '/products/accessory-6.jpg',
+    desc: 'Rolex Submariner Watch - Phụ kiện chất lượng cao, thiết kế tinh tế',
+    stock: 55,
+    rating: 4
+  },
+  {
+    name: 'Amazon Echo Plus',
+    brand: 'Amazon',
+    price: 2400000,
+    originalPrice: 2880000,
+    category: 'Phụ kiện',
+    image: '/products/accessory-7.jpg',
+    desc: 'Amazon Echo Plus - Phụ kiện chất lượng cao, thiết kế tinh tế',
+    stock: 94,
+    rating: 4
+  },
+  {
+    name: 'Apple Airpods',
+    brand: 'Apple',
+    price: 3120000,
+    originalPrice: 3744000,
+    category: 'Phụ kiện',
+    image: '/products/accessory-8.jpg',
+    desc: 'Apple Airpods - Phụ kiện chất lượng cao, thiết kế tinh tế',
+    stock: 98,
+    rating: 4
+  }
+];

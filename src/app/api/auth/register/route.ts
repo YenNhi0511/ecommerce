@@ -53,6 +53,7 @@ export async function POST(request: NextRequest) {
       email: email.toLowerCase(),
       password: hashedPassword,
       phone: phone || '',
+      role: 'customer',
     });
 
     // Return user without password

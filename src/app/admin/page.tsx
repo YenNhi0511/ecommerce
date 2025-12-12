@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
+import Link from 'next/link';
 
 type Order = {
   _id: string;
@@ -30,6 +31,7 @@ export default function AdminPage() {
   const { user, token } = useAuth();
   const [orders, setOrders] = useState<Order[]>([]);
   const [products, setProducts] = useState<any[]>([]);
+  const [users, setUsers] = useState<any[]>([]);
   const [coupons, setCoupons] = useState<Coupon[]>([]);
   const [couponForm, setCouponForm] = useState({
     code: '',
@@ -44,18 +46,33 @@ export default function AdminPage() {
   const [creatingCoupon, setCreatingCoupon] = useState(false);
 
   const isAdmin = user && (user as any).role === 'admin';
+  
+  // Check if running on admin port (3001)
+  const [isAdminMode, setIsAdminMode] = useState(false);
+  
+  useEffect(() => {
+    // Check port to determine if in admin mode
+    if (typeof window !== 'undefined') {
+      const port = window.location.port;
+      setIsAdminMode(port === '3001');
+    }
+  }, []);
 
   useEffect(() => {
-    if (!token) return;
+    // If running in admin mode (port 3001), skip auth check
+    if (!isAdminMode && !token) return;
     const load = async () => {
       try {
         setLoading(true);
         setError('');
 
-        const [orderResp, productResp, couponResp] = await Promise.all([
-          fetch('/api/orders', { headers: { Authorization: `Bearer ${token}` } }),
-          fetch('/api/products', { headers: { Authorization: `Bearer ${token}` } }),
-          fetch('/api/coupons', { headers: { Authorization: `Bearer ${token}` } }),
+        const headers = token ? { Authorization: `Bearer ${token}` } : {};
+        
+        const [orderResp, productResp, couponResp, usersResp] = await Promise.all([
+          fetch('/api/orders', { headers }),
+          fetch('/api/products', { headers }),
+          fetch('/api/coupons', { headers }),
+          fetch('/api/admin/users', { headers }),
         ]);
 
         const orderData = await orderResp.json();
@@ -70,6 +87,9 @@ export default function AdminPage() {
 
         const couponData = await couponResp.json();
         if (couponData.coupons) setCoupons(couponData.coupons);
+
+        const usersData = await usersResp.json();
+        if (usersData.users) setUsers(usersData.users);
       } catch (e: any) {
         setError(e?.message || 'Lỗi khi tải dữ liệu');
       } finally {
@@ -78,7 +98,7 @@ export default function AdminPage() {
     };
 
     load();
-  }, [token]);
+  }, [token, isAdminMode]);
 
   const handleCouponChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -196,27 +216,62 @@ export default function AdminPage() {
 
   const shortId = (id: string) => (id ? id.slice(-6) : '');
 
-  if (!user) {
-    return (
-      <div className="container mx-auto p-6">
-        <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
-        <p>Vui lòng đăng nhập để truy cập trang quản trị.</p>
-      </div>
-    );
+  // Skip auth check if running in standalone admin mode (port 3001)
+  if (!isAdminMode) {
+    if (!user) {
+      return (
+        <div className="container mx-auto p-6">
+          <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
+          <p>Vui lòng đăng nhập để truy cập trang quản trị.</p>
+        </div>
+      );
+    }
+
+    if (!isAdmin) {
+      return (
+        <div className="container mx-auto p-6">
+          <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
+          <p>Tài khoản của bạn không có quyền quản trị.</p>
+        </div>
+      );
+    }
   }
 
-  if (!isAdmin) {
-    return (
-      <div className="container mx-auto p-6">
-        <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
-        <p>Tài khoản của bạn không có quyền quản trị.</p>
-      </div>
-    );
-  }
+  const totalRevenue = orders
+    .filter(o => o.orderStatus === 'delivered')
+    .reduce((sum, o) => sum + o.totalAmount, 0);
+  
+  const totalStock = products.reduce((sum, p) => sum + (p.stock || 0), 0);
+  const lowStockCount = products.filter(p => (p.stock || 0) < 10).length;
 
   return (
-    <div className="container mx-auto p-6 space-y-8">
-      <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
+    <div className="container mx-auto p-6">
+      <div className="flex items-center justify-between mb-8">
+        <h1 className="text-4xl font-bold">🎛️ Admin Dashboard</h1>
+        <div className="text-sm text-gray-600">
+          {user?.name ? `Xin chào, ${user.name}` : 'Admin Mode'}
+        </div>
+      </div>
+
+      {/* Quick Links */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <Link href="/admin/products" className="bg-blue-500 text-white p-6 rounded-lg hover:bg-blue-600 text-center">
+          <div className="text-3xl mb-2">📦</div>
+          <div className="font-bold">Sản phẩm</div>
+        </Link>
+        <Link href="/admin/orders" className="bg-green-500 text-white p-6 rounded-lg hover:bg-green-600 text-center">
+          <div className="text-3xl mb-2">📋</div>
+          <div className="font-bold">Đơn hàng</div>
+        </Link>
+        <Link href="/admin/users" className="bg-purple-500 text-white p-6 rounded-lg hover:bg-purple-600 text-center">
+          <div className="text-3xl mb-2">👥</div>
+          <div className="font-bold">Người dùng</div>
+        </Link>
+        <Link href="/admin/analytics" className="bg-orange-500 text-white p-6 rounded-lg hover:bg-orange-600 text-center">
+          <div className="text-3xl mb-2">📊</div>
+          <div className="font-bold">Analytics</div>
+        </Link>
+      </div>
 
       {error && (
         <div className="mb-4 p-3 rounded bg-red-50 text-red-700 text-sm">
@@ -227,6 +282,80 @@ export default function AdminPage() {
       {loading && (
         <div className="mb-4 text-gray-600 text-sm">Đang tải dữ liệu…</div>
       )}
+
+      {/* Quick Stats */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <Link href="/admin/users" className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="text-sm opacity-90">Người dùng</div>
+              <div className="text-4xl font-bold mt-2">{users.length}</div>
+              <div className="text-xs mt-2 opacity-75">
+                {users.filter(u => u.role === 'seller').length} sellers
+              </div>
+            </div>
+            <div className="text-5xl opacity-20">👥</div>
+          </div>
+        </Link>
+
+        <Link href="/admin/products" className="bg-gradient-to-br from-green-500 to-green-600 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="text-sm opacity-90">Sản phẩm</div>
+              <div className="text-4xl font-bold mt-2">{products.length}</div>
+              <div className="text-xs mt-2 opacity-75">
+                {lowStockCount} sắp hết hàng
+              </div>
+            </div>
+            <div className="text-5xl opacity-20">📦</div>
+          </div>
+        </Link>
+
+        <Link href="/admin/orders" className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105">
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="text-sm opacity-90">Đơn hàng</div>
+              <div className="text-4xl font-bold mt-2">{orders.length}</div>
+              <div className="text-xs mt-2 opacity-75">
+                {orders.filter(o => o.orderStatus === 'pending').length} chờ xử lý
+              </div>
+            </div>
+            <div className="text-5xl opacity-20">🛍️</div>
+          </div>
+        </Link>
+
+        <div className="bg-gradient-to-br from-orange-500 to-orange-600 text-white p-6 rounded-xl shadow-lg">
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="text-sm opacity-90">Doanh thu</div>
+              <div className="text-4xl font-bold mt-2">
+                {(totalRevenue / 1000000).toFixed(1)}M
+              </div>
+              <div className="text-xs mt-2 opacity-75">Đơn hoàn thành</div>
+            </div>
+            <div className="text-5xl opacity-20">💰</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Quick Actions */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <Link href="/admin/users" className="p-4 border-2 border-blue-200 rounded-lg hover:bg-blue-50 transition-colors">
+          <div className="text-2xl mb-2">👥</div>
+          <div className="font-semibold">Quản lý người dùng</div>
+          <div className="text-sm text-gray-600">Xem, chỉnh sửa role, khóa tài khoản</div>
+        </Link>
+        <Link href="/admin/products" className="p-4 border-2 border-green-200 rounded-lg hover:bg-green-50 transition-colors">
+          <div className="text-2xl mb-2">📦</div>
+          <div className="font-semibold">Quản lý sản phẩm</div>
+          <div className="text-sm text-gray-600">Xem, ẩn/hiện, xóa sản phẩm</div>
+        </Link>
+        <Link href="/admin/orders" className="p-4 border-2 border-purple-200 rounded-lg hover:bg-purple-50 transition-colors">
+          <div className="text-2xl mb-2">🛍️</div>
+          <div className="font-semibold">Quản lý đơn hàng</div>
+          <div className="text-sm text-gray-600">Xem, cập nhật trạng thái đơn</div>
+        </Link>
+      </div>
 
       {/* Orders */}
       <section>

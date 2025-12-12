@@ -49,11 +49,9 @@ export default function CartPage() {
                   className={`p-4 flex items-center space-x-4 ${index !== cart.length - 1 ? 'border-b border-gray-100' : ''}`}
                 >
                   <div className="w-20 h-20 bg-gray-100 rounded border border-gray-200 flex items-center justify-center overflow-hidden flex-shrink-0">
-                    <Image 
-                      src={item.imageUrl || '/placeholder.jpg'} 
+                    <img 
+                      src={item.image || item.imageUrl || '/placeholder.jpg'} 
                       alt={item.name} 
-                      width={80} 
-                      height={80} 
                       className="object-cover w-full h-full" 
                     />
                   </div>

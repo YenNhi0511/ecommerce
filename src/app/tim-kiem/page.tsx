@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useAnalytics } from '@/context/AnalyticsContext';
 
 interface Product {
   _id: string;
@@ -21,6 +22,7 @@ export default function SearchPage() {
   const query = searchParams.get('q') || '';
   const [results, setResults] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
+  const analytics = useAnalytics();
 
   useEffect(() => {
     if (query.trim()) {
@@ -35,7 +37,13 @@ export default function SearchPage() {
     try {
       const response = await fetch(`/api/products?search=${encodeURIComponent(searchQuery)}`);
       const data = await response.json();
-      setResults(data.products || []);
+      const products = data.products || [];
+      setResults(products);
+      
+      // Track search event
+      if (analytics) {
+        analytics.trackSearch(searchQuery, products.length);
+      }
     } catch (error) {
       console.error('Search error:', error);
       setResults([]);

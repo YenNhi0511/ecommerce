@@ -159,21 +159,65 @@ export default function SellerPage() {
         </div>
       )}
 
+      {/* Statistics Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+        <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-4 rounded-lg shadow-lg">
+          <div className="text-sm opacity-90">Tổng sản phẩm</div>
+          <div className="text-3xl font-bold mt-2">{products.length}</div>
+          <div className="text-xs mt-1 opacity-75">Trong hệ thống</div>
+        </div>
+        <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-4 rounded-lg shadow-lg">
+          <div className="text-sm opacity-90">Tổng đơn hàng</div>
+          <div className="text-3xl font-bold mt-2">{orders.length}</div>
+          <div className="text-xs mt-1 opacity-75">Tất cả trạng thái</div>
+        </div>
+        <div className="bg-gradient-to-br from-yellow-500 to-yellow-600 text-white p-4 rounded-lg shadow-lg">
+          <div className="text-sm opacity-90">Đơn chờ xử lý</div>
+          <div className="text-3xl font-bold mt-2">{orders.filter(o => o.orderStatus === 'pending').length}</div>
+          <div className="text-xs mt-1 opacity-75">Cần xác nhận</div>
+        </div>
+        <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-4 rounded-lg shadow-lg">
+          <div className="text-sm opacity-90">Doanh thu</div>
+          <div className="text-3xl font-bold mt-2">
+            {(orders.filter(o => o.orderStatus === 'delivered').reduce((sum, o) => sum + (o.totalAmount || 0), 0) / 1000000).toFixed(1)}M
+          </div>
+          <div className="text-xs mt-1 opacity-75">Đơn đã giao</div>
+        </div>
+      </div>
+
       <section>
-        <h2 className="text-xl font-semibold mb-2">Sản phẩm của bạn</h2>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl font-semibold">Sản phẩm trong hệ thống</h2>
+          <a href="/seller/products" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+            📦 Quản lý sản phẩm
+          </a>
+        </div>
         {products.length === 0 ? (
-          <div>Chưa có sản phẩm nào.</div>
+          <div className="text-gray-500">Chưa có sản phẩm nào.</div>
         ) : (
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {products.map((p) => (
-              <li key={p._id} className="p-3 border rounded">
-                <div className="font-semibold">{p.name}</div>
-                <div className="text-sm text-gray-600">
-                  {p.price.toLocaleString("vi-VN")}₫
-                </div>
-              </li>
-            ))}
-          </ul>
+          <>
+            <div className="mb-3 text-sm text-gray-600">
+              Hiển thị 12 sản phẩm gần nhất
+            </div>
+            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {products.slice(0, 12).map((p) => (
+                <li key={p._id} className="p-3 border rounded hover:shadow-lg transition-shadow">
+                  <img src={p.images?.[0] || '/favicon.svg'} alt={p.name} className="w-full h-32 object-cover rounded mb-2" />
+                  <div className="font-semibold text-sm line-clamp-2">{p.name}</div>
+                  <div className="text-sm text-gray-600 mt-1">{p.brand}</div>
+                  <div className="text-red-600 font-bold mt-1">
+                    {p.price.toLocaleString("vi-VN")}₫
+                  </div>
+                  <div className="flex items-center justify-between mt-2 text-xs">
+                    <span className={`px-2 py-0.5 rounded ${(p.stock || 0) > 10 ? 'bg-green-100 text-green-700' : (p.stock || 0) > 0 ? 'bg-yellow-100 text-yellow-700' : 'bg-red-100 text-red-700'}`}>
+                      Kho: {p.stock || 0}
+                    </span>
+                    <span className="text-gray-500">Bán: {p.sold || 0}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </>
         )}
       </section>
 
