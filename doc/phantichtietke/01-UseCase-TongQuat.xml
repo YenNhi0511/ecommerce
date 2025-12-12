@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-13T10:00:00.000Z"
+    agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    etag="Use-Case-General" version="21.0.0" type="device">
+    <diagram id="Use-Case-General" name="Use Case Tổng Quát">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="0" />
+                <mxCell id="1" parent="0" />
+
+                <!-- System Boundary -->
+                <mxCell id="sys_boundary" value="Hệ Thống E-Commerce"
+                    style="shape=swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1"
+                    parent="1">
+                    <mxGeometry x="200" y="40" width="500" height="700" as="geometry" />
+                </mxCell>
+
+                <!-- Actors -->
+                <mxCell id="actor_guest" value="Khách vãng lai"
+                    style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="80" y="100" width="30" height="60" as="geometry" />
+                </mxCell>
+                <mxCell id="actor_customer" value="Khách hàng"
+                    style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="80" y="300" width="30" height="60" as="geometry" />
+                </mxCell>
+                <mxCell id="actor_seller" value="Người bán"
+                    style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="760" y="200" width="30" height="60" as="geometry" />
+                </mxCell>
+                <mxCell id="actor_admin" value="Quản trị viên"
+                    style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="760" y="500" width="30" height="60" as="geometry" />
+                </mxCell>
+
+                <!-- Inheritance -->
+                <mxCell id="inh_guest_cust" value=""
+                    style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;" edge="1"
+                    parent="1" source="actor_customer" target="actor_guest">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="100" y="290" as="sourcePoint" />
+                        <mxPoint x="100" y="190" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- Use Cases -->
+                <mxCell id="uc_view_product" value="Xem sản phẩm"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary">
+                    <mxGeometry x="50" y="40" width="140" height="70" as="geometry" />
+                </mxCell>
+                <mxCell id="uc_search" value="Tìm kiếm" style="ellipse;whiteSpace=wrap;html=1;"
+                    vertex="1" parent="sys_boundary">
+                    <mxGeometry x="50" y="130" width="140" height="70" as="geometry" />
+                </mxCell>
+                <mxCell id="uc_register" value="Đăng ký / Đăng nhập"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary">
+                    <mxGeometry x="280" y="40" width="140" height="70" as="geometry" />
+                </mxCell>
+                <mxCell id="uc_cart" value="Quản lý giỏ hàng"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary">
+                    <mxGeometry x="50" y="250" width="140" height="70" as="geometry" />
+                </mxCell>
+                <mxCell id="uc_checkout" value="Thanh toán" style="ellipse;whiteSpace=wrap;html=1;"
+                    vertex="1" parent="sys_boundary">
+                    <mxGeometry x="50" y="350" width="140" height="70" as="geometry" />
+                </mxCell>
+                <mxCell id="uc_manage_order" value="Quản lý đơn hàng"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary">
+                    <mxGeometry x="280" y="250" width="140" height="70" as="geometry" />
+                </mxCell>
+                <mxCell id="uc_manage_product" value="Quản lý sản phẩm"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary">
+                    <mxGeometry x="280" y="350" width="140" height="70" as="geometry" />
+                </mxCell>
+                <mxCell id="uc_analytics" value="Xem báo cáo thống kê"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary">
+                    <mxGeometry x="280" y="550" width="140" height="70" as="geometry" />
+                </mxCell>
+                <mxCell id="uc_manage_users" value="Quản lý người dùng"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary">
+                    <mxGeometry x="280" y="450" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <!-- Connections: Guest -->
+                <mxCell id="c_guest_view"
+                    style="endArrow=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1"
+                    parent="1" source="actor_guest" target="uc_view_product">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_guest_search"
+                    style="endArrow=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1"
+                    parent="1" source="actor_guest" target="uc_search">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_guest_reg"
+                    style="endArrow=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1"
+                    parent="1" source="actor_guest" target="uc_register">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+
+                <!-- Connections: Customer -->
+                <mxCell id="c_cust_cart"
+                    style="endArrow=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1"
+                    parent="1" source="actor_customer" target="uc_cart">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_cust_checkout"
+                    style="endArrow=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1"
+                    parent="1" source="actor_customer" target="uc_checkout">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_cust_order"
+                    style="endArrow=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1"
+                    parent="1" source="actor_customer" target="uc_manage_order">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+
+                <!-- Connections: Seller -->
+                <mxCell id="c_seller_prod"
+                    style="endArrow=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1"
+                    parent="1" source="uc_manage_product" target="actor_seller">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_seller_order"
+                    style="endArrow=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1"
+                    parent="1" source="uc_manage_order" target="actor_seller">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+
+                <!-- Connections: Admin -->
+                <mxCell id="c_admin_users"
+                    style="endArrow=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1"
+                    parent="1" source="uc_manage_users" target="actor_admin">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_admin_analytics"
+                    style="endArrow=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1"
+                    parent="1" source="uc_analytics" target="actor_admin">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_admin_prod"
+                    style="endArrow=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1"
+                    parent="1" source="uc_manage_product" target="actor_admin">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-13T10:15:00.000Z"
+    agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    etag="Use-Case-Seller" version="21.0.0" type="device">
+    <diagram id="Use-Case-Seller" name="Use Case Người Bán">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="0" />
+                <mxCell id="1" parent="0" />
+
+                <!-- System Boundary -->
+                <mxCell id="sys_boundary_seller" value="Phân hệ Người Bán (Seller)"
+                    style="shape=swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1"
+                    parent="1">
+                    <mxGeometry x="200" y="40" width="500" height="700" as="geometry" />
+                </mxCell>
+
+                <!-- Actor -->
+                <mxCell id="actor_seller_detail" value="Người bán"
+                    style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="80" y="300" width="30" height="60" as="geometry" />
+                </mxCell>
+
+                <!-- Use Cases -->
+                <mxCell id="uc_seller_login" value="Đăng nhập Seller"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_seller">
+                    <mxGeometry x="50" y="40" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_manage_my_products" value="Quản lý sản phẩm"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_seller">
+                    <mxGeometry x="50" y="150" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_add_product" value="Thêm sản phẩm mới"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_seller">
+                    <mxGeometry x="250" y="120" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_edit_product" value="Sửa thông tin SP"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_seller">
+                    <mxGeometry x="250" y="200" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_process_order" value="Xử lý đơn hàng"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_seller">
+                    <mxGeometry x="50" y="300" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_update_status" value="Cập nhật trạng thái"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_seller">
+                    <mxGeometry x="250" y="300" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_view_sales" value="Xem doanh số"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_seller">
+                    <mxGeometry x="50" y="400" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <!-- Relationships -->
+                <mxCell id="rel_extend_add" value="&lt;&lt;extend&gt;&gt;"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" edge="1"
+                    parent="sys_boundary_seller" source="uc_add_product"
+                    target="uc_manage_my_products">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <mxCell id="rel_extend_edit" value="&lt;&lt;extend&gt;&gt;"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" edge="1"
+                    parent="sys_boundary_seller" source="uc_edit_product"
+                    target="uc_manage_my_products">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <mxCell id="rel_include_status" value="&lt;&lt;include&gt;&gt;"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" edge="1"
+                    parent="sys_boundary_seller" source="uc_process_order" target="uc_update_status">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <!-- Actor Connections -->
+                <mxCell id="c_seller_login" style="endArrow=none;html=1;" edge="1" parent="1"
+                    source="actor_seller_detail" target="uc_seller_login">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_seller_prods" style="endArrow=none;html=1;" edge="1" parent="1"
+                    source="actor_seller_detail" target="uc_manage_my_products">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_seller_orders" style="endArrow=none;html=1;" edge="1" parent="1"
+                    source="actor_seller_detail" target="uc_process_order">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_seller_sales" style="endArrow=none;html=1;" edge="1" parent="1"
+                    source="actor_seller_detail" target="uc_view_sales">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-13T10:10:00.000Z"
+    agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    etag="Use-Case-Admin" version="21.0.0" type="device">
+    <diagram id="Use-Case-Admin" name="Use Case Quản Trị Viên">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="0" />
+                <mxCell id="1" parent="0" />
+
+                <!-- System Boundary -->
+                <mxCell id="sys_boundary_admin" value=""
+                    style="shape=swimlane;whiteSpace=wrap;html=1;startSize=0;" vertex="1"
+                    parent="1">
+                    <mxGeometry x="200" y="40" width="500" height="700" as="geometry" />
+                </mxCell>
+
+                <!-- Actor -->
+                <mxCell id="actor_admin_detail" value="Quản trị viên"
+                    style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="80" y="300" width="30" height="60" as="geometry" />
+                </mxCell>
+
+                <!-- Use Cases -->
+                <mxCell id="uc_admin_login" value="Đăng nhập Admin"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_admin">
+                    <mxGeometry x="50" y="40" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_manage_users_detail" value="Quản lý người dùng"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_admin">
+                    <mxGeometry x="50" y="150" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_block_user" value="Khóa/Mở khóa User"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_admin">
+                    <mxGeometry x="250" y="120" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_assign_role" value="Phân quyền"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_admin">
+                    <mxGeometry x="250" y="200" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_manage_categories" value="Quản lý danh mục"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_admin">
+                    <mxGeometry x="50" y="300" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_view_reports" value="Xem báo cáo doanh thu"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_admin">
+                    <mxGeometry x="50" y="400" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_view_funnel" value="Xem phễu chuyển đổi"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_admin">
+                    <mxGeometry x="250" y="400" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_sys_settings" value="Cấu hình hệ thống"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_admin">
+                    <mxGeometry x="50" y="500" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <!-- Relationships -->
+                <mxCell id="rel_extend_block" value="&lt;&lt;extend&gt;&gt;"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" edge="1"
+                    parent="sys_boundary_admin" source="uc_block_user"
+                    target="uc_manage_users_detail">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <mxCell id="rel_extend_role" value="&lt;&lt;extend&gt;&gt;"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" edge="1"
+                    parent="sys_boundary_admin" source="uc_assign_role"
+                    target="uc_manage_users_detail">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <mxCell id="rel_extend_funnel" value="&lt;&lt;extend&gt;&gt;"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" edge="1"
+                    parent="sys_boundary_admin" source="uc_view_funnel" target="uc_view_reports">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <!-- Actor Connections -->
+                <mxCell id="c_admin_login" style="endArrow=none;html=1;" edge="1" parent="1"
+                    source="actor_admin_detail" target="uc_admin_login">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_admin_users" style="endArrow=none;html=1;" edge="1" parent="1"
+                    source="actor_admin_detail" target="uc_manage_users_detail">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_admin_cats" style="endArrow=none;html=1;" edge="1" parent="1"
+                    source="actor_admin_detail" target="uc_manage_categories">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_admin_reps" style="endArrow=none;html=1;" edge="1" parent="1"
+                    source="actor_admin_detail" target="uc_view_reports">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_admin_sets" style="endArrow=none;html=1;" edge="1" parent="1"
+                    source="actor_admin_detail" target="uc_sys_settings">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

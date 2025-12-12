@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-13T11:00:00.000Z"
+    agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    etag="08-Sequence-Login-LinkSession" version="21.0.0" type="device">
+    <diagram id="08-Sequence-Login-LinkSession" name="08-Sequence-Login-LinkSession">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p8_0" />
+                <mxCell id="p8_1" parent="p8_0" />
+                <mxCell id="p8_guest" value="Guest"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="p8_1">
+                    <mxGeometry x="40" y="40" width="100" height="400" as="geometry" />
+                </mxCell>
+                <mxCell id="p8_ui" value="Frontend"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="p8_1">
+                    <mxGeometry x="200" y="40" width="100" height="400" as="geometry" />
+                </mxCell>
+                <mxCell id="p8_auth" value="Auth API"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="p8_1">
+                    <mxGeometry x="360" y="40" width="100" height="400" as="geometry" />
+                </mxCell>
+                <mxCell id="p8_db" value="Database"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="p8_1">
+                    <mxGeometry x="520" y="40" width="100" height="400" as="geometry" />
+                </mxCell>
+                <mxCell id="p8_m1" value="Enter Credentials"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="p8_1" source="p8_guest" target="p8_ui">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="90" y="100" as="sourcePoint" />
+                        <mxPoint x="250" y="100" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="150" y="100" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="p8_m2" value="POST /auth/login"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="p8_1" source="p8_ui" target="p8_auth">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="250" y="140" as="sourcePoint" />
+                        <mxPoint x="410" y="140" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="310" y="140" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="p8_m3" value="Verify User"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="p8_1" source="p8_auth" target="p8_db">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="410" y="180" as="sourcePoint" />
+                        <mxPoint x="570" y="180" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="470" y="180" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="p8_m4" value="Link Session (Anon -> User)"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="p8_1" source="p8_auth" target="p8_db">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="410" y="220" as="sourcePoint" />
+                        <mxPoint x="570" y="220" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="470" y="220" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="p8_m5" value="Return Token"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0;"
+                    edge="1" parent="p8_1" source="p8_auth" target="p8_ui">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="410" y="260" as="sourcePoint" />
+                        <mxPoint x="250" y="260" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="330" y="260" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

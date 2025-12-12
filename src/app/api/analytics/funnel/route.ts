@@ -39,31 +39,35 @@ export async function GET(req: NextRequest) {
       }).then(arr => arr.length),
     ]);
 
-    // Calculate conversion rates
+    // Calculate conversion rates properly
     const funnel = [
       {
-        stage: 'Product Views',
+        stage: 'Lượt Xem Sản Phẩm',
         count: productViews,
-        percentage: 100,
-        dropOff: 0,
-      },
-      {
-        stage: 'Add to Cart',
-        count: addToCarts,
-        percentage: productViews > 0 ? ((addToCarts / productViews) * 100).toFixed(1) : 0,
+        percentage: productViews > 0 ? 100 : 0, // Always 100% if exists
         dropOff: productViews - addToCarts,
+        dropOffPercentage: productViews > 0 ? (((productViews - addToCarts) / productViews) * 100).toFixed(1) : 0,
       },
       {
-        stage: 'Checkout',
-        count: checkouts,
-        percentage: productViews > 0 ? ((checkouts / productViews) * 100).toFixed(1) : 0,
+        stage: 'Thêm Vào Giỏ',
+        count: addToCarts,
+        percentage: productViews > 0 ? parseFloat(((addToCarts / productViews) * 100).toFixed(1)) : 0,
         dropOff: addToCarts - checkouts,
+        dropOffPercentage: addToCarts > 0 ? (((addToCarts - checkouts) / addToCarts) * 100).toFixed(1) : 0,
       },
       {
-        stage: 'Order Complete',
-        count: orders,
-        percentage: productViews > 0 ? ((orders / productViews) * 100).toFixed(1) : 0,
+        stage: 'Thanh Toán',
+        count: checkouts,
+        percentage: productViews > 0 ? parseFloat(((checkouts / productViews) * 100).toFixed(1)) : 0,
         dropOff: checkouts - orders,
+        dropOffPercentage: checkouts > 0 ? (((checkouts - orders) / checkouts) * 100).toFixed(1) : 0,
+      },
+      {
+        stage: 'Hoàn Tất Đơn',
+        count: orders,
+        percentage: productViews > 0 ? parseFloat(((orders / productViews) * 100).toFixed(1)) : 0,
+        dropOff: 0, // Final stage has no dropoff
+        dropOffPercentage: 0,
       },
     ];
 

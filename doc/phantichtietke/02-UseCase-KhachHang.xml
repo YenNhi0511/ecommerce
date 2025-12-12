@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-13T10:05:00.000Z"
+    agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    etag="Use-Case-Customer" version="21.0.0" type="device">
+    <diagram id="Use-Case-Customer" name="Use Case Khách Hàng">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="0" />
+                <mxCell id="1" parent="0" />
+
+                <!-- System Boundary -->
+                <mxCell id="sys_boundary_cust" value="Phân hệ Khách Hàng"
+                    style="shape=swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1"
+                    parent="1">
+                    <mxGeometry x="200" y="40" width="500" height="700" as="geometry" />
+                </mxCell>
+
+                <!-- Actor -->
+                <mxCell id="actor_customer_detail" value="Khách hàng"
+                    style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="80" y="300" width="30" height="60" as="geometry" />
+                </mxCell>
+
+                <!-- Use Cases -->
+                <mxCell id="uc_login" value="Đăng nhập" style="ellipse;whiteSpace=wrap;html=1;"
+                    vertex="1" parent="sys_boundary_cust">
+                    <mxGeometry x="50" y="40" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_add_cart" value="Thêm vào giỏ"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_cust">
+                    <mxGeometry x="50" y="150" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_view_cart" value="Xem giỏ hàng"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_cust">
+                    <mxGeometry x="250" y="150" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_checkout_detail" value="Tiến hành thanh toán"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_cust">
+                    <mxGeometry x="50" y="260" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_payment_online" value="Thanh toán Online"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_cust">
+                    <mxGeometry x="250" y="220" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_payment_cod" value="Thanh toán COD"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_cust">
+                    <mxGeometry x="250" y="300" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_track_order" value="Theo dõi đơn hàng"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_cust">
+                    <mxGeometry x="50" y="400" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_review" value="Đánh giá sản phẩm"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_cust">
+                    <mxGeometry x="50" y="500" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_wishlist" value="Yêu thích sản phẩm"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_cust">
+                    <mxGeometry x="250" y="500" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="uc_profile" value="Quản lý hồ sơ"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sys_boundary_cust">
+                    <mxGeometry x="50" y="600" width="140" height="70" as="geometry" />
+                </mxCell>
+
+                <!-- Relationships -->
+                <!-- Include/Extend -->
+                <mxCell id="rel_include_checkout" value="&lt;&lt;include&gt;&gt;"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" edge="1"
+                    parent="sys_boundary_cust" source="uc_checkout_detail" target="uc_login">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <mxCell id="rel_extend_pay_online" value="&lt;&lt;extend&gt;&gt;"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" edge="1"
+                    parent="sys_boundary_cust" source="uc_payment_online"
+                    target="uc_checkout_detail">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <mxCell id="rel_extend_pay_cod" value="&lt;&lt;extend&gt;&gt;"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" edge="1"
+                    parent="sys_boundary_cust" source="uc_payment_cod" target="uc_checkout_detail">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <!-- Actor Connections -->
+                <mxCell id="c_cust_login" style="endArrow=none;html=1;" edge="1" parent="1"
+                    source="actor_customer_detail" target="uc_login">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_cust_add" style="endArrow=none;html=1;" edge="1" parent="1"
+                    source="actor_customer_detail" target="uc_add_cart">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_cust_check" style="endArrow=none;html=1;" edge="1" parent="1"
+                    source="actor_customer_detail" target="uc_checkout_detail">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_cust_track" style="endArrow=none;html=1;" edge="1" parent="1"
+                    source="actor_customer_detail" target="uc_track_order">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_cust_review" style="endArrow=none;html=1;" edge="1" parent="1"
+                    source="actor_customer_detail" target="uc_review">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="c_cust_prof" style="endArrow=none;html=1;" edge="1" parent="1"
+                    source="actor_customer_detail" target="uc_profile">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry" />
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

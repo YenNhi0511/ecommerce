@@ -88,7 +88,7 @@ export default function AnalyticsPage() {
   return (
     <div className="container mx-auto p-6">
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-3xl font-bold">📊 Analytics Dashboard</h1>
+        <h1 className="text-3xl font-bold">📊 Bảng Điều Khiển Phân Tích</h1>
         <select
           value={timeRange}
           onChange={(e) => setTimeRange(Number(e.target.value))}
@@ -284,27 +284,27 @@ export default function AnalyticsPage() {
           {/* Overview Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
             <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-4 rounded-lg shadow">
-              <div className="text-sm opacity-90">Total Events</div>
+              <div className="text-sm opacity-90">Tổng Sự Kiện</div>
               <div className="text-3xl font-bold mt-2">{data.overview.totalEvents.toLocaleString()}</div>
             </div>
             <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-4 rounded-lg shadow">
-              <div className="text-sm opacity-90">Unique Users</div>
+              <div className="text-sm opacity-90">Người Dùng</div>
               <div className="text-3xl font-bold mt-2">{data.overview.uniqueUsers.toLocaleString()}</div>
             </div>
             <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-4 rounded-lg shadow">
-              <div className="text-sm opacity-90">Product Views</div>
+              <div className="text-sm opacity-90">Lượt Xem</div>
               <div className="text-3xl font-bold mt-2">{data.overview.productViews.toLocaleString()}</div>
             </div>
             <div className="bg-gradient-to-br from-yellow-500 to-yellow-600 text-white p-4 rounded-lg shadow">
-              <div className="text-sm opacity-90">Add to Cart</div>
+              <div className="text-sm opacity-90">Thêm Giỏ Hàng</div>
               <div className="text-3xl font-bold mt-2">{data.overview.addToCarts.toLocaleString()}</div>
             </div>
             <div className="bg-gradient-to-br from-orange-500 to-orange-600 text-white p-4 rounded-lg shadow">
-              <div className="text-sm opacity-90">Orders</div>
+              <div className="text-sm opacity-90">Đơn Hàng</div>
               <div className="text-3xl font-bold mt-2">{data.overview.orders.toLocaleString()}</div>
             </div>
             <div className="bg-gradient-to-br from-red-500 to-red-600 text-white p-4 rounded-lg shadow">
-              <div className="text-sm opacity-90">Conversion Rate</div>
+              <div className="text-sm opacity-90">Tỷ Lệ Chuyển Đổi</div>
               <div className="text-3xl font-bold mt-2">{data.overview.conversionRate}%</div>
             </div>
           </div>
@@ -312,14 +312,14 @@ export default function AnalyticsPage() {
           {/* Conversion Funnel */}
           {funnelData && (
             <div className="bg-white rounded-lg shadow p-6 mb-8">
-              <h2 className="text-2xl font-bold mb-4">🔄 Conversion Funnel</h2>
+              <h2 className="text-2xl font-bold mb-4">🔄 Phễu Chuyển Đổi</h2>
               <div className="space-y-3">
                 {funnelData.funnel.map((stage, index) => (
                   <div key={index} className="relative">
                     <div className="flex items-center justify-between mb-1">
                       <span className="font-semibold">{stage.stage}</span>
                       <span className="text-sm text-gray-600">
-                        {stage.count.toLocaleString()} ({stage.percentage}%)
+                        {stage.count.toLocaleString()} ({typeof stage.percentage === 'string' ? stage.percentage : stage.percentage.toFixed(1)}%)
                       </span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-8 relative overflow-hidden">
@@ -330,16 +330,19 @@ export default function AnalyticsPage() {
                           index === 2 ? 'bg-yellow-500' :
                           'bg-red-500'
                         }`}
-                        style={{ width: `${stage.percentage}%` }}
+                        style={{ width: `${typeof stage.percentage === 'string' ? stage.percentage : stage.percentage.toFixed(1)}%` }}
                       >
-                        <span className="absolute left-3 top-1 text-white font-semibold text-sm">
-                          {stage.count.toLocaleString()}
-                        </span>
+                        {stage.count > 0 && (
+                          <span className="absolute left-3 top-1 text-white font-semibold text-sm">
+                            {stage.count.toLocaleString()}
+                          </span>
+                        )}
                       </div>
                     </div>
-                    {stage.dropOff > 0 && (
+                    {/* Show drop-off ONLY if not last stage and has drop-off */}
+                    {index < funnelData.funnel.length - 1 && stage.dropOff > 0 && (
                       <div className="text-xs text-red-600 mt-1">
-                        ⚠️ Drop-off: {stage.dropOff.toLocaleString()} users
+                        ⚠️ Drop-off: {stage.dropOff.toLocaleString()} users ({stage.dropOffPercentage}%)
                       </div>
                     )}
                   </div>
@@ -352,7 +355,7 @@ export default function AnalyticsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
             {/* Top Products Bar Chart */}
             <div className="bg-white rounded-lg shadow p-6">
-              <h2 className="text-2xl font-bold mb-4">🔥 Top Viewed Products</h2>
+              <h2 className="text-2xl font-bold mb-4">🔥 Sản Phẩm Xem Nhiều Nhất</h2>
               {data.topProducts.length > 0 ? (
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={data.topProducts}>
@@ -377,7 +380,7 @@ export default function AnalyticsPage() {
 
             {/* Top Searches Pie Chart */}
             <div className="bg-white rounded-lg shadow p-6">
-              <h2 className="text-2xl font-bold mb-4">🔍 Top Search Queries</h2>
+              <h2 className="text-2xl font-bold mb-4">🔍 Từ Khóa Tìm Kiếm Hàng Đầu</h2>
               {data.topSearches.length > 0 ? (
                 <ResponsiveContainer width="100%" height={300}>
                   <PieChart>
@@ -406,12 +409,12 @@ export default function AnalyticsPage() {
 
           {/* Event Type Distribution */}
           <div className="bg-white rounded-lg shadow p-6 mb-8">
-            <h2 className="text-2xl font-bold mb-4">📊 Phân bố loại sự kiện</h2>
+            <h2 className="text-2xl font-bold mb-4">📊 Phân Bố Loại Sự Kiện</h2>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={[
-                { name: 'Product Views', count: data.overview.productViews, fill: '#3B82F6' },
-                { name: 'Add to Cart', count: data.overview.addToCarts, fill: '#10B981' },
-                { name: 'Orders', count: data.overview.orders, fill: '#EF4444' },
+                { name: 'Lượt Xem', count: data.overview.productViews, fill: '#3B82F6' },
+                { name: 'Thêm Giỏ Hàng', count: data.overview.addToCarts, fill: '#10B981' },
+                { name: 'Đơn Hàng', count: data.overview.orders, fill: '#EF4444' },
               ]}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
@@ -424,12 +427,12 @@ export default function AnalyticsPage() {
 
           {/* Info Card */}
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h3 className="font-semibold text-blue-900 mb-2">💡 Analytics Tips</h3>
+            <h3 className="font-semibold text-blue-900 mb-2">💡 Mẹo Phân Tích</h3>
             <ul className="text-sm text-blue-800 space-y-1">
-              <li>• Tracking tự động: Tất cả hành vi người dùng đang được ghi nhận</li>
-              <li>• Dữ liệu real-time: Cập nhật mỗi khi người dùng tương tác</li>
-              <li>• Conversion funnel: Theo dõi tỷ lệ chuyển đổi qua từng bước</li>
-              <li>• Top products: Xác định sản phẩm hot để tối ưu inventory</li>
+              <li>• Theo dõi tự động: Tất cả hành vi người dùng đang được ghi nhận</li>
+              <li>• Dữ liệu thời gian thực: Cập nhật mỗi khi người dùng tương tác</li>
+              <li>• Phễu chuyển đổi: Theo dõi tỷ lệ chuyển đổi qua từng bước</li>
+              <li>• Sản phẩm hàng đầu: Xác định sản phẩm hot để tối ưu kho hàng</li>
             </ul>
           </div>
         </>

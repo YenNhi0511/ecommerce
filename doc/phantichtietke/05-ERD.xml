@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-13T11:00:00.000Z"
+    agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    etag="05-ERD" version="21.0.0" type="device">
+    <diagram id="05-ERD" name="05-ERD">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p5_0" />
+                <mxCell id="p5_1" parent="p5_0" />
+                <mxCell id="p5_user" value="Users"
+                    style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;"
+                    vertex="1" parent="p5_1">
+                    <mxGeometry x="40" y="40" width="160" height="160" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_u1" value="_id (PK)"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_user">
+                    <mxGeometry y="26" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_u2" value="email"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_user">
+                    <mxGeometry y="52" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_u3" value="password"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_user">
+                    <mxGeometry y="78" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_u4" value="role"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_user">
+                    <mxGeometry y="104" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_u5" value="addresses[]"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_user">
+                    <mxGeometry y="130" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_prod" value="Products"
+                    style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;"
+                    vertex="1" parent="p5_1">
+                    <mxGeometry x="300" y="40" width="160" height="160" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_p1" value="_id (PK)"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_prod">
+                    <mxGeometry y="26" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_p2" value="name"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_prod">
+                    <mxGeometry y="52" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_p3" value="price"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_prod">
+                    <mxGeometry y="78" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_p4" value="category"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_prod">
+                    <mxGeometry y="104" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_p5" value="createdBy (FK)"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_prod">
+                    <mxGeometry y="130" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_order" value="Orders"
+                    style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;"
+                    vertex="1" parent="p5_1">
+                    <mxGeometry x="40" y="300" width="160" height="180" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_o1" value="_id (PK)"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_order">
+                    <mxGeometry y="26" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_o2" value="user (FK)"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_order">
+                    <mxGeometry y="52" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_o3" value="totalAmount"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_order">
+                    <mxGeometry y="78" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_o4" value="status"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_order">
+                    <mxGeometry y="104" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_o5" value="paymentMethod"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_order">
+                    <mxGeometry y="130" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_oitem" value="OrderItems"
+                    style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;"
+                    vertex="1" parent="p5_1">
+                    <mxGeometry x="300" y="300" width="160" height="100" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_oi1" value="product (FK)"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_oitem">
+                    <mxGeometry y="26" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_oi2" value="quantity"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_oitem">
+                    <mxGeometry y="52" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_beh" value="UserBehavior"
+                    style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;"
+                    vertex="1" parent="p5_1">
+                    <mxGeometry x="560" y="40" width="160" height="160" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_b1" value="_id (PK)"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_beh">
+                    <mxGeometry y="26" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_b2" value="userId (FK)"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_beh">
+                    <mxGeometry y="52" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_b3" value="event"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_beh">
+                    <mxGeometry y="78" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_b4" value="sessionId"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_beh">
+                    <mxGeometry y="104" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_r1"
+                    style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;"
+                    edge="1" parent="p5_1" source="p5_user" target="p5_prod">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_r2"
+                    style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;"
+                    edge="1" parent="p5_1" source="p5_user" target="p5_order">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_r3"
+                    style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;"
+                    edge="1" parent="p5_1" source="p5_order" target="p5_oitem">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_r4"
+                    style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;"
+                    edge="1" parent="p5_1" source="p5_prod" target="p5_oitem">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_r5"
+                    style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;"
+                    edge="1" parent="p5_1" source="p5_user" target="p5_beh">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="220" y="120" />
+                            <mxPoint x="220" y="120" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

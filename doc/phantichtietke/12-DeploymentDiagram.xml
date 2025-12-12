@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-13T11:05:00.000Z"
+    agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    etag="12-DeploymentDiagram" version="21.0.0" type="device">
+    <diagram id="12-DeploymentDiagram" name="12-DeploymentDiagram">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p12_0" />
+                <mxCell id="p12_1" parent="p12_0" />
+                <mxCell id="p12_client" value="Client Device"
+                    style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;"
+                    vertex="1" parent="p12_1">
+                    <mxGeometry x="100" y="100" width="150" height="120" as="geometry" />
+                </mxCell>
+                <mxCell id="p12_browser" value="Web Browser"
+                    style="shape=module;align=left;spacingLeft=20;spacingTop=7;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+                    vertex="1" parent="p12_client">
+                    <mxGeometry x="10" y="30" width="100" height="50" as="geometry" />
+                </mxCell>
+                <mxCell id="p12_server" value="Web Server (Vercel/Node)"
+                    style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;"
+                    vertex="1" parent="p12_1">
+                    <mxGeometry x="350" y="100" width="150" height="120" as="geometry" />
+                </mxCell>
+                <mxCell id="p12_next" value="Next.js App"
+                    style="shape=module;align=left;spacingLeft=20;spacingTop=7;fillColor=#d5e8d4;strokeColor=#82b366;"
+                    vertex="1" parent="p12_server">
+                    <mxGeometry x="10" y="30" width="100" height="50" as="geometry" />
+                </mxCell>
+                <mxCell id="p12_db_node" value="Database Server"
+                    style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;"
+                    vertex="1" parent="p12_1">
+                    <mxGeometry x="350" y="300" width="150" height="120" as="geometry" />
+                </mxCell>
+                <mxCell id="p12_mongo" value="MongoDB Atlas"
+                    style="shape=module;align=left;spacingLeft=20;spacingTop=7;fillColor=#fff2cc;strokeColor=#d6b656;"
+                    vertex="1" parent="p12_db_node">
+                    <mxGeometry x="10" y="30" width="100" height="50" as="geometry" />
+                </mxCell>
+                <mxCell id="p12_r1" value="HTTPS" style="endArrow=none;html=1;" edge="1"
+                    parent="p12_1" source="p12_client" target="p12_server">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p12_r2" value="TCP/IP" style="endArrow=none;html=1;" edge="1"
+                    parent="p12_1" source="p12_server" target="p12_db_node">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

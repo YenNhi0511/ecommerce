@@ -10,20 +10,35 @@ export default function WishlistButton({ productId }: { productId: string }) {
   useEffect(() => {
     let mounted = true;
     async function load() {
-      if (!user) return;
+      if (!user || !token) return; // Only load if user is authenticated
       try {
-        const resp = await fetch('/api/wishlist');
+        const resp = await fetch('/api/wishlist', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        
+        // Handle 401 gracefully - user not authenticated
+        if (resp.status === 401) {
+          if (mounted) setInWishlist(false);
+          return;
+        }
+        
+        if (!resp.ok) {
+          console.warn('Failed to load wishlist:', resp.status);
+          return;
+        }
+        
         const data = await resp.json();
         if (!mounted) return;
         const ids = (data.wishlist || []).map((p: any) => String(p._id || p));
         setInWishlist(ids.includes(String(productId)));
       } catch (e) {
-        // ignore
+        // Silently ignore errors - don't block UI
+        if (mounted) setInWishlist(false);
       }
     }
     load();
     return () => { mounted = false; };
-  }, [user, productId]);
+  }, [user, productId, token]);
 
   const toggle = async () => {
     if (!user) {

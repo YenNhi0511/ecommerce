@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-13T11:05:00.000Z"
+    agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    etag="10-StateMachine-Order" version="21.0.0" type="device">
+    <diagram id="10-StateMachine-Order" name="10-StateMachine-Order">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p10_0" />
+                <mxCell id="p10_1" parent="p10_0" />
+                <mxCell id="p10_start" value=""
+                    style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;"
+                    vertex="1" parent="p10_1">
+                    <mxGeometry x="100" y="40" width="30" height="30" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_s1" value="Pending"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="p10_1">
+                    <mxGeometry x="65" y="120" width="100" height="40" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_s2" value="Processing"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="p10_1">
+                    <mxGeometry x="65" y="200" width="100" height="40" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_s3" value="Shipped"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="p10_1">
+                    <mxGeometry x="65" y="280" width="100" height="40" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_s4" value="Delivered"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="p10_1">
+                    <mxGeometry x="65" y="360" width="100" height="40" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_s5" value="Cancelled"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="p10_1">
+                    <mxGeometry x="250" y="200" width="100" height="40" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_end" value=""
+                    style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;"
+                    vertex="1" parent="p10_1">
+                    <mxGeometry x="100" y="450" width="30" height="30" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_e1" value=""
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p10_1" source="p10_start" target="p10_s1">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_e2" value="Confirm"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p10_1" source="p10_s1" target="p10_s2">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_e3" value="Ship"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p10_1" source="p10_s2" target="p10_s3">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_e4" value="Deliver"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p10_1" source="p10_s3" target="p10_s4">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_e5" value=""
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p10_1" source="p10_s4" target="p10_end">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_e6" value="Cancel"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p10_1" source="p10_s1" target="p10_s5">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_e7" value=""
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;entryX=1;entryY=0.5;entryDx=0;entryDy=0;"
+                    edge="1" parent="p10_1" source="p10_s5" target="p10_end">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="300" y="465" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

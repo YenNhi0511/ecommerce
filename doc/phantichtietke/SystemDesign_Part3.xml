@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-13T11:05:00.000Z"
+    agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    etag="SystemDesign-Part3" version="21.0.0" type="device">
+
+    <!-- PAGE 9: Activity Order Fulfillment -->
+    <diagram id="09-Activity-OrderFulfillment" name="09-Activity-OrderFulfillment">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p9_0" />
+                <mxCell id="p9_1" parent="p9_0" />
+
+                <mxCell id="p9_start" value=""
+                    style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;"
+                    vertex="1" parent="p9_1">
+                    <mxGeometry x="390" y="40" width="30" height="30" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p9_act1" value="Nhận đơn hàng"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="p9_1">
+                    <mxGeometry x="345" y="100" width="120" height="40" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p9_dec1" value="Còn hàng?"
+                    style="rhombus;whiteSpace=wrap;html=1;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="p9_1">
+                    <mxGeometry x="365" y="170" width="80" height="40" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p9_act2" value="Xác nhận đơn"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="p9_1">
+                    <mxGeometry x="345" y="250" width="120" height="40" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p9_act3" value="Hủy đơn"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="p9_1">
+                    <mxGeometry x="500" y="170" width="120" height="40" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p9_act4" value="Đóng gói"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="p9_1">
+                    <mxGeometry x="345" y="320" width="120" height="40" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p9_act5" value="Giao hàng"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="p9_1">
+                    <mxGeometry x="345" y="390" width="120" height="40" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p9_end" value=""
+                    style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;"
+                    vertex="1" parent="p9_1">
+                    <mxGeometry x="390" y="470" width="30" height="30" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p9_e1" value=""
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p9_1" source="p9_start" target="p9_act1">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p9_e2" value=""
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p9_1" source="p9_act1" target="p9_dec1">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p9_e3" value="Có"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p9_1" source="p9_dec1" target="p9_act2">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p9_e4" value="Không"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p9_1" source="p9_dec1" target="p9_act3">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p9_e5" value=""
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p9_1" source="p9_act2" target="p9_act4">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p9_e6" value=""
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p9_1" source="p9_act4" target="p9_act5">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p9_e7" value=""
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p9_1" source="p9_act5" target="p9_end">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p9_e8" value=""
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;entryX=1;entryY=0.5;entryDx=0;entryDy=0;"
+                    edge="1" parent="p9_1" source="p9_act3" target="p9_end">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="560" y="485" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+
+    <!-- PAGE 10: State Machine Order -->
+    <diagram id="10-StateMachine-Order" name="10-StateMachine-Order">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p10_0" />
+                <mxCell id="p10_1" parent="p10_0" />
+
+                <mxCell id="p10_start" value=""
+                    style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;"
+                    vertex="1" parent="p10_1">
+                    <mxGeometry x="100" y="40" width="30" height="30" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p10_s1" value="Pending"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="p10_1">
+                    <mxGeometry x="65" y="120" width="100" height="40" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p10_s2" value="Processing"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="p10_1">
+                    <mxGeometry x="65" y="200" width="100" height="40" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p10_s3" value="Shipped"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="p10_1">
+                    <mxGeometry x="65" y="280" width="100" height="40" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p10_s4" value="Delivered"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="p10_1">
+                    <mxGeometry x="65" y="360" width="100" height="40" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p10_s5" value="Cancelled"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="p10_1">
+                    <mxGeometry x="250" y="200" width="100" height="40" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p10_end" value=""
+                    style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;"
+                    vertex="1" parent="p10_1">
+                    <mxGeometry x="100" y="450" width="30" height="30" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p10_e1" value=""
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p10_1" source="p10_start" target="p10_s1">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_e2" value="Confirm"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p10_1" source="p10_s1" target="p10_s2">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_e3" value="Ship"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p10_1" source="p10_s2" target="p10_s3">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_e4" value="Deliver"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p10_1" source="p10_s3" target="p10_s4">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_e5" value=""
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p10_1" source="p10_s4" target="p10_end">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_e6" value="Cancel"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
+                    edge="1" parent="p10_1" source="p10_s1" target="p10_s5">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p10_e7" value=""
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;entryX=1;entryY=0.5;entryDx=0;entryDy=0;"
+                    edge="1" parent="p10_1" source="p10_s5" target="p10_end">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="300" y="465" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+
+    <!-- PAGE 11: Component Diagram -->
+    <diagram id="11-ComponentDiagram" name="11-ComponentDiagram">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p11_0" />
+                <mxCell id="p11_1" parent="p11_0" />
+
+                <mxCell id="p11_fe" value="Next.js Frontend"
+                    style="shape=component;align=left;spacingLeft=36;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+                    vertex="1" parent="p11_1">
+                    <mxGeometry x="100" y="100" width="160" height="60" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p11_api" value="API Routes (Next.js)"
+                    style="shape=component;align=left;spacingLeft=36;fillColor=#d5e8d4;strokeColor=#82b366;"
+                    vertex="1" parent="p11_1">
+                    <mxGeometry x="350" y="100" width="160" height="60" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p11_db" value="MongoDB"
+                    style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;"
+                    vertex="1" parent="p11_1">
+                    <mxGeometry x="390" y="250" width="80" height="80" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p11_auth" value="Auth Module"
+                    style="shape=component;align=left;spacingLeft=36;fillColor=#f8cecc;strokeColor=#b85450;"
+                    vertex="1" parent="p11_1">
+                    <mxGeometry x="350" y="20" width="160" height="60" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p11_r1" value="HTTP/JSON"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0.5;entryDx=0;entryDy=0;"
+                    edge="1" parent="p11_1" source="p11_fe" target="p11_api">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p11_r2" value="Mongoose"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;"
+                    edge="1" parent="p11_1" source="p11_api" target="p11_db">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p11_r3" value="Use"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;entryX=0.5;entryY=1;entryDx=0;entryDy=0;"
+                    edge="1" parent="p11_1" source="p11_api" target="p11_auth">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+
+    <!-- PAGE 12: Deployment Diagram -->
+    <diagram id="12-DeploymentDiagram" name="12-DeploymentDiagram">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p12_0" />
+                <mxCell id="p12_1" parent="p12_0" />
+
+                <mxCell id="p12_client" value="Client Device"
+                    style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;"
+                    vertex="1" parent="p12_1">
+                    <mxGeometry x="100" y="100" width="150" height="120" as="geometry" />
+                </mxCell>
+                <mxCell id="p12_browser" value="Web Browser"
+                    style="shape=module;align=left;spacingLeft=20;spacingTop=7;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+                    vertex="1" parent="p12_client">
+                    <mxGeometry x="10" y="30" width="100" height="50" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p12_server" value="Web Server (Vercel/Node)"
+                    style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;"
+                    vertex="1" parent="p12_1">
+                    <mxGeometry x="350" y="100" width="150" height="120" as="geometry" />
+                </mxCell>
+                <mxCell id="p12_next" value="Next.js App"
+                    style="shape=module;align=left;spacingLeft=20;spacingTop=7;fillColor=#d5e8d4;strokeColor=#82b366;"
+                    vertex="1" parent="p12_server">
+                    <mxGeometry x="10" y="30" width="100" height="50" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p12_db_node" value="Database Server"
+                    style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;"
+                    vertex="1" parent="p12_1">
+                    <mxGeometry x="350" y="300" width="150" height="120" as="geometry" />
+                </mxCell>
+                <mxCell id="p12_mongo" value="MongoDB Atlas"
+                    style="shape=module;align=left;spacingLeft=20;spacingTop=7;fillColor=#fff2cc;strokeColor=#d6b656;"
+                    vertex="1" parent="p12_db_node">
+                    <mxGeometry x="10" y="30" width="100" height="50" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p12_r1" value="HTTPS" style="endArrow=none;html=1;" edge="1"
+                    parent="p12_1" source="p12_client" target="p12_server">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p12_r2" value="TCP/IP" style="endArrow=none;html=1;" edge="1"
+                    parent="p12_1" source="p12_server" target="p12_db_node">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+
+    <!-- PAGE 13: DFD Level 0 -->
+    <diagram id="13-DFD-Level0" name="13-DFD-Level0">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p13_0" />
+                <mxCell id="p13_1" parent="p13_0" />
+
+                <mxCell id="p13_proc" value="E-Commerce System"
+                    style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="p13_1">
+                    <mxGeometry x="350" y="200" width="120" height="120" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p13_cust" value="Customer" style="rounded=0;whiteSpace=wrap;html=1;"
+                    vertex="1" parent="p13_1">
+                    <mxGeometry x="100" y="230" width="100" height="60" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p13_admin" value="Admin" style="rounded=0;whiteSpace=wrap;html=1;"
+                    vertex="1" parent="p13_1">
+                    <mxGeometry x="600" y="230" width="100" height="60" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p13_f1" value="Orders, Info"
+                    style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;"
+                    edge="1" parent="p13_1" source="p13_cust" target="p13_proc">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p13_f2" value="Products, Reports"
+                    style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;"
+                    edge="1" parent="p13_1" source="p13_admin" target="p13_proc">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+
+    <!-- PAGE 14: DFD Level 1 Tracking -->
+    <diagram id="14-DFD-Level1-Tracking" name="14-DFD-Level1-Tracking">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p14_0" />
+                <mxCell id="p14_1" parent="p14_0" />
+
+                <mxCell id="p14_user" value="User" style="rounded=0;whiteSpace=wrap;html=1;"
+                    vertex="1" parent="p14_1">
+                    <mxGeometry x="50" y="100" width="100" height="60" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p14_p1" value="1.0 Collect Event"
+                    style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="p14_1">
+                    <mxGeometry x="250" y="100" width="100" height="60" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p14_p2" value="2.0 Validate" style="ellipse;whiteSpace=wrap;html=1;"
+                    vertex="1" parent="p14_1">
+                    <mxGeometry x="400" y="100" width="100" height="60" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p14_p3" value="3.0 Store" style="ellipse;whiteSpace=wrap;html=1;"
+                    vertex="1" parent="p14_1">
+                    <mxGeometry x="550" y="100" width="100" height="60" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p14_ds" value="UserBehavior DB"
+                    style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=none;"
+                    vertex="1" parent="p14_1">
+                    <mxGeometry x="550" y="250" width="100" height="40" as="geometry" />
+                </mxCell>
+                <mxCell id="p14_line" value="" style="line;strokeWidth=1;html=1;" vertex="1"
+                    parent="p14_ds">
+                    <mxGeometry y="10" width="100" height="10" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p14_f1" value="Event Data" style="endArrow=classic;html=1;" edge="1"
+                    parent="p14_1" source="p14_user" target="p14_p1">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p14_f2" value="" style="endArrow=classic;html=1;" edge="1"
+                    parent="p14_1" source="p14_p1" target="p14_p2">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p14_f3" value="Valid Data" style="endArrow=classic;html=1;" edge="1"
+                    parent="p14_1" source="p14_p2" target="p14_p3">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p14_f4" value="" style="endArrow=classic;html=1;" edge="1"
+                    parent="p14_1" source="p14_p3" target="p14_ds">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+
+    <!-- PAGE 15: Architecture Data Pipeline -->
+    <diagram id="15-Architecture-DataPipeline" name="15-Architecture-DataPipeline">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p15_0" />
+                <mxCell id="p15_1" parent="p15_0" />
+
+                <mxCell id="p15_src" value="Event Sources&#xa;(Web/Mobile)"
+                    style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="p15_1">
+                    <mxGeometry x="50" y="100" width="120" height="60" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p15_ingest" value="Ingestion API"
+                    style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="p15_1">
+                    <mxGeometry x="220" y="100" width="120" height="60" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p15_store" value="Raw Storage&#xa;(MongoDB)"
+                    style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;"
+                    vertex="1" parent="p15_1">
+                    <mxGeometry x="400" y="90" width="80" height="80" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p15_agg" value="Aggregation&#xa;(Cron/Batch)"
+                    style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="p15_1">
+                    <mxGeometry x="550" y="100" width="120" height="60" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p15_dash" value="Dashboard UI" style="rounded=1;whiteSpace=wrap;html=1;"
+                    vertex="1" parent="p15_1">
+                    <mxGeometry x="720" y="100" width="120" height="60" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p15_f1" value="" style="endArrow=classic;html=1;" edge="1"
+                    parent="p15_1" source="p15_src" target="p15_ingest">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p15_f2" value="" style="endArrow=classic;html=1;" edge="1"
+                    parent="p15_1" source="p15_ingest" target="p15_store">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p15_f3" value="" style="endArrow=classic;html=1;" edge="1"
+                    parent="p15_1" source="p15_store" target="p15_agg">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p15_f4" value="" style="endArrow=classic;html=1;" edge="1"
+                    parent="p15_1" source="p15_agg" target="p15_dash">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+
+</mxfile>

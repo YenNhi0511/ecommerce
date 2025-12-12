@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-13T11:00:00.000Z"
+    agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    etag="SystemDesign-Part2" version="21.0.0" type="device">
+
+    <!-- PAGE 4: Use Case Analyst -->
+    <diagram id="04-UseCase-Analyst" name="04-UseCase-Analyst">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p4_0" />
+                <mxCell id="p4_1" parent="p4_0" />
+
+                <mxCell id="p4_sys" value="Phân hệ Phân Tích (Analytics)"
+                    style="shape=swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1"
+                    parent="p4_1">
+                    <mxGeometry x="200" y="40" width="500" height="600" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p4_actor" value="Analyst"
+                    style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+                    vertex="1" parent="p4_1">
+                    <mxGeometry x="80" y="250" width="30" height="60" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p4_uc1" value="Xem Dashboard Tổng quan"
+                    style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;"
+                    vertex="1" parent="p4_sys">
+                    <mxGeometry x="50" y="50" width="160" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p4_uc2" value="Phân tích Phễu (Funnel)"
+                    style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;"
+                    vertex="1" parent="p4_sys">
+                    <mxGeometry x="50" y="150" width="160" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p4_uc3" value="Phân tích hành vi User"
+                    style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;"
+                    vertex="1" parent="p4_sys">
+                    <mxGeometry x="50" y="250" width="160" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p4_uc4" value="Xuất báo cáo (Export)"
+                    style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;"
+                    vertex="1" parent="p4_sys">
+                    <mxGeometry x="280" y="100" width="160" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p4_uc5" value="Cấu hình Tracking Event"
+                    style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;"
+                    vertex="1" parent="p4_sys">
+                    <mxGeometry x="50" y="350" width="160" height="70" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p4_rel1" style="endArrow=none;html=1;" edge="1" parent="p4_1"
+                    source="p4_actor" target="p4_uc1">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p4_rel2" style="endArrow=none;html=1;" edge="1" parent="p4_1"
+                    source="p4_actor" target="p4_uc2">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p4_rel3" style="endArrow=none;html=1;" edge="1" parent="p4_1"
+                    source="p4_actor" target="p4_uc3">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p4_rel4" style="endArrow=none;html=1;" edge="1" parent="p4_1"
+                    source="p4_actor" target="p4_uc5">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p4_ext1" value="&lt;&lt;extend&gt;&gt;"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" edge="1"
+                    parent="p4_sys" source="p4_uc4" target="p4_uc1">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p4_ext2" value="&lt;&lt;extend&gt;&gt;"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" edge="1"
+                    parent="p4_sys" source="p4_uc4" target="p4_uc2">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+
+    <!-- PAGE 5: ERD -->
+    <diagram id="05-ERD" name="05-ERD">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p5_0" />
+                <mxCell id="p5_1" parent="p5_0" />
+
+                <!-- Users -->
+                <mxCell id="p5_user" value="Users"
+                    style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;"
+                    vertex="1" parent="p5_1">
+                    <mxGeometry x="40" y="40" width="160" height="160" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_u1" value="_id (PK)"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_user">
+                    <mxGeometry y="26" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_u2" value="email"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_user">
+                    <mxGeometry y="52" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_u3" value="password"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_user">
+                    <mxGeometry y="78" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_u4" value="role"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_user">
+                    <mxGeometry y="104" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_u5" value="addresses[]"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_user">
+                    <mxGeometry y="130" width="160" height="26" as="geometry" />
+                </mxCell>
+
+                <!-- Products -->
+                <mxCell id="p5_prod" value="Products"
+                    style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;"
+                    vertex="1" parent="p5_1">
+                    <mxGeometry x="300" y="40" width="160" height="160" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_p1" value="_id (PK)"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_prod">
+                    <mxGeometry y="26" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_p2" value="name"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_prod">
+                    <mxGeometry y="52" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_p3" value="price"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_prod">
+                    <mxGeometry y="78" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_p4" value="category"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_prod">
+                    <mxGeometry y="104" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_p5" value="createdBy (FK)"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_prod">
+                    <mxGeometry y="130" width="160" height="26" as="geometry" />
+                </mxCell>
+
+                <!-- Orders -->
+                <mxCell id="p5_order" value="Orders"
+                    style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;"
+                    vertex="1" parent="p5_1">
+                    <mxGeometry x="40" y="300" width="160" height="180" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_o1" value="_id (PK)"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_order">
+                    <mxGeometry y="26" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_o2" value="user (FK)"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_order">
+                    <mxGeometry y="52" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_o3" value="totalAmount"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_order">
+                    <mxGeometry y="78" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_o4" value="status"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_order">
+                    <mxGeometry y="104" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_o5" value="paymentMethod"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_order">
+                    <mxGeometry y="130" width="160" height="26" as="geometry" />
+                </mxCell>
+
+                <!-- Order Items (Embedded or Separate) -->
+                <mxCell id="p5_oitem" value="OrderItems"
+                    style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;"
+                    vertex="1" parent="p5_1">
+                    <mxGeometry x="300" y="300" width="160" height="100" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_oi1" value="product (FK)"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_oitem">
+                    <mxGeometry y="26" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_oi2" value="quantity"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_oitem">
+                    <mxGeometry y="52" width="160" height="26" as="geometry" />
+                </mxCell>
+
+                <!-- UserBehavior -->
+                <mxCell id="p5_beh" value="UserBehavior"
+                    style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;"
+                    vertex="1" parent="p5_1">
+                    <mxGeometry x="560" y="40" width="160" height="160" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_b1" value="_id (PK)"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_beh">
+                    <mxGeometry y="26" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_b2" value="userId (FK)"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_beh">
+                    <mxGeometry y="52" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_b3" value="event"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_beh">
+                    <mxGeometry y="78" width="160" height="26" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_b4" value="sessionId"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p5_beh">
+                    <mxGeometry y="104" width="160" height="26" as="geometry" />
+                </mxCell>
+
+                <!-- Relationships -->
+                <mxCell id="p5_r1"
+                    style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;"
+                    edge="1" parent="p5_1" source="p5_user" target="p5_prod">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_r2"
+                    style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;"
+                    edge="1" parent="p5_1" source="p5_user" target="p5_order">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_r3"
+                    style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;"
+                    edge="1" parent="p5_1" source="p5_order" target="p5_oitem">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_r4"
+                    style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;"
+                    edge="1" parent="p5_1" source="p5_prod" target="p5_oitem">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p5_r5"
+                    style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;"
+                    edge="1" parent="p5_1" source="p5_user" target="p5_beh">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="220" y="120" />
+                            <mxPoint x="220" y="120" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+
+    <!-- PAGE 6: Class Diagram -->
+    <diagram id="06-ClassDiagram" name="06-ClassDiagram">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p6_0" />
+                <mxCell id="p6_1" parent="p6_0" />
+
+                <mxCell id="p6_c1" value="User"
+                    style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;"
+                    vertex="1" parent="p6_1">
+                    <mxGeometry x="40" y="40" width="160" height="100" as="geometry" />
+                </mxCell>
+                <mxCell id="p6_c1_a" value="+ email: String&#xa;+ role: String"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p6_c1">
+                    <mxGeometry y="26" width="160" height="40" as="geometry" />
+                </mxCell>
+                <mxCell id="p6_c1_m" value="+ login()&#xa;+ register()"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;separatorColor=transparent;"
+                    vertex="1" parent="p6_c1">
+                    <mxGeometry y="66" width="160" height="34" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p6_c2" value="Order"
+                    style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;"
+                    vertex="1" parent="p6_1">
+                    <mxGeometry x="300" y="40" width="160" height="100" as="geometry" />
+                </mxCell>
+                <mxCell id="p6_c2_a" value="+ totalAmount: Number&#xa;+ status: String"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p6_c2">
+                    <mxGeometry y="26" width="160" height="40" as="geometry" />
+                </mxCell>
+                <mxCell id="p6_c2_m" value="+ create()&#xa;+ updateStatus()"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;separatorColor=transparent;"
+                    vertex="1" parent="p6_c2">
+                    <mxGeometry y="66" width="160" height="34" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p6_c3" value="AnalyticsService"
+                    style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;"
+                    vertex="1" parent="p6_1">
+                    <mxGeometry x="560" y="40" width="180" height="100" as="geometry" />
+                </mxCell>
+                <mxCell id="p6_c3_m"
+                    value="+ trackEvent(event)&#xa;+ getFunnel()&#xa;+ getRevenue()"
+                    style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;"
+                    vertex="1" parent="p6_c3">
+                    <mxGeometry y="26" width="180" height="74" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p6_r1"
+                    style="endArrow=diamondThin;endFill=0;endSize=24;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;"
+                    edge="1" parent="p6_1" source="p6_c1" target="p6_c2">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+
+    <!-- PAGE 7: Sequence Checkout -->
+    <diagram id="07-Sequence-Checkout" name="07-Sequence-Checkout">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p7_0" />
+                <mxCell id="p7_1" parent="p7_0" />
+
+                <mxCell id="p7_cust" value="Customer"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="p7_1">
+                    <mxGeometry x="40" y="40" width="100" height="400" as="geometry" />
+                </mxCell>
+                <mxCell id="p7_ui" value="Frontend (UI)"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="p7_1">
+                    <mxGeometry x="200" y="40" width="100" height="400" as="geometry" />
+                </mxCell>
+                <mxCell id="p7_api" value="Order API"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="p7_1">
+                    <mxGeometry x="360" y="40" width="100" height="400" as="geometry" />
+                </mxCell>
+                <mxCell id="p7_db" value="Database"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="p7_1">
+                    <mxGeometry x="520" y="40" width="100" height="400" as="geometry" />
+                </mxCell>
+                <mxCell id="p7_analytics" value="Analytics"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="p7_1">
+                    <mxGeometry x="680" y="40" width="100" height="400" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p7_m1" value="Click Checkout"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="p7_1" source="p7_cust" target="p7_ui">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="90" y="100" as="sourcePoint" />
+                        <mxPoint x="250" y="100" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="150" y="100" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="p7_m2" value="POST /api/orders"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="p7_1" source="p7_ui" target="p7_api">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="250" y="140" as="sourcePoint" />
+                        <mxPoint x="410" y="140" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="310" y="140" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="p7_m3" value="Save Order"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="p7_1" source="p7_api" target="p7_db">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="410" y="180" as="sourcePoint" />
+                        <mxPoint x="570" y="180" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="470" y="180" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="p7_m4" value="Track 'purchase'"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="p7_1" source="p7_api" target="p7_analytics">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="410" y="220" as="sourcePoint" />
+                        <mxPoint x="730" y="220" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="550" y="220" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="p7_m5" value="Order Created"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0;"
+                    edge="1" parent="p7_1" source="p7_api" target="p7_ui">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="410" y="260" as="sourcePoint" />
+                        <mxPoint x="250" y="260" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="330" y="260" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+
+    <!-- PAGE 8: Sequence Login -->
+    <diagram id="08-Sequence-Login-LinkSession" name="08-Sequence-Login-LinkSession">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p8_0" />
+                <mxCell id="p8_1" parent="p8_0" />
+
+                <mxCell id="p8_guest" value="Guest"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="p8_1">
+                    <mxGeometry x="40" y="40" width="100" height="400" as="geometry" />
+                </mxCell>
+                <mxCell id="p8_ui" value="Frontend"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="p8_1">
+                    <mxGeometry x="200" y="40" width="100" height="400" as="geometry" />
+                </mxCell>
+                <mxCell id="p8_auth" value="Auth API"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="p8_1">
+                    <mxGeometry x="360" y="40" width="100" height="400" as="geometry" />
+                </mxCell>
+                <mxCell id="p8_db" value="Database"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="p8_1">
+                    <mxGeometry x="520" y="40" width="100" height="400" as="geometry" />
+                </mxCell>
+
+                <mxCell id="p8_m1" value="Enter Credentials"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="p8_1" source="p8_guest" target="p8_ui">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="90" y="100" as="sourcePoint" />
+                        <mxPoint x="250" y="100" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="150" y="100" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="p8_m2" value="POST /auth/login"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="p8_1" source="p8_ui" target="p8_auth">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="250" y="140" as="sourcePoint" />
+                        <mxPoint x="410" y="140" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="310" y="140" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="p8_m3" value="Verify User"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="p8_1" source="p8_auth" target="p8_db">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="410" y="180" as="sourcePoint" />
+                        <mxPoint x="570" y="180" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="470" y="180" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="p8_m4" value="Link Session (Anon -> User)"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="p8_1" source="p8_auth" target="p8_db">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="410" y="220" as="sourcePoint" />
+                        <mxPoint x="570" y="220" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="470" y="220" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="p8_m5" value="Return Token"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0;"
+                    edge="1" parent="p8_1" source="p8_auth" target="p8_ui">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="410" y="260" as="sourcePoint" />
+                        <mxPoint x="250" y="260" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="330" y="260" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+
+</mxfile>

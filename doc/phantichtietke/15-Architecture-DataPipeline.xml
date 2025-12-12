@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-13T11:05:00.000Z"
+    agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    etag="15-Architecture-DataPipeline" version="21.0.0" type="device">
+    <diagram id="15-Architecture-DataPipeline" name="15-Architecture-DataPipeline">
+        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="p15_0" />
+                <mxCell id="p15_1" parent="p15_0" />
+                <mxCell id="p15_src" value="Event Sources&#xa;(Web/Mobile)"
+                    style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="p15_1">
+                    <mxGeometry x="50" y="100" width="120" height="60" as="geometry" />
+                </mxCell>
+                <mxCell id="p15_ingest" value="Ingestion API"
+                    style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="p15_1">
+                    <mxGeometry x="220" y="100" width="120" height="60" as="geometry" />
+                </mxCell>
+                <mxCell id="p15_store" value="Raw Storage&#xa;(MongoDB)"
+                    style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;"
+                    vertex="1" parent="p15_1">
+                    <mxGeometry x="400" y="90" width="80" height="80" as="geometry" />
+                </mxCell>
+                <mxCell id="p15_agg" value="Aggregation&#xa;(Cron/Batch)"
+                    style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="p15_1">
+                    <mxGeometry x="550" y="100" width="120" height="60" as="geometry" />
+                </mxCell>
+                <mxCell id="p15_dash" value="Dashboard UI" style="rounded=1;whiteSpace=wrap;html=1;"
+                    vertex="1" parent="p15_1">
+                    <mxGeometry x="720" y="100" width="120" height="60" as="geometry" />
+                </mxCell>
+                <mxCell id="p15_f1" value="" style="endArrow=classic;html=1;" edge="1"
+                    parent="p15_1" source="p15_src" target="p15_ingest">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p15_f2" value="" style="endArrow=classic;html=1;" edge="1"
+                    parent="p15_1" source="p15_ingest" target="p15_store">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p15_f3" value="" style="endArrow=classic;html=1;" edge="1"
+                    parent="p15_1" source="p15_store" target="p15_agg">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="p15_f4" value="" style="endArrow=classic;html=1;" edge="1"
+                    parent="p15_1" source="p15_agg" target="p15_dash">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

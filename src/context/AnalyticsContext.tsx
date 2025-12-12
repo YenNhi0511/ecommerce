@@ -65,6 +65,11 @@ export function AnalyticsProvider({ children }: { children: React.ReactNode }) {
   });
 
   const trackEvent = useCallback(async (event: EventType, metadata?: EventMetadata) => {
+    // Skip tracking if no session ID (SSR or initialization)
+    if (!sessionId || typeof window === 'undefined') {
+      return;
+    }
+
     try {
       // Get device info
       const deviceInfo = {
@@ -87,28 +92,39 @@ export function AnalyticsProvider({ children }: { children: React.ReactNode }) {
         deviceInfo,
       };
 
-      // Send to API (non-blocking)
+      // Send to API (non-blocking, silent fail)
       fetch('/api/analytics/track', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
-      }).catch(err => console.error('Analytics tracking error:', err));
+      })
+      .then(res => {
+        if (!res.ok && res.status !== 200) {
+          console.warn(`Analytics track failed: ${res.status}`);
+        }
+      })
+      .catch(err => {
+        // Silently fail - analytics should never break user experience
+        console.warn('Analytics unavailable:', err.message);
+      });
 
     } catch (error) {
-      console.error('Failed to track event:', error);
+      // Silently fail - don't show errors to user
+      console.warn('Analytics tracking skipped:', error);
     }
   }, [user, sessionId]);
 
   const trackProductView = useCallback((
     productId: string, 
     productName: string, 
-    source: 'home' | 'category' | 'search' | 'banner'
+    source: 'home' | 'category' | 'search' | 'banner' | 'detail'
   ) => {
     const eventMap = {
       home: 'PRODUCT_VIEW_HOME',
       category: 'PRODUCT_VIEW_CATEGORY',
       search: 'PRODUCT_VIEW_SEARCH',
       banner: 'PRODUCT_VIEW_BANNER',
+      detail: 'PRODUCT_VIEW_CATEGORY', // Map detail to category for now
     } as const;
     
     trackEvent(eventMap[source], { 

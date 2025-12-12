@@ -1,8 +1,10 @@
-"use client";
+// This file redirects to /admin/dashboard
+// All admin functionality is in /admin/dashboard
+import { redirect } from 'next/navigation';
 
-import { useEffect, useState } from 'react';
-import { useAuth } from '@/context/AuthContext';
-import Link from 'next/link';
+export default function AdminPage() {
+  redirect('/admin/dashboard');
+}
 
 type Order = {
   _id: string;
