@@ -342,7 +342,7 @@ export default function AnalyticsPage() {
                     {/* Show drop-off ONLY if not last stage and has drop-off */}
                     {index < funnelData.funnel.length - 1 && stage.dropOff > 0 && (
                       <div className="text-xs text-red-600 mt-1">
-                        ⚠️ Drop-off: {stage.dropOff.toLocaleString()} users ({stage.dropOffPercentage}%)
+                        ⚠️ Drop-off: {stage.dropOff.toLocaleString()} users ({((stage.dropOff / stage.count) * 100).toFixed(1)}%)
                       </div>
                     )}
                   </div>

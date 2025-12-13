@@ -40,7 +40,7 @@ type EventMetadata = {
 
 interface AnalyticsContextType {
   trackEvent: (event: EventType, metadata?: EventMetadata) => void;
-  trackProductView: (productId: string, productName: string, source: 'home' | 'category' | 'search' | 'banner') => void;
+  trackProductView: (productId: string, productName: string, source: 'home' | 'category' | 'search' | 'banner' | 'detail') => void;
   trackAddToCart: (productId: string, productName: string, quantity: number, price: number) => void;
   trackSearch: (query: string, resultsCount: number) => void;
   trackCheckout: (orderId: string, totalAmount: number) => void;

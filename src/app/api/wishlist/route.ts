@@ -9,8 +9,8 @@ export async function GET(req: Request) {
     await dbConnect();
     const user: any = await getUserFromRequest(req as any);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    const doc = await User.findById(user._id).populate('wishlist').lean();
-    return NextResponse.json({ wishlist: doc?.wishlist || [] });
+    const doc: any = await User.findById(user._id).populate('wishlist').lean();
+    return NextResponse.json({ wishlist: doc?.wishlist ?? [] });
   } catch (err: any) {
     console.error('wishlist GET error', err);
     return NextResponse.json({ error: err.message || 'Error' }, { status: 500 });
@@ -27,8 +27,8 @@ export async function POST(req: Request) {
     if (!productId) return NextResponse.json({ error: 'Missing productId' }, { status: 400 });
     const prod = await Product.findById(productId).lean();
     if (!prod) return NextResponse.json({ error: 'Product not found' }, { status: 404 });
-    const updated = await User.findByIdAndUpdate(user._id, { $addToSet: { wishlist: productId } }, { new: true }).populate('wishlist').lean();
-    return NextResponse.json({ wishlist: updated?.wishlist || [] });
+    const updated: any = await User.findByIdAndUpdate(user._id, { $addToSet: { wishlist: productId } }, { new: true }).populate('wishlist').lean();
+    return NextResponse.json({ wishlist: updated?.wishlist ?? [] });
   } catch (err: any) {
     console.error('wishlist POST error', err);
     return NextResponse.json({ error: err.message || 'Error' }, { status: 500 });
@@ -43,8 +43,8 @@ export async function DELETE(req: Request) {
     const url = new URL(req.url);
     const productId = url.searchParams.get('productId');
     if (!productId) return NextResponse.json({ error: 'Missing productId' }, { status: 400 });
-    const updated = await User.findByIdAndUpdate(user._id, { $pull: { wishlist: productId } }, { new: true }).populate('wishlist').lean();
-    return NextResponse.json({ wishlist: updated?.wishlist || [] });
+    const updated: any = await User.findByIdAndUpdate(user._id, { $pull: { wishlist: productId } }, { new: true }).populate('wishlist').lean();
+    return NextResponse.json({ wishlist: updated?.wishlist ?? [] });
   } catch (err: any) {
     console.error('wishlist DELETE error', err);
     return NextResponse.json({ error: err.message || 'Error' }, { status: 500 });

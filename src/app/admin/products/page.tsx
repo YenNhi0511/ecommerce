@@ -42,7 +42,7 @@ export default function AdminProductsPage() {
   const loadProducts = async () => {
     try {
       setLoading(true);
-      const headers = token ? { Authorization: `Bearer ${token}` } : {};
+      const headers: Record<string, string> = token ? { Authorization: `Bearer ${token}` } : {};
       const resp = await fetch('/api/products', {
         headers
       });

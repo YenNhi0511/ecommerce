@@ -7,4 +7,12 @@ cloudinary.config({
   secure: true,
 });
 
+export async function uploadToCloudinary(imageUrl: string): Promise<string> {
+  const result = await cloudinary.uploader.upload(imageUrl, {
+    folder: 'ecommerce',
+    resource_type: 'auto',
+  });
+  return result.secure_url;
+}
+
 export default cloudinary;

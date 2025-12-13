@@ -3,10 +3,18 @@ import Stripe from 'stripe';
 import dbConnect from '@/lib/mongodb';
 import Order from '@/models/Order';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '' as string, { apiVersion: '2022-11-15' as any });
+const stripeKey = process.env.STRIPE_SECRET_KEY || '';
+const stripe = stripeKey ? new Stripe(stripeKey, { apiVersion: '2022-11-15' as any }) : null;
 
 export async function GET(request: NextRequest) {
   try {
+    if (!stripe) {
+      return NextResponse.json(
+        { error: 'Stripe not configured' },
+        { status: 500 }
+      );
+    }
+
     const url = new URL(request.url);
     const parts = url.pathname.split('/');
     const sessionId = parts.pop();

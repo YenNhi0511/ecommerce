@@ -53,7 +53,7 @@ export default function AdminOrdersPage() {
   const loadOrders = async () => {
     try {
       setLoading(true);
-      const headers = token ? { Authorization: `Bearer ${token}` } : {};
+      const headers: Record<string, string> = token ? { Authorization: `Bearer ${token}` } : {};
       const resp = await fetch('/api/orders', {
         headers
       });

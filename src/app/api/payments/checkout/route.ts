@@ -5,12 +5,21 @@ import Product from '@/models/Product';
 import Order from '@/models/Order';
 import { getUserFromRequest } from '@/lib/auth';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '' as string, { apiVersion: '2022-11-15' as any });
+// Initialize Stripe only if key exists (prevents build errors)
+const stripeKey = process.env.STRIPE_SECRET_KEY || '';
+const stripe = stripeKey ? new Stripe(stripeKey, { apiVersion: '2022-11-15' as any }) : null;
 
 const ZERO_DECIMAL = new Set(['vnd', 'jpy', 'krw']);
 
 export async function POST(request: NextRequest) {
   try {
+    if (!stripe) {
+      return NextResponse.json(
+        { error: 'Stripe not configured. Set STRIPE_SECRET_KEY in environment variables.' },
+        { status: 500 }
+      );
+    }
+
     const body = await request.json();
     const { items = [], shippingAddress = {}, couponCode } = body;
 
@@ -70,13 +79,14 @@ export async function POST(request: NextRequest) {
 
     // No shipping line item (shipping removed)
 
+    const orderId = String((order as any)?._id);
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items,
       mode: 'payment',
-      success_url: `${origin}/xac-nhan-don-hang/${order._id}?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${origin}/xac-nhan-don-hang/${orderId}?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/thanh-toan`,
-      metadata: { orderId: order._id.toString(), couponCode: couponCode || '' }
+      metadata: { orderId, couponCode: couponCode || '' }
     });
 
     return NextResponse.json({ url: session.url });

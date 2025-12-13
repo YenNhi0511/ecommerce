@@ -5,7 +5,9 @@ import Order from '@/models/Order';
 import Coupon from '@/models/Coupon';
 import WebhookEvent from '@/models/WebhookEvent';
 import { getUserFromRequest } from '@/lib/auth';
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '' as string, { apiVersion: '2022-11-15' as any });
+
+const stripeKey = process.env.STRIPE_SECRET_KEY || '';
+const stripe = stripeKey ? new Stripe(stripeKey, { apiVersion: '2022-11-15' as any }) : null;
 
 async function handleCheckoutSession(session: any) {
   const orderId = session.metadata?.orderId;
@@ -61,6 +63,10 @@ export async function POST(req: Request) {
   const sig = req.headers.get('stripe-signature') || '';
   const payload = await req.text();
   try {
+    if (!stripe) {
+      return NextResponse.json({ error: 'Stripe not configured' }, { status: 500 });
+    }
+    
     const event: any = stripe.webhooks.constructEvent(payload, sig, process.env.STRIPE_WEBHOOK_SECRET || '');
     // persist raw event first
     await dbConnect();

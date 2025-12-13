@@ -13,6 +13,7 @@ interface Product {
   originalPrice?: number;
   images: string[];
   rating: number;
+  sold?: number;
   category: string;
   brand: string;
 }

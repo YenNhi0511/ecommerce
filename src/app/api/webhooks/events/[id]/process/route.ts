@@ -6,11 +6,16 @@ import Stripe from 'stripe';
 import Order from '@/models/Order';
 import Coupon from '@/models/Coupon';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '' as string, { apiVersion: '2022-11-15' as any });
+const stripeKey = process.env.STRIPE_SECRET_KEY || '';
+const stripe = stripeKey ? new Stripe(stripeKey, { apiVersion: '2022-11-15' as any }) : null;
 
 async function processEvent(ev: any) {
   // Only support replay for checkout.session.completed
   try {
+    if (!stripe) {
+      throw new Error('Stripe not configured');
+    }
+
     const parsed = JSON.parse(ev.raw || '{}');
     const type = ev.type || parsed.type;
     if (type === 'checkout.session.completed' || parsed.type === 'checkout.session.completed') {
