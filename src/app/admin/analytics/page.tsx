@@ -86,7 +86,7 @@ export default function AnalyticsPage() {
   };
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="max-w-[1400px] mx-auto px-[4%] p-6">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-3xl font-bold">📊 Bảng Điều Khiển Phân Tích</h1>
         <select
@@ -108,7 +108,7 @@ export default function AnalyticsPage() {
       )}
 
       {/* Feature Navigation */}
-      <div className="grid grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         {ANALYTICS_FEATURES.map((feature) => (
           <Link
             key={feature.href}
@@ -132,7 +132,7 @@ export default function AnalyticsPage() {
               <h2 className="text-2xl font-bold mb-4">📈 Xu hướng sự kiện theo thời gian</h2>
               
               {/* Stats Summary */}
-              <div className="grid grid-cols-5 gap-4 mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-6">
                 <div className="text-center p-3 bg-purple-50 rounded-lg">
                   <div className="text-2xl font-bold text-purple-600">
                     {timelineData.reduce((sum, d) => sum + (d.total || 0), 0)}
@@ -282,7 +282,7 @@ export default function AnalyticsPage() {
           )}
 
           {/* Overview Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 mb-8">
             <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-4 rounded-lg shadow">
               <div className="text-sm opacity-90">Tổng Sự Kiện</div>
               <div className="text-3xl font-bold mt-2">{data.overview.totalEvents.toLocaleString()}</div>

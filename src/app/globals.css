@@ -23,4 +23,17 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden; /* prevent horizontal scroll globally */
+}
+
+/* Ensure media never overflows */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Minimum height for touch targets */
+input, textarea, select, button {
+  min-height: 40px;
 }

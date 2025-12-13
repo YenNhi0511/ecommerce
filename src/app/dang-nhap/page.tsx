@@ -46,7 +46,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="max-w-[1400px] mx-auto px-[4%] py-12">
       <div className="max-w-md mx-auto bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
         <div className="text-center mb-8">
           <div className="text-5xl mb-4">🔑</div>

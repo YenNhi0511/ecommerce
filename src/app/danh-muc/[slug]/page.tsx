@@ -105,7 +105,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <div className="container mx-auto px-4 py-6">
+      <div className="max-w-[1400px] mx-auto px-[4%] py-6">
         {/* Breadcrumb */}
         <div className="flex items-center space-x-2 text-sm text-gray-600 mb-4">
           <Link href="/" className="hover:text-blue-600">Trang chủ</Link>

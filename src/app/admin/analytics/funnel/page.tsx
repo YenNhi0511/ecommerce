@@ -78,7 +78,7 @@ export default function FunnelPage() {
   const maxCount = funnelData.length > 0 ? funnelData[0].count : 0;
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="max-w-[1400px] mx-auto px-[4%] p-6">
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">📊 Phễu Chuyển Đổi</h1>
@@ -209,7 +209,7 @@ export default function FunnelPage() {
           </div>
 
           {/* Stats Cards */}
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-6 rounded-lg shadow">
               <div className="text-sm opacity-90">Tổng số người bắt đầu</div>
               <div className="text-3xl font-bold mt-2">{funnelData[0]?.count.toLocaleString() || 0}</div>

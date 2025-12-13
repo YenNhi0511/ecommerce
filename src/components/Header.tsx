@@ -30,11 +30,11 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-[#0F2B52]/95 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-[#00D4FF]">
+    <header className="bg-[#0F2B52]/95 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-[#00D4FF] w-full">
       {/* Top announcement bar */}
-      <div className="bg-gradient-to-r from-[#0A1A2F] to-[#1E3A5F] text-[#E0F7FF]" suppressHydrationWarning>
-        <div className="container mx-auto px-4 py-2">
-          <div className="flex items-center justify-center text-sm font-medium">
+      <div className="bg-gradient-to-r from-[#0A1A2F] to-[#1E3A5F] text-[#E0F7FF] w-full" suppressHydrationWarning>
+        <div className="max-w-[1400px] mx-auto px-[2%] sm:px-[4%] py-2">
+          <div className="flex items-center justify-center text-xs sm:text-sm font-medium">
             <span className="animate-pulse">🚀</span>
             <span className="mx-2">{t('top.announcement', 'Miễn phí giao hàng toàn quốc cho đơn hàng từ 500k')}</span>
             <span className="animate-pulse">🚀</span>
@@ -43,15 +43,15 @@ export default function Header() {
       </div>
 
       {/* Main header */}
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto px-[2%] sm:px-[4%] py-3 sm:py-4">
+        <div className="flex items-center justify-between gap-2 sm:gap-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-[#00D4FF] to-[#00B8E6] rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-              <span className="text-2xl">🛒</span>
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink-0">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#00D4FF] to-[#00B8E6] rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+              <span className="text-xl sm:text-2xl">🛒</span>
             </div>
-            <div>
-              <div className="text-2xl font-bold bg-gradient-to-r from-[#00D4FF] to-[#00B8E6] bg-clip-text text-transparent">
+            <div className="hidden sm:block">
+              <div className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-[#00D4FF] to-[#00B8E6] bg-clip-text text-transparent">
                 TechZone
               </div>
               <div className="text-xs text-[#B0D0E8] -mt-1">{t('site.tagline', 'Future of Shopping')}</div>
@@ -59,11 +59,11 @@ export default function Header() {
           </Link>
 
           {/* Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-8 flex-1 justify-center">
             {user?.role === 'admin' ? (
               <>
                 <Link href="/admin" className="text-[#E0F7FF] hover:text-[#00D4FF] font-medium transition-colors duration-200 relative group">
-                  🎛️ Dashboard
+                  🎛️ Bảng điều khiển
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00D4FF] group-hover:w-full transition-all duration-300"></span>
                 </Link>
                 <Link href="/admin/users" className="text-[#E0F7FF] hover:text-[#00D4FF] font-medium transition-colors duration-200 relative group">
@@ -85,8 +85,8 @@ export default function Header() {
               </>
             ) : user?.role === 'seller' ? (
               <>
-                <Link href="/seller" className="text-[#E0F7FF] hover:text-[#00D4FF] font-medium transition-colors duration-200 relative group">
-                  📊 Dashboard
+                <Link href="/seller/products" className="text-[#E0F7FF] hover:text-[#00D4FF] font-medium transition-colors duration-200 relative group">
+                  📊 Bảng điều khiển
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00D4FF] group-hover:w-full transition-all duration-300"></span>
                 </Link>
                 <Link href="/seller/products" className="text-[#E0F7FF] hover:text-[#00D4FF] font-medium transition-colors duration-200 relative group">
@@ -145,7 +145,7 @@ export default function Header() {
           </nav>
 
           {/* Search & Actions */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
             {/* Search */}
             <form onSubmit={handleSearch} className="hidden md:block">
               <div className="relative">
@@ -201,7 +201,7 @@ export default function Header() {
                     <>
                       <div className="border-t border-[#00D4FF]/30 my-2"></div>
                       <Link href="/admin" className="block px-4 py-2 text-[#E0F7FF] hover:bg-[#00D4FF]/20 hover:text-[#00D4FF] transition-colors duration-200">
-                        🎛️ Admin Dashboard
+                        🎛️ Bảng điều khiển
                       </Link>
                       <Link href="/admin/users" className="block px-4 py-2 text-[#E0F7FF] hover:bg-[#00D4FF]/20 hover:text-[#00D4FF] transition-colors duration-200">
                         👥 Quản lý người dùng
@@ -220,8 +220,8 @@ export default function Header() {
                   {user?.role === 'seller' && (
                     <>
                       <div className="border-t border-[#00D4FF]/30 my-2"></div>
-                      <Link href="/seller" className="block px-4 py-2 text-[#E0F7FF] hover:bg-[#00D4FF]/20 hover:text-[#00D4FF] transition-colors duration-200">
-                        📊 Seller Dashboard
+                      <Link href="/seller/products" className="block px-4 py-2 text-[#E0F7FF] hover:bg-[#00D4FF]/20 hover:text-[#00D4FF] transition-colors duration-200">
+                        📊 Bảng điều khiển
                       </Link>
                       <Link href="/seller/products" className="block px-4 py-2 text-[#E0F7FF] hover:bg-[#00D4FF]/20 hover:text-[#00D4FF] transition-colors duration-200">
                         📦 Quản lý sản phẩm

@@ -11,7 +11,7 @@ export default function CartPage() {
   if (cart.length === 0) {
     return (
       <div className="bg-gray-50 min-h-screen">
-        <div className="container mx-auto px-4 py-16">
+        <div className="max-w-[1400px] mx-auto px-[4%] py-16">
           <div className="max-w-lg mx-auto bg-white rounded-lg shadow-sm p-12 text-center">
             <div className="text-7xl mb-4">🛒</div>
             <h1 className="text-2xl font-bold mb-3 text-gray-800">Giỏ hàng trống</h1>
@@ -27,7 +27,7 @@ export default function CartPage() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <div className="container mx-auto px-4 py-6">
+      <div className="max-w-[1400px] mx-auto px-[4%] py-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-bold text-gray-800">Giỏ hàng ({cart.length} sản phẩm)</h1>

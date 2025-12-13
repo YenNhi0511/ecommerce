@@ -12,7 +12,8 @@ export default function SellerProductsPage() {
   const load = async () => {
     setLoading(true);
     try {
-      const resp = await fetch('/api/products', { headers: { Authorization: token ? `Bearer ${token}` : '' } });
+      // Thêm mine=true để chỉ load sản phẩm của seller này
+      const resp = await fetch('/api/products?mine=true', { headers: { Authorization: token ? `Bearer ${token}` : '' } });
       const j = await resp.json();
       setProducts(j.products || []);
     } catch (e) {
@@ -28,6 +29,10 @@ export default function SellerProductsPage() {
     load();
   };
 
+  const onCancel = () => {
+    setEditing(null);
+  };
+
   const remove = async (id: string) => {
     if (!confirm('Xóa sản phẩm này?')) return;
     try {
@@ -38,12 +43,12 @@ export default function SellerProductsPage() {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Quản lý tất cả sản phẩm hệ thống</h1>
-      <p className="text-gray-600 mb-4">Quản lý tồn kho và thông tin sản phẩm</p>
+    <div className="max-w-[1400px] mx-auto px-[4%] p-4">
+      <h1 className="text-2xl font-bold mb-4">Quản lý sản phẩm của tôi</h1>
+      <p className="text-gray-600 mb-4">Quản lý tồn kho và thông tin sản phẩm của bạn</p>
       <div className="grid grid-cols-3 gap-4">
         <div className="col-span-1">
-          <SellerProductForm initial={editing || {}} onSaved={onSaved} />
+          <SellerProductForm initial={editing || {}} onSaved={onSaved} onCancel={onCancel} />
         </div>
         <div className="col-span-2">
           <div className="space-y-3">

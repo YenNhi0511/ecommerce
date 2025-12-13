@@ -68,7 +68,7 @@ export default function EventExplorerPage() {
   };
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="max-w-[1400px] mx-auto px-[4%] p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
@@ -83,7 +83,7 @@ export default function EventExplorerPage() {
       {/* Filters */}
       <div className="bg-white rounded-lg shadow p-6 mb-6">
         <h3 className="font-bold text-lg mb-4">🔍 Bộ lọc</h3>
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
           <div>
             <label className="block text-sm font-medium mb-2">Loại sự kiện</label>
             <select
@@ -139,7 +139,7 @@ export default function EventExplorerPage() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
         <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-lg p-4">
           <div className="text-sm opacity-90">Tổng Events</div>
           <div className="text-3xl font-bold">{events.length}</div>

@@ -75,7 +75,7 @@ function JourneyContent() {
   }
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="max-w-[1400px] mx-auto px-[4%] p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
@@ -226,7 +226,7 @@ function JourneyContent() {
           {/* Summary */}
           <div className="mt-8 pt-6 border-t">
             <h4 className="font-bold mb-4">📊 Tổng kết</h4>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
               <div className="bg-blue-50 p-4 rounded-lg">
                 <div className="text-sm text-gray-600">Tổng thời gian</div>
                 <div className="text-2xl font-bold text-blue-600">

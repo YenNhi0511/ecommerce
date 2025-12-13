@@ -108,7 +108,7 @@ export default function CheckoutPage() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <div className="container mx-auto px-4 py-6">
+      <div className="max-w-[1400px] mx-auto px-[4%] py-6">
         {/* Progress indicator */}
         <div className="mb-8">
           <div className="flex items-center justify-center max-w-2xl mx-auto">

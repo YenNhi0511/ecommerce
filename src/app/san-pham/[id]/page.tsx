@@ -46,7 +46,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
         category={prod.category} 
       />
       
-      <div className="container mx-auto px-4 py-6">
+      <div className="max-w-[1400px] mx-auto px-[4%] py-6">
         {/* Breadcrumb */}
         <div className="flex items-center space-x-2 text-sm text-gray-600 mb-4">
           <Link href="/" className="hover:text-blue-600">Trang chủ</Link>
@@ -202,7 +202,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
         {/* Related products */}
         <div className="bg-white rounded-lg shadow-sm p-6">
           <h2 className="text-xl font-bold mb-4">Sản phẩm liên quan</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {relatedProducts.map((relProd: any) => (
               <Link
                 key={relProd._id.toString()}

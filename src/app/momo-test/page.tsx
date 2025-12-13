@@ -24,7 +24,7 @@ export default function MoMoTestPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-10">
-      <div className="container mx-auto px-4">
+      <div className="max-w-[1400px] mx-auto px-[4%]">
         <div className="bg-white rounded shadow p-6 max-w-3xl mx-auto">
           <h1 className="text-2xl font-bold mb-3">Hỗ trợ kiểm thử MoMo (Sandbox)</h1>
           <p className="text-sm text-gray-600 mb-4">Bạn đã chọn thanh toán bằng ATM / MoMo. Ở môi trường phát triển, bạn có thể dùng hướng dẫn sandbox của MoMo để mô phỏng thanh toán.</p>

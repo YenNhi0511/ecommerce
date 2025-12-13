@@ -100,11 +100,11 @@ export default function AdminProductsPage() {
   };
 
   if (!user) {
-    return <div className="container mx-auto p-6">Vui lòng đăng nhập.</div>;
+    return <div className="max-w-[1400px] mx-auto px-[4%] p-6">Vui lòng đăng nhập.</div>; 
   }
 
   if (!isAdminMode && !isAdmin) {
-    return <div className="container mx-auto p-6">Không có quyền truy cập.</div>;
+    return <div className="max-w-[1400px] mx-auto px-[4%] p-6">Không có quyền truy cập.</div>; 
   }
 
   const categories = ['all', ...Array.from(new Set(products.map(p => p.category)))];
@@ -121,7 +121,7 @@ export default function AdminProductsPage() {
   const lowStockCount = products.filter(p => (p.stock || 0) < 10).length;
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="max-w-[1400px] mx-auto px-[4%] p-6">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-3xl font-bold">📦 Quản lý sản phẩm</h1>
         <Link href="/seller/products" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">

@@ -81,14 +81,14 @@ export default function OrdersPage() {
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className="max-w-[1400px] mx-auto px-[4%] py-8">
         Đang tải đơn hàng...
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="max-w-[1400px] mx-auto px-[4%] py-8">
       <h1 className="text-3xl font-bold mb-6">Lịch sử đơn hàng</h1>
 
       {orders.length === 0 ? (

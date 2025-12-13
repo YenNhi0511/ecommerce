@@ -92,11 +92,11 @@ export default function AdminOrdersPage() {
   };
 
   if (!user) {
-    return <div className="container mx-auto p-6">Vui lòng đăng nhập.</div>;
+    return <div className="max-w-[1400px] mx-auto px-[4%] p-6">Vui lòng đăng nhập.</div>; 
   }
 
   if (!isAdminMode && !isAdmin) {
-    return <div className="container mx-auto p-6">Không có quyền truy cập.</div>;
+    return <div className="max-w-[1400px] mx-auto px-[4%] p-6">Không có quyền truy cập.</div>; 
   }
 
   const filteredOrders = orders.filter(o => {
@@ -120,7 +120,7 @@ export default function AdminOrdersPage() {
   };
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="max-w-[1400px] mx-auto px-[4%] p-6">
       <h1 className="text-3xl font-bold mb-6">🛍️ Quản lý đơn hàng</h1>
 
       {error && (
@@ -130,7 +130,7 @@ export default function AdminOrdersPage() {
       )}
 
       {/* Statistics */}
-      <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 mb-6">
         <div className="bg-blue-50 p-4 rounded-lg">
           <div className="text-xs text-gray-600">Tổng đơn</div>
           <div className="text-2xl font-bold text-blue-600">{orders.length}</div>

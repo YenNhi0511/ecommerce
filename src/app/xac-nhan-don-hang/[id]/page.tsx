@@ -90,7 +90,7 @@ export default function OrderConfirmation() {
   if (!order) return <div className="p-6">Không tìm thấy đơn hàng</div>;
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="max-w-[1400px] mx-auto px-[4%] p-6">
       <h1 className="text-2xl font-bold mb-4">Xác nhận đơn hàng</h1>
       <div className="bg-white p-6 rounded shadow">
         <div className="mb-3">

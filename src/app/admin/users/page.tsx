@@ -100,7 +100,7 @@ export default function AdminUsersPage() {
 
   if (!user) {
     return (
-      <div className="container mx-auto p-6">
+      <div className="max-w-[1400px] mx-auto px-[4%] p-6">
         <p>Vui lòng đăng nhập để truy cập trang quản trị.</p>
       </div>
     );
@@ -108,7 +108,7 @@ export default function AdminUsersPage() {
 
   if (!isAdminMode && !isAdmin) {
     return (
-      <div className="container mx-auto p-6">
+      <div className="max-w-[1400px] mx-auto px-[4%] p-6">
         <p>Bạn không có quyền truy cập trang này.</p>
       </div>
     );
@@ -120,7 +120,7 @@ export default function AdminUsersPage() {
   );
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="max-w-[1400px] mx-auto px-[4%] p-6">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-3xl font-bold">👥 Quản lý người dùng</h1>
       </div>
@@ -173,7 +173,8 @@ export default function AdminUsersPage() {
         <div className="text-center py-8">Đang tải...</div>
       ) : (
         <div className="bg-white rounded-lg shadow overflow-hidden">
-          <table className="min-w-full divide-y divide-gray-200">
+          <div className="overflow-x-auto">
+            <table className="min-w-[700px] w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -222,9 +223,9 @@ export default function AdminUsersPage() {
                         'bg-green-100 text-green-800'
                       }`}
                     >
-                      <option value="customer">Customer</option>
-                      <option value="seller">Seller</option>
-                      <option value="admin">Admin</option>
+                      <option value="customer">Khách hàng</option>
+                      <option value="seller">Người bán</option>
+                      <option value="admin">Quản trị viên</option>
                     </select>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">

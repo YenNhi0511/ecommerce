@@ -7,7 +7,7 @@ export default async function PromotionsPage() {
     const coupons = data?.coupons || [];
 
     return (
-      <div className="container mx-auto p-6">
+      <div className="max-w-[1400px] mx-auto px-[4%] p-6">
         <h1 className="text-2xl font-bold mb-4">Khuyến mãi</h1>
         {coupons.length === 0 ? (
           <div className="bg-white p-6 rounded shadow">Không có khuyến mãi nào hiện tại.</div>
@@ -34,7 +34,7 @@ export default async function PromotionsPage() {
     );
   } catch (e) {
     return (
-      <div className="container mx-auto p-6">
+      <div className="max-w-[1400px] mx-auto px-[4%] p-6">
         <h1 className="text-2xl font-bold mb-4">Khuyến mãi</h1>
         <div className="bg-white p-6 rounded shadow">Không thể tải khuyến mãi. Vui lòng thử lại sau.</div>
       </div>

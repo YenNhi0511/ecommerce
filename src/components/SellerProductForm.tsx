@@ -1,10 +1,10 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAuth } from '@/context/AuthContext'
 
-type Props = { initial?: any, onSaved?: (p: any) => void }
+type Props = { initial?: any, onSaved?: (p: any) => void, onCancel?: () => void }
 
-export default function SellerProductForm({ initial = {}, onSaved }: Props) {
+export default function SellerProductForm({ initial = {}, onSaved, onCancel }: Props) {
   const { token } = useAuth();
   const [form, setForm] = useState<any>({
     name: initial.name || '',
@@ -17,6 +17,20 @@ export default function SellerProductForm({ initial = {}, onSaved }: Props) {
     stock: initial.stock || 0,
   });
   const [uploading, setUploading] = useState(false);
+
+  // Reset form when initial changes
+  useEffect(() => {
+    setForm({
+      name: initial.name || '',
+      description: initial.description || '',
+      price: initial.price || 0,
+      originalPrice: initial.originalPrice || 0,
+      category: initial.category || '',
+      brand: initial.brand || '',
+      images: initial.images || [],
+      stock: initial.stock || 0,
+    });
+  }, [initial._id]);
 
   const onFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -57,17 +71,44 @@ export default function SellerProductForm({ initial = {}, onSaved }: Props) {
       const resp = await fetch(url, { method, headers: { 'Content-Type': 'application/json', Authorization: token ? `Bearer ${token}` : '' }, body: JSON.stringify(form) });
       const j = await resp.json();
       if (j?.product || j?._id) {
+        // Reset form after successful save
+        setForm({
+          name: '',
+          description: '',
+          price: 0,
+          originalPrice: 0,
+          category: '',
+          brand: '',
+          images: [],
+          stock: 0,
+        });
         onSaved?.(j.product || j);
-      } else if (j?._id) {
-        onSaved?.(j);
+      } else if (j?.error) {
+        alert(j.error);
       }
     } catch (e) {
       console.error('save product error', e);
+      alert('Lỗi khi lưu sản phẩm');
     }
+  };
+
+  const cancel = () => {
+    setForm({
+      name: '',
+      description: '',
+      price: 0,
+      originalPrice: 0,
+      category: '',
+      brand: '',
+      images: [],
+      stock: 0,
+    });
+    onCancel?.();
   };
 
   return (
     <div className="p-4 bg-white rounded shadow">
+      <h3 className="text-lg font-bold mb-3">{initial._id ? 'Chỉnh sửa sản phẩm' : 'Tạo sản phẩm mới'}</h3>
       <div className="grid grid-cols-2 gap-3">
         <input value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="Tên sản phẩm" className="p-2 border" />
         <input value={form.brand} onChange={e => setForm({ ...form, brand: e.target.value })} placeholder="Thương hiệu" className="p-2 border" />
@@ -96,7 +137,14 @@ export default function SellerProductForm({ initial = {}, onSaved }: Props) {
       </div>
 
       <div className="mt-4 flex gap-2">
-        <button className="bg-green-600 text-white px-4 py-2 rounded" onClick={save} disabled={uploading}>{initial._id ? 'Cập nhật' : 'Tạo sản phẩm'}</button>
+        <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onClick={save} disabled={uploading}>
+          {initial._id ? 'Cập nhật' : 'Tạo sản phẩm'}
+        </button>
+        {initial._id && (
+          <button className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600" onClick={cancel}>
+            Hủy
+          </button>
+        )}
       </div>
     </div>
   );
