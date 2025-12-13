@@ -283,17 +283,132 @@ Bạn sẽ thấy trang chủ e-commerce.
 
 ## 🎨 TÙY CHỈNH DOMAIN RIÊNG (Optional)
 
-1. Mua domain ở Namecheap / GoDaddy / Tên Miền Việt
-2. Vào Railway → Settings → Domains
-3. Click **"Custom Domain"**
-4. Nhập domain của bạn: `shop.example.com`
-5. Railway sẽ cho bạn CNAME record
-6. Vào DNS provider của bạn, thêm CNAME:
+### Bước 1: Lấy CNAME từ Railway
+
+1. Vào Railway Dashboard → Click vào service của bạn
+2. Vào tab **"Settings"**
+3. Scroll xuống phần **"Domains"** hoặc **"Networking"**
+4. Click **"Custom Domain"**
+5. Nhập domain của bạn, ví dụ:
+   - `shop.example.com` (subdomain - khuyên dùng)
+   - `example.com` (root domain)
+6. Railway sẽ hiển thị CNAME record cần thêm, ví dụ:
    ```
    CNAME: shop
    Value: ecommerce-production-xxxx.up.railway.app
    ```
-7. Đợi 5-30 phút để DNS propagate
+7. **Copy giá trị CNAME này** (giữ tab Railway mở)
+
+### Bước 2: Cấu hình DNS trên Name.com
+
+#### Option A: Dùng Subdomain (Khuyên dùng - VD: shop.example.com)
+
+1. Đăng nhập [Name.com](https://www.name.com/)
+2. Vào **"My Account"** → **"Manage Domains"**
+3. Click vào domain của bạn (ví dụ: `example.com`)
+4. Vào tab **"DNS Records"**
+5. Click **"Add Record"**
+6. Thêm CNAME record:
+   ```
+   Type: CNAME
+   Host: shop (hoặc tên subdomain bạn muốn)
+   Answer: ecommerce-production-xxxx.up.railway.app
+   TTL: 300 (5 phút) hoặc 3600 (1 giờ)
+   ```
+7. Click **"Add Record"** để lưu
+
+#### Option B: Dùng Root Domain (VD: example.com)
+
+**Lưu ý:** Name.com hỗ trợ ANAME/ALIAS cho root domain
+
+1. Đăng nhập [Name.com](https://www.name.com/)
+2. Vào **"My Account"** → **"Manage Domains"**
+3. Click vào domain của bạn
+4. Vào tab **"DNS Records"**
+5. **Xóa** các A record cũ của @ (root)
+6. Click **"Add Record"**
+7. Thêm ANAME record:
+   ```
+   Type: ANAME (hoặc ALIAS nếu có)
+   Host: @ (root domain)
+   Answer: ecommerce-production-xxxx.up.railway.app
+   TTL: 300
+   ```
+8. Click **"Add Record"** để lưu
+
+**Nếu Name.com không có ANAME/ALIAS:**
+- Railway sẽ cung cấp IP addresses
+- Thêm A records với những IP đó thay vì CNAME
+
+### Bước 3: Verify Domain trên Railway
+
+1. Quay lại Railway Dashboard
+2. Vào tab **"Settings"** → **"Domains"**
+3. Railway sẽ tự động kiểm tra DNS
+4. Khi thấy **"Active"** màu xanh → Thành công! ✅
+
+### Bước 4: Cập nhật Environment Variables
+
+1. Vào tab **"Variables"** trong Railway
+2. Cập nhật biến:
+   ```bash
+   NEXT_PUBLIC_BASE_URL=https://shop.example.com
+   NEXT_PUBLIC_SITE_URL=https://shop.example.com
+   ```
+3. Railway sẽ tự động redeploy
+
+### Bước 5: Test Domain
+
+1. Đợi **5-30 phút** để DNS propagate (thường chỉ 5-10 phút)
+2. Kiểm tra DNS đã cập nhật chưa:
+   ```bash
+   nslookup shop.example.com
+   ```
+3. Truy cập domain của bạn:
+   ```
+   https://shop.example.com
+   ```
+4. Kiểm tra SSL certificate (Railway tự động cấp Let's Encrypt)
+
+### ⚠️ Lưu ý quan trọng:
+
+1. **SSL Certificate:** Railway tự động cấp SSL miễn phí từ Let's Encrypt sau khi DNS verified
+2. **TTL:** Set TTL thấp (300s) khi setup lần đầu để dễ sửa nếu sai
+3. **WWW Redirect:** Nếu muốn `www.example.com` redirect về `example.com`:
+   - Thêm CNAME: `www` → `example.com`
+   - Hoặc setup redirect trong Railway Settings
+4. **Propagation Time:** 
+   - Name.com: Thường 5-15 phút
+   - Toàn cầu: Có thể đến 24-48 giờ
+   - Kiểm tra: [whatsmydns.net](https://www.whatsmydns.net/)
+
+### 🔧 Troubleshooting
+
+**❌ Domain không load:**
+- Kiểm tra CNAME record đã đúng chưa trên Name.com
+- Đảm bảo không có dấu `.` ở cuối giá trị CNAME
+- Đợi thêm 10-15 phút
+- Clear browser cache: Ctrl + Shift + Delete
+
+**❌ "Not Secure" warning:**
+- Railway chưa cấp SSL
+- Đợi 5-10 phút sau khi DNS verified
+- Railway tự động cấp SSL certificate
+
+**❌ DNS không resolve:**
+- Kiểm tra: `nslookup shop.example.com`
+- Nếu không thấy, kiểm tra lại DNS records trên Name.com
+- Thử `dig shop.example.com` hoặc dùng [dnschecker.org](https://dnschecker.org/)
+
+### 📋 Checklist Setup Domain
+
+- [ ] Lấy CNAME từ Railway Custom Domain
+- [ ] Thêm CNAME record vào Name.com DNS
+- [ ] Đợi DNS propagate (5-30 phút)
+- [ ] Verify "Active" trên Railway
+- [ ] Cập nhật NEXT_PUBLIC_BASE_URL
+- [ ] Test truy cập domain
+- [ ] Kiểm tra SSL certificate (ổ khóa xanh)
 
 ---
 
