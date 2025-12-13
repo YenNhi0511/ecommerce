@@ -1,0 +1,27 @@
+@startuml Sequence-OrderHistory
+actor "Người dùng" as User
+participant "Trang Lịch Sử Đơn Hàng\n(Client)" as Client
+participant "API Đơn Hàng\n(/api/orders)" as API
+participant "Model Đơn Hàng" as Model
+database MongoDB
+
+User -> Client: Xem lịch sử đơn hàng
+activate Client
+Client -> API: GET /api/orders
+activate API
+
+API -> API: Kiểm tra xác thực (getUser)
+API -> Model: find({ user: userId })
+activate Model
+Model -> MongoDB: Truy vấn CSDL
+activate MongoDB
+MongoDB --> Model: Tài liệu Đơn hàng
+deactivate MongoDB
+Model --> API: Danh sách Đơn hàng
+deactivate Model
+
+API --> Client: JSON { orders }
+deactivate API
+Client --> User: Hiển thị danh sách đơn hàng
+deactivate Client
+@enduml

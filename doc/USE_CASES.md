@@ -10,7 +10,35 @@
 
 ---
 
-## 📦 MODULE 1: QUẢN LÝ NGƯỜI DÙNG & XÁC THỰC
+## � DANH SÁCH TỔNG HỢP USE CASE
+
+1. **UC-01**: Đăng ký tài khoản
+2. **UC-02**: Đăng nhập
+3. **UC-03**: Đăng xuất
+4. **UC-04**: Quản lý người dùng
+5. **UC-05**: Xem danh sách sản phẩm
+6. **UC-06**: Xem chi tiết sản phẩm
+7. **UC-07**: Thêm sản phẩm
+8. **UC-08**: Sửa/Xóa sản phẩm
+9. **UC-09**: Thêm vào giỏ hàng
+10. **UC-10**: Xem giỏ hàng
+11. **UC-11**: Cập nhật số lượng trong giỏ
+12. **UC-12**: Xóa sản phẩm khỏi giỏ
+13. **UC-13**: Thanh toán
+14. **UC-14**: Xem đơn hàng của tôi
+15. **UC-15**: Quản lý đơn hàng
+16. **UC-16**: Cập nhật trạng thái đơn hàng
+17. **UC-17**: Xem đơn hàng liên quan
+18. **UC-18**: Tìm kiếm sản phẩm
+19. **UC-19**: Xem Analytics Dashboard
+20. **UC-20**: Xem Event Explorer
+21. **UC-21**: Track User Behavior
+22. **UC-22**: Xem User Journey
+23. **UC-23**: Xem Conversion Funnel
+
+---
+
+## �📦 MODULE 1: QUẢN LÝ NGƯỜI DÙNG & XÁC THỰC
 
 ### UC-01: Đăng ký tài khoản
 

@@ -1,0 +1,23 @@
+@startuml State-User
+title Biểu đồ Trạng thái Tài khoản Người dùng (User Account State)
+
+[*] --> Unverified : Đăng ký tài khoản
+
+Unverified --> Active : Xác thực Email
+Unverified --> Deleted : Không xác thực sau 7 ngày
+
+state Active {
+  [*] --> Normal : Hoạt động bình thường
+  Normal --> Locked : Nhập sai pass quá 5 lần
+  Locked --> Normal : Mở khóa (Email/Admin)
+}
+
+Active --> Banned : Vi phạm chính sách (Admin Block)
+Banned --> Active : Admin mở khóa
+
+Deleted --> [*]
+
+note right of Unverified : Chưa thể đăng nhập
+note right of Locked : Tạm khóa bảo mật
+note right of Banned : Khóa vĩnh viễn
+@enduml

@@ -1,0 +1,70 @@
+@startuml Class-Diagram
+title Sơ đồ Lớp (Class Diagram)
+
+class User {
+  - _id: ObjectId
+  - name: String
+  - email: String
+  - password: String
+  - role: String
+  - addresses: Address[]
+  __
+  + register()
+  + login()
+  + updateProfile()
+}
+
+class Product {
+  - _id: ObjectId
+  - name: String
+  - price: Number
+  - stock: Number
+  - category: String
+  - images: String[]
+  __
+  + create()
+  + update()
+  + delete()
+  + getDetails()
+}
+
+class Order {
+  - _id: ObjectId
+  - userId: ObjectId
+  - items: OrderItem[]
+  - totalAmount: Number
+  - status: String
+  - shippingAddress: Address
+  - paymentMethod: String
+  __
+  + create()
+  + updateStatus()
+  + getHistory()
+}
+
+class OrderItem {
+  - productId: ObjectId
+  - quantity: Number
+  - price: Number
+}
+
+class AuthController {
+  + login(req: Request): Response
+  + register(req: Request): Response
+  + logout(req: Request): Response
+}
+
+class OrderController {
+  + createOrder(req: Request): Response
+  + getMyOrders(req: Request): Response
+}
+
+' Relationships
+User "1" -- "0..*" Order : places >
+Order "1" *-- "1..*" OrderItem : contains >
+OrderItem "0..*" -- "1" Product : refers to >
+
+AuthController ..> User : uses >
+OrderController ..> Order : uses >
+
+@enduml

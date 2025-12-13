@@ -1,94 +1,162 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxfile host="app.diagrams.net" modified="2025-12-13T11:00:00.000Z"
-    agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
-    etag="07-Sequence-Checkout" version="21.0.0" type="device">
-    <diagram id="07-Sequence-Checkout" name="07-Sequence-Checkout">
-        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
-            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+<mxfile host="app.diagrams.net" modified="2025-12-13T10:00:00.000Z" agent="Mozilla/5.0"
+    version="21.6.8" type="device">
+    <diagram name="Sequence Checkout" id="Sequence-Checkout">
+        <mxGraphModel dx="1422" dy="798" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0"
             shadow="0">
             <root>
-                <mxCell id="p7_0" />
-                <mxCell id="p7_1" parent="p7_0" />
-                <mxCell id="p7_cust" value="Customer"
+                <mxCell id="0" />
+                <mxCell id="1" parent="0" />
+
+                <!-- Lifelines -->
+                <mxCell id="User" value="User"
                     style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
-                    vertex="1" parent="p7_1">
+                    vertex="1" parent="1">
                     <mxGeometry x="40" y="40" width="100" height="400" as="geometry" />
                 </mxCell>
-                <mxCell id="p7_ui" value="Frontend (UI)"
+                <mxCell id="OrderCtrl" value="OrderController"
                     style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
-                    vertex="1" parent="p7_1">
+                    vertex="1" parent="1">
                     <mxGeometry x="200" y="40" width="100" height="400" as="geometry" />
                 </mxCell>
-                <mxCell id="p7_api" value="Order API"
+                <mxCell id="ProductModel" value="ProductModel"
                     style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
-                    vertex="1" parent="p7_1">
+                    vertex="1" parent="1">
                     <mxGeometry x="360" y="40" width="100" height="400" as="geometry" />
                 </mxCell>
-                <mxCell id="p7_db" value="Database"
+                <mxCell id="OrderModel" value="OrderModel"
                     style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
-                    vertex="1" parent="p7_1">
+                    vertex="1" parent="1">
                     <mxGeometry x="520" y="40" width="100" height="400" as="geometry" />
                 </mxCell>
-                <mxCell id="p7_analytics" value="Analytics"
+                <mxCell id="DB" value="Database"
                     style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
-                    vertex="1" parent="p7_1">
+                    vertex="1" parent="1">
                     <mxGeometry x="680" y="40" width="100" height="400" as="geometry" />
                 </mxCell>
-                <mxCell id="p7_m1" value="Click Checkout"
+
+                <!-- Messages -->
+
+                <!-- 1. POST /api/orders -->
+                <mxCell id="msg1" value="POST /api/orders (items, address)"
                     style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
-                    parent="p7_1" source="p7_cust" target="p7_ui">
+                    parent="1" source="User" target="OrderCtrl">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="90" y="100" as="sourcePoint" />
-                        <mxPoint x="250" y="100" as="targetPoint" />
+                        <mxPoint x="90" y="80" as="sourcePoint" />
+                        <mxPoint x="250" y="80" as="targetPoint" />
                         <Array as="points">
-                            <mxPoint x="150" y="100" />
+                            <mxPoint x="150" y="80" />
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="p7_m2" value="POST /api/orders"
-                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
-                    parent="p7_1" source="p7_ui" target="p7_api">
+
+                <!-- 2. Validate & Rate Limit -->
+                <mxCell id="msg2" value="validate() &amp; rateLimit()"
+                    style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1"
+                    parent="1" source="OrderCtrl" target="OrderCtrl">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="250" y="140" as="sourcePoint" />
-                        <mxPoint x="410" y="140" as="targetPoint" />
+                        <mxPoint x="250" y="100" as="sourcePoint" />
+                        <mxPoint x="260" y="120" as="targetPoint" />
                         <Array as="points">
-                            <mxPoint x="310" y="140" />
+                            <mxPoint x="280" y="100" />
+                            <mxPoint x="280" y="120" />
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="p7_m3" value="Save Order"
+
+                <!-- 3. Check Stock Loop -->
+                <mxCell id="loop1" value="Loop (for each item)"
+                    style="shape=umlFrame;whiteSpace=wrap;html=1;width=120;height=30;" vertex="1"
+                    parent="1">
+                    <mxGeometry x="180" y="140" width="300" height="80" as="geometry" />
+                </mxCell>
+                <mxCell id="msg3" value="findById(itemId)"
                     style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
-                    parent="p7_1" source="p7_api" target="p7_db">
+                    parent="1" source="OrderCtrl" target="ProductModel">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="410" y="180" as="sourcePoint" />
-                        <mxPoint x="570" y="180" as="targetPoint" />
+                        <mxPoint x="250" y="160" as="sourcePoint" />
+                        <mxPoint x="410" y="160" as="targetPoint" />
                         <Array as="points">
-                            <mxPoint x="470" y="180" />
+                            <mxPoint x="330" y="160" />
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="p7_m4" value="Track 'purchase'"
-                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
-                    parent="p7_1" source="p7_api" target="p7_analytics">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="410" y="220" as="sourcePoint" />
-                        <mxPoint x="730" y="220" as="targetPoint" />
-                        <Array as="points">
-                            <mxPoint x="550" y="220" />
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="p7_m5" value="Order Created"
+                <mxCell id="msg4" value="return Product (stock)"
                     style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0;"
-                    edge="1" parent="p7_1" source="p7_api" target="p7_ui">
+                    edge="1" parent="1" source="ProductModel" target="OrderCtrl">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="410" y="260" as="sourcePoint" />
-                        <mxPoint x="250" y="260" as="targetPoint" />
+                        <mxPoint x="410" y="190" as="sourcePoint" />
+                        <mxPoint x="250" y="190" as="targetPoint" />
                         <Array as="points">
-                            <mxPoint x="330" y="260" />
+                            <mxPoint x="330" y="190" />
                         </Array>
                     </mxGeometry>
                 </mxCell>
+
+                <!-- 4. Create Order -->
+                <mxCell id="msg5" value="create(orderData)"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="1" source="OrderCtrl" target="OrderModel">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="250" y="240" as="sourcePoint" />
+                        <mxPoint x="570" y="240" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="410" y="240" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 5. Save to DB -->
+                <mxCell id="msg6" value="save()"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="1" source="OrderModel" target="DB">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="570" y="260" as="sourcePoint" />
+                        <mxPoint x="730" y="260" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="650" y="260" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="msg7" value="return Order"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0;"
+                    edge="1" parent="1" source="DB" target="OrderModel">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="730" y="290" as="sourcePoint" />
+                        <mxPoint x="570" y="290" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="650" y="290" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 6. Return to Controller -->
+                <mxCell id="msg8" value="return Order"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0;"
+                    edge="1" parent="1" source="OrderModel" target="OrderCtrl">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="570" y="320" as="sourcePoint" />
+                        <mxPoint x="250" y="320" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="410" y="320" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 7. Response -->
+                <mxCell id="msg9" value="201 Created (Order)"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0;"
+                    edge="1" parent="1" source="OrderCtrl" target="User">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="250" y="350" as="sourcePoint" />
+                        <mxPoint x="90" y="350" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="170" y="350" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
             </root>
         </mxGraphModel>
     </diagram>

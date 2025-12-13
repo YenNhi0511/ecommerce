@@ -1,0 +1,73 @@
+erDiagram
+    User {
+        PK_ObjectId _id PK
+        String name
+        String email
+        String password
+        String role
+        Array addresses
+    }
+
+    Product {
+        PK_ObjectId _id PK
+        String name
+        Number price
+        String category
+        Number stock
+        FK_ObjectId createdBy FK
+        Array images
+    }
+
+    Order {
+        PK_ObjectId _id PK
+        FK_ObjectId userId FK
+        Number totalAmount
+        String status
+        String paymentMethod
+        Object shippingAddress
+        String couponCode
+    }
+
+    OrderItem {
+        FK_ObjectId productId FK
+        Number quantity
+        Number price
+    }
+
+    Review {
+        PK_ObjectId _id PK
+        FK_ObjectId productId FK
+        FK_ObjectId userId FK
+        Number rating
+    }
+
+    Cart {
+        PK_ObjectId _id PK
+        FK_ObjectId userId FK
+    }
+
+    CartItem {
+        FK_ObjectId productId FK
+        Number quantity
+    }
+
+    Coupon {
+        PK_ObjectId _id PK
+        String code
+        Number value
+    }
+
+    %% Relationships
+    User ||--o{ Order : "places"
+    User ||--o{ Product : "creates"
+    User ||--o{ Review : "writes"
+    User ||--|| Cart : "owns"
+
+    Order ||--|{ OrderItem : "contains"
+    Order }o..o| Coupon : "applies"
+
+    Product ||--o{ OrderItem : "refers_to"
+    Product ||--o{ Review : "has"
+    Product ||--o{ CartItem : "in"
+
+    Cart ||--|{ CartItem : "contains"

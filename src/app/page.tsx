@@ -50,6 +50,30 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* Categories Section */}
+      <section className="py-16 bg-[#0A1A2F]">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-[#E0F7FF] mb-8 text-center">Danh mục sản phẩm</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { name: 'Điện thoại', slug: 'dien-thoai', icon: '📱' },
+              { name: 'Laptop', slug: 'laptop', icon: '💻' },
+              { name: 'Máy tính bảng', slug: 'may-tinh-bang', icon: '📲' },
+              { name: 'Phụ kiện', slug: 'phu-kien', icon: '🎧' },
+            ].map((category) => (
+              <Link
+                key={category.slug}
+                href={`/danh-muc/${category.slug}`}
+                className="bg-[#0F2B52] border border-[#00D4FF]/30 rounded-xl p-6 flex flex-col items-center justify-center hover:bg-[#00D4FF]/10 hover:border-[#00D4FF] transition-all duration-300 group"
+              >
+                <span className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{category.icon}</span>
+                <span className="text-xl font-semibold text-[#E0F7FF]">{category.name}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Hot Products */}
       <section className="py-20 bg-[#0F2B52]">
         <div className="container mx-auto px-4">

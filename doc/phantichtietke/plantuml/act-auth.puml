@@ -1,0 +1,38 @@
+@startuml Activity-Authentication
+title Quy trình Xác thực (Đăng ký & Đăng nhập)
+
+start
+
+:Người dùng truy cập trang web;
+
+if (Đã có tài khoản?) then (Có)
+  :Chọn "Đăng nhập";
+  repeat
+    :Nhập Email và Mật khẩu;
+    :Gửi thông tin đăng nhập;
+    if (Thông tin hợp lệ?) then (Có)
+      :Tạo phiên làm việc (Session/Token);
+      :Chuyển hướng đến Trang chủ;
+      stop
+    else (Không)
+      :Hiển thị lỗi "Sai thông tin";
+    endif
+  repeat while (Chưa đăng nhập thành công)
+else (Không)
+  :Chọn "Đăng ký";
+  repeat
+    :Nhập Tên, Email, Mật khẩu;
+    :Gửi thông tin đăng ký;
+    if (Email đã tồn tại?) then (Có)
+      :Hiển thị lỗi "Email đã được sử dụng";
+    else (Không)
+      :Tạo tài khoản mới trong CSDL;
+      :Thông báo "Đăng ký thành công";
+      :Chuyển đến màn hình Đăng nhập;
+      stop
+    endif
+  repeat while (Chưa đăng ký thành công)
+endif
+
+stop
+@enduml

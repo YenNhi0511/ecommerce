@@ -1,0 +1,41 @@
+@startuml Flow-Admin-Order-Process
+title Lưu đồ Xử lý Đơn hàng - Admin (Order Processing Flowchart)
+
+|Admin|
+start
+:Truy cập Danh sách Đơn hàng;
+:Chọn Đơn hàng cần xử lý;
+
+|Server|
+:Load chi tiết Đơn hàng;
+
+|Admin|
+:Kiểm tra thông tin thanh toán & kho;
+
+if (Đơn hàng hợp lệ?) then (Có)
+  :Chọn trạng thái mới (VD: Processing);
+  :Nhấn "Cập nhật";
+  
+  |Server|
+  :Nhận Request Update Status;
+  :Cập nhật trạng thái trong DB;
+  
+  if (Trạng thái == Cancelled?) then (Có)
+    :Hoàn lại số lượng tồn kho (Stock);
+  else (Không)
+  endif
+  
+  :Ghi Log hoạt động (Audit Log);
+  :Gửi Email thông báo cho Khách hàng;
+  :Trả về kết quả thành công;
+  
+  |Admin|
+  :Hiển thị thông báo cập nhật thành công;
+else (Không - Hủy đơn)
+  :Chọn trạng thái "Cancelled";
+  :Nhập lý do hủy;
+  :Cập nhật trạng thái;
+endif
+
+stop
+@enduml

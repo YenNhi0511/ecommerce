@@ -1,0 +1,56 @@
+@startuml Flow-Login-Auth
+title Lưu đồ Quy trình Đăng nhập & Xác thực (Authentication Flowchart)
+
+|Client|
+start
+:Người dùng nhập Email & Password;
+
+if (Validate Form?) then (Lỗi)
+  :Hiển thị lỗi Client (Frontend);
+  stop
+else (OK)
+  :Gửi Request POST /api/auth/login;
+endif
+
+|Server|
+:Tìm User trong Database (theo Email);
+
+if (User tồn tại?) then (Không)
+  :Trả về lỗi 401 "Sai thông tin";
+  stop
+else (Có)
+  :So sánh Password (Bcrypt Hash);
+  if (Password khớp?) then (Không)
+    :Trả về lỗi 401 "Sai thông tin";
+    stop
+  else (Có)
+    :Kiểm tra trạng thái tài khoản;
+    if (Bị khóa?) then (Có)
+      :Trả về lỗi 403 "Tài khoản bị khóa";
+      stop
+    else (Không)
+      :Tạo Access Token (JWT) - 15p;
+      :Tạo Refresh Token - 30 ngày;
+      :Lưu Refresh Token vào DB (Optional);
+      :Trả về Token & User Info;
+    endif
+  endif
+endif
+
+|Client|
+:Nhận Token;
+:Lưu Token (LocalStorage/Cookie);
+:Cập nhật State (Redux/Context);
+
+if (Có Redirect URL?) then (Có)
+  :Chuyển hướng đến trang trước đó;
+else (Không)
+  if (Role == Admin?) then (Có)
+    :Chuyển đến Admin Dashboard;
+  else (Không)
+    :Chuyển đến Trang chủ;
+  endif
+endif
+
+stop
+@enduml

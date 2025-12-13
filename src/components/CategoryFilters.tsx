@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams, usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 interface CategoryFiltersProps {
     availableBrands: string[];
@@ -16,7 +17,15 @@ interface CategoryFiltersProps {
 export default function CategoryFilters({ availableBrands, currentFilters }: CategoryFiltersProps) {
     const router = useRouter();
     const searchParams = useSearchParams();
+    const pathname = usePathname();
     const [minPrice, setMinPrice] = useState(currentFilters.minPrice || 0);
+
+    const categories = [
+        { name: 'Điện thoại', slug: 'dien-thoai', icon: '📱' },
+        { name: 'Laptop', slug: 'laptop', icon: '💻' },
+        { name: 'Máy tính bảng', slug: 'may-tinh-bang', icon: '📲' },
+        { name: 'Phụ kiện', slug: 'phu-kien', icon: '🎧' },
+    ];
     const [maxPrice, setMaxPrice] = useState(currentFilters.maxPrice || 50000000);
     const [selectedBrands, setSelectedBrands] = useState<string[]>(currentFilters.brands);
     const [sort, setSort] = useState(currentFilters.sort);
@@ -70,6 +79,30 @@ export default function CategoryFilters({ availableBrands, currentFilters }: Cat
 
     return (
         <div className="bg-[#0F2B52] rounded-lg shadow-md border border-[#00D4FF] p-4 h-fit sticky top-4">
+            {/* Categories */}
+            <div className="mb-6 pb-6 border-b border-[#00D4FF]/30">
+                <h3 className="font-semibold mb-4 text-[#E0F7FF]">Danh mục</h3>
+                <div className="space-y-2">
+                    {categories.map((cat) => {
+                        const isActive = pathname === `/danh-muc/${cat.slug}`;
+                        return (
+                            <Link
+                                key={cat.slug}
+                                href={`/danh-muc/${cat.slug}`}
+                                className={`flex items-center space-x-3 p-2 rounded transition-colors ${
+                                    isActive 
+                                        ? 'bg-[#00D4FF]/20 text-[#00D4FF]' 
+                                        : 'text-[#B0D0E8] hover:bg-[#00D4FF]/10 hover:text-[#E0F7FF]'
+                                }`}
+                            >
+                                <span>{cat.icon}</span>
+                                <span>{cat.name}</span>
+                            </Link>
+                        );
+                    })}
+                </div>
+            </div>
+
             {/* Price filter */}
             <div className="mb-6 pb-6 border-b border-[#00D4FF]/30">
                 <h3 className="font-semibold mb-4 text-[#E0F7FF]">Khoảng giá</h3>

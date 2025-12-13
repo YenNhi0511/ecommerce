@@ -1,0 +1,41 @@
+@startuml State-Order
+title Biểu đồ Trạng thái Đơn hàng (Order State Diagram)
+
+[*] --> Pending : Khách đặt hàng thành công
+
+state Pending {
+  [*] --> Verifying : Hệ thống kiểm tra
+  Verifying --> Valid : Thông tin hợp lệ
+  Verifying --> Invalid : Lỗi thanh toán/Kho
+}
+
+Pending --> Processing : Admin/Seller xác nhận
+Pending --> Cancelled : Khách hủy / Admin hủy
+
+state Processing {
+  [*] --> Packing : Đóng gói sản phẩm
+  Packing --> Handover : Giao cho vận chuyển
+}
+
+Processing --> Shipped : Đơn vị vận chuyển lấy hàng
+Processing --> Cancelled : Hết hàng đột xuất
+
+state Shipped {
+  [*] --> InTransit : Đang giao hàng
+  InTransit --> DeliveryAttempt : Giao lần 1
+  DeliveryAttempt --> Delivered : Giao thành công
+  DeliveryAttempt --> Retry : Giao thất bại (thử lại)
+  Retry --> Returned : Giao thất bại quá số lần
+}
+
+Shipped --> Delivered : Khách nhận hàng
+Delivered --> Completed : Hết thời gian đổi trả
+Delivered --> Returned : Khách hoàn trả
+
+Cancelled --> [*]
+Returned --> [*]
+Completed --> [*]
+
+note right of Pending : Có thể hủy bởi người dùng
+note right of Processing : Không thể hủy bởi người dùng
+@enduml

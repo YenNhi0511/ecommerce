@@ -1,0 +1,30 @@
+@startuml State-Product
+title Biểu đồ Trạng thái Sản phẩm (Product State Diagram)
+
+[*] --> Draft : Tạo mới (Chưa hoàn thiện)
+
+state Draft {
+  [*] --> Editing : Nhập thông tin
+  Editing --> Ready : Đủ thông tin bắt buộc
+}
+
+Draft --> Active : Xuất bản (Publish)
+
+state Active {
+  [*] --> InStock : Còn hàng (>0)
+  InStock --> LowStock : Sắp hết (<5)
+  LowStock --> OutOfStock : Hết hàng (=0)
+  OutOfStock --> InStock : Nhập thêm hàng
+}
+
+Active --> Hidden : Ẩn sản phẩm (Tạm ngưng)
+Hidden --> Active : Hiển thị lại
+
+Active --> Deleted : Xóa mềm (Soft Delete)
+Hidden --> Deleted : Xóa mềm
+
+Deleted --> [*]
+
+note right of Active : Hiển thị trên trang chủ\nvà kết quả tìm kiếm
+note right of Hidden : Chỉ Admin/Seller thấy
+@enduml

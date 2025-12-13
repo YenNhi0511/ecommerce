@@ -1,0 +1,37 @@
+@startuml Flow-Analytics-Pipeline
+title Lưu đồ Xử lý Dữ liệu Phân tích (Data Pipeline Flowchart)
+
+start
+
+:Nhận Dữ liệu Event từ Client;
+note right: JSON Payload
+
+if (Validate Dữ liệu?) then (Không hợp lệ)
+  :Ghi Log Lỗi;
+  :Trả về 400 Bad Request;
+  stop
+else (Hợp lệ)
+  :Làm giàu dữ liệu (Enrichment);
+  note right
+    - Phân giải UserAgent -> Device/OS
+    - IP -> GeoLocation (Thành phố/QG)
+  end note
+endif
+
+:Lưu vào Raw Data (MongoDB);
+
+fork
+  :Xử lý Real-time;
+  :Cập nhật Counter (Redis/Memcached);
+  :Cập nhật Dashboard thời gian thực;
+fork again
+  :Xử lý Batch (Định kỳ);
+  :Tổng hợp theo Giờ/Ngày;
+  :Tính toán KPI (Conversion Rate);
+  :Lưu vào Bảng Aggregation;
+end fork
+
+:Sẵn sàng cho Báo cáo;
+
+stop
+@enduml

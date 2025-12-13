@@ -1,0 +1,42 @@
+@startuml Activity-OrderFulfillment
+title Quy trình Xử lý Đơn hàng
+
+|Người mua|
+start
+:Đặt hàng thành công;
+:Chờ xử lý;
+
+|Hệ thống|
+:Gửi email xác nhận;
+:Lưu đơn hàng vào CSDL (Trạng thái: Pending);
+
+|Quản trị viên|
+:Xem danh sách đơn hàng mới;
+:Kiểm tra kho hàng;
+
+if (Còn hàng?) then (Có)
+  :Xác nhận đơn hàng;
+  :Cập nhật trạng thái: Processing;
+  |Hệ thống|
+  :Thông báo cho Người mua;
+  |Kho vận|
+  :Đóng gói sản phẩm;
+  :Giao cho đơn vị vận chuyển;
+  |Quản trị viên|
+  :Cập nhật trạng thái: Shipped;
+else (Không)
+  :Hủy đơn hàng;
+  :Cập nhật trạng thái: Cancelled;
+  |Hệ thống|
+  :Thông báo hủy & Hoàn tiền (nếu có);
+endif
+
+|Người mua|
+if (Nhận được hàng?) then (Có)
+  :Kiểm tra hàng hóa;
+  stop
+else (Không)
+  :Liên hệ hỗ trợ;
+  stop
+endif
+@enduml

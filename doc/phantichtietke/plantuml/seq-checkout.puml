@@ -1,0 +1,46 @@
+@startuml Sequence-Checkout
+actor "Người dùng" as User
+participant "Trang Thanh Toán\n(Client)" as Client
+participant "API Đơn Hàng\n(/api/orders)" as API
+participant "Model Sản Phẩm" as ProdModel
+participant "Model Đơn Hàng" as OrderModel
+database MongoDB
+
+User -> Client: Nhấn "Đặt Hàng"
+activate Client
+Client -> API: POST /api/orders (items, address)
+activate API
+
+API -> API: Kiểm tra sản phẩm
+loop Với mỗi sản phẩm
+    API -> ProdModel: findById(itemId)
+    activate ProdModel
+    ProdModel -> MongoDB: Truy vấn
+    activate MongoDB
+    MongoDB --> ProdModel: Tài liệu Sản phẩm
+    deactivate MongoDB
+    ProdModel --> API: Sản phẩm
+    deactivate ProdModel
+    
+    API -> API: Kiểm tra tồn kho
+    alt Hết hàng
+        API --> Client: 400 Error
+    end
+    API -> API: Tính giá
+end
+
+API -> API: Tính tổng tiền
+API -> OrderModel: create(orderData)
+activate OrderModel
+OrderModel -> MongoDB: Thêm đơn hàng
+activate MongoDB
+MongoDB --> OrderModel: Thành công
+deactivate MongoDB
+OrderModel --> API: Đối tượng Đơn hàng
+deactivate OrderModel
+
+API --> Client: 201 Created (OrderId)
+deactivate API
+Client --> User: Hiển thị xác nhận
+deactivate Client
+@enduml

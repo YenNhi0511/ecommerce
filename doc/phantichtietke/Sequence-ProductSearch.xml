@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-13T12:05:00.000Z" agent="Mozilla/5.0"
+    version="21.6.8" type="device">
+    <diagram name="Sequence Product Search" id="Seq-ProdSearch">
+        <mxGraphModel dx="1422" dy="798" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0"
+            shadow="0">
+            <root>
+                <mxCell id="0" />
+                <mxCell id="1" parent="0" />
+
+                <!-- Actors and Lifelines -->
+                <mxCell id="User" value="User"
+                    style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="30" height="60" as="geometry" />
+                </mxCell>
+                <mxCell id="Client" value="Product List Page&#xa;(Client)"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="120" y="40" width="100" height="400" as="geometry" />
+                </mxCell>
+                <mxCell id="API" value="Product API&#xa;(/api/products)"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="280" y="40" width="120" height="400" as="geometry" />
+                </mxCell>
+                <mxCell id="Model" value="Product Model"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="460" y="40" width="100" height="400" as="geometry" />
+                </mxCell>
+                <mxCell id="DB" value="MongoDB"
+                    style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="600" y="40" width="100" height="400" as="geometry" />
+                </mxCell>
+
+                <!-- Messages -->
+                <mxCell id="msg1" value="Filter/Search (category, keyword)"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="1" source="User" target="Client">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="55" y="80" as="sourcePoint" />
+                        <mxPoint x="120" y="80" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="80" y="80" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="msg2" value="GET /api/products?search=...&amp;cat=..."
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="1" source="Client" target="API">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="170" y="100" as="sourcePoint" />
+                        <mxPoint x="340" y="100" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="220" y="100" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="msg3" value="Build Query (isActive: true)"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=1;entryY=0;rounded=0;"
+                    edge="1" parent="1" source="API" target="API">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="340" y="120" as="sourcePoint" />
+                        <mxPoint x="340" y="140" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="370" y="120" />
+                            <mxPoint x="370" y="140" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="msg4" value="find(query).skip().limit()"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="1" source="API" target="Model">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="340" y="160" as="sourcePoint" />
+                        <mxPoint x="510" y="160" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="400" y="160" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="msg5" value="Execute Query"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="1" source="Model" target="DB">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="510" y="180" as="sourcePoint" />
+                        <mxPoint x="650" y="180" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="560" y="180" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="msg6" value="Product Documents"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;entryX=1;entryY=0;"
+                    edge="1" parent="1" source="DB" target="Model">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="650" y="200" as="sourcePoint" />
+                        <mxPoint x="510" y="200" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="580" y="200" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="msg7" value="List&lt;Product&gt;"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;entryX=1;entryY=0;"
+                    edge="1" parent="1" source="Model" target="API">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="510" y="220" as="sourcePoint" />
+                        <mxPoint x="340" y="220" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="420" y="220" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="msg8" value="countDocuments(query)"
+                    style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1"
+                    parent="1" source="API" target="Model">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="340" y="240" as="sourcePoint" />
+                        <mxPoint x="510" y="240" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="400" y="240" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="msg9" value="Count"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;entryX=1;entryY=0;"
+                    edge="1" parent="1" source="Model" target="API">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="510" y="280" as="sourcePoint" />
+                        <mxPoint x="340" y="280" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="420" y="280" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="msg10" value="JSON {products, pagination}"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;entryX=1;entryY=0;"
+                    edge="1" parent="1" source="API" target="Client">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="340" y="300" as="sourcePoint" />
+                        <mxPoint x="170" y="300" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="250" y="300" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="msg11" value="Render Product Grid"
+                    style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;entryX=1;entryY=0;"
+                    edge="1" parent="1" source="Client" target="User">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="170" y="320" as="sourcePoint" />
+                        <mxPoint x="55" y="320" as="targetPoint" />
+                        <Array as="points">
+                            <mxPoint x="100" y="320" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

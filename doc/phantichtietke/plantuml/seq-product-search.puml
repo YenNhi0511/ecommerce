@@ -1,0 +1,36 @@
+@startuml Sequence-ProductSearch
+actor "Người dùng" as User
+participant "Trang Danh Sách Sản Phẩm\n(Client)" as Client
+participant "API Sản Phẩm\n(/api/products)" as API
+participant "Model Sản Phẩm" as Model
+database MongoDB
+
+User -> Client: Lọc/Tìm kiếm (danh mục, từ khóa)
+activate Client
+Client -> API: GET /api/products?search=...
+activate API
+
+API -> API: Xây dựng truy vấn (isActive: true)
+API -> Model: find(query).skip().limit()
+activate Model
+Model -> MongoDB: Thực thi truy vấn
+activate MongoDB
+MongoDB --> Model: Tài liệu Sản phẩm
+deactivate MongoDB
+Model --> API: Danh sách Sản phẩm
+deactivate Model
+
+API -> Model: countDocuments(query)
+activate Model
+Model -> MongoDB: Đếm số lượng
+activate MongoDB
+MongoDB --> Model: Tổng số lượng
+deactivate MongoDB
+Model --> API: Số lượng
+deactivate Model
+
+API --> Client: JSON {products, pagination}
+deactivate API
+Client --> User: Hiển thị lưới sản phẩm
+deactivate Client
+@enduml

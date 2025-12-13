@@ -1,0 +1,53 @@
+@startuml Flow-Admin-Product-Mgmt
+title Lưu đồ Quản lý Sản phẩm - Admin (Product Management Flowchart)
+
+|Admin|
+start
+:Truy cập trang Quản lý Sản phẩm;
+
+if (Hành động?) then (Thêm mới)
+  :Nhấn "Thêm sản phẩm";
+  :Nhập thông tin (Tên, Giá, Kho...);
+  :Chọn ảnh từ máy tính;
+  
+  :Nhấn "Lưu";
+  
+  |Client|
+  :Validate Form;
+  :Upload ảnh lên Cloudinary;
+  if (Upload lỗi?) then (Có)
+    :Báo lỗi Upload;
+    stop
+  else (Thành công)
+    :Lấy URL ảnh trả về;
+  endif
+  
+  :Gửi Request POST /api/products\n(kèm URL ảnh);
+  
+  |Server|
+  :Validate dữ liệu Backend;
+  :Tạo Product mới trong DB;
+  :Trả về 201 Created;
+
+else (Sửa/Xóa)
+  :Chọn sản phẩm từ danh sách;
+  if (Sửa?) then (Có)
+    :Cập nhật thông tin;
+    :Gửi Request PUT /api/products/:id;
+    |Server|
+    :Cập nhật DB;
+  else (Xóa)
+    :Nhấn nút Xóa;
+    :Xác nhận Dialog;
+    :Gửi Request DELETE /api/products/:id;
+    |Server|
+    :Xóa (hoặc Soft Delete) trong DB;
+  endif
+endif
+
+|Client|
+:Hiển thị thông báo thành công;
+:Reload danh sách sản phẩm;
+
+stop
+@enduml

@@ -1,0 +1,33 @@
+@startuml Sequence-Login
+actor "Người dùng" as User
+participant "Trang Đăng Nhập\n(Client)" as Client
+participant "API Đăng Nhập\n(/api/auth/login)" as API
+participant "Model Người Dùng" as Model
+database MongoDB
+
+User -> Client: Gửi thông tin đăng nhập
+activate Client
+Client -> API: POST /api/auth/login
+activate API
+
+API -> Model: findOne({email})
+activate Model
+Model -> MongoDB: Truy vấn CSDL
+activate MongoDB
+MongoDB --> Model: Tài liệu Người dùng
+deactivate MongoDB
+Model --> API: Đối tượng Người dùng
+deactivate Model
+
+API -> API: bcrypt.compare(password)
+alt Mật khẩu đúng
+    API -> API: Tạo JWT/Session
+    API --> Client: 200 OK (Set-Cookie)
+    Client --> User: Chuyển hướng về Trang chủ
+else Mật khẩu sai
+    API --> Client: 401 Unauthorized
+    Client --> User: Hiển thị lỗi
+end
+deactivate API
+deactivate Client
+@enduml

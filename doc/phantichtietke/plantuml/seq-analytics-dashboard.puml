@@ -1,0 +1,39 @@
+@startuml Sequence-Analytics-Dashboard
+title Quy trình Tổng hợp & Hiển thị Báo cáo Phân tích
+
+actor "Admin" as Admin
+participant "Admin Dashboard" as UI
+participant "Analytics API" as API
+participant "Aggregation Service" as Service
+database "MongoDB" as DB
+
+Admin -> UI: Truy cập Dashboard Phân tích
+activate UI
+
+UI -> API: GET /analytics/overview?range=7days
+activate API
+
+API -> Service: Yêu cầu tổng hợp dữ liệu
+activate Service
+
+par Lấy dữ liệu song song
+    Service -> DB: Count Events (Views, Carts, Orders)
+    Service -> DB: Aggregate Top Products
+    Service -> DB: Aggregate User Journey
+    Service -> DB: Calculate Conversion Rate
+end
+
+DB --> Service: Trả về dữ liệu thô
+deactivate DB
+
+Service -> Service: Xử lý & Format dữ liệu\n(Tính % tăng trưởng, vẽ biểu đồ)
+Service --> API: JSON Report Data
+deactivate Service
+
+API --> UI: Dữ liệu hiển thị
+deactivate API
+
+UI -> Admin: Hiển thị Biểu đồ & Thống kê
+deactivate UI
+
+@enduml

@@ -1,0 +1,40 @@
+@startuml Activity-Analytics-Funnel
+title Luồng Tính toán Phễu Chuyển đổi (Conversion Funnel)
+
+|Admin|
+start
+:Chọn khoảng thời gian (Time Range);
+:Yêu cầu xem Phễu chuyển đổi;
+
+|Hệ thống Phân tích|
+:Lấy tổng số lượt xem sản phẩm (Product Views);
+note right: Giai đoạn 1 (100%)
+
+:Lấy tổng số lượt thêm vào giỏ (Add to Cart);
+note right: Giai đoạn 2
+
+:Lấy tổng số đơn hàng thành công (Orders);
+note right: Giai đoạn 3
+
+:Tính toán tỷ lệ chuyển đổi;
+note right
+  Rate 1 = (Carts / Views) * 100
+  Rate 2 = (Orders / Carts) * 100
+  Total Rate = (Orders / Views) * 100
+end note
+
+if (Có dữ liệu so sánh?) then (Có)
+  :So sánh với kỳ trước;
+  :Tính % tăng/giảm;
+else (Không)
+  :Bỏ qua so sánh;
+endif
+
+:Vẽ biểu đồ Phễu (Funnel Chart);
+:Hiển thị tỷ lệ rớt đơn (Drop-off);
+
+|Admin|
+:Xem báo cáo chi tiết;
+stop
+
+@enduml

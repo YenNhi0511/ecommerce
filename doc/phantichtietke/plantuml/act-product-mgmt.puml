@@ -1,0 +1,36 @@
+@startuml Activity-ProductManagement
+title Quy trình Quản lý Sản phẩm (Admin)
+
+|Quản trị viên|
+start
+:Đăng nhập vào trang Admin;
+:Truy cập mục Quản lý Sản phẩm;
+
+split
+  :Thêm sản phẩm mới;
+  :Nhập tên, giá, mô tả, hình ảnh;
+  :Lưu sản phẩm;
+split again
+  :Sửa sản phẩm;
+  :Chọn sản phẩm cần sửa;
+  :Cập nhật thông tin;
+  :Lưu thay đổi;
+split again
+  :Xóa sản phẩm;
+  :Chọn sản phẩm cần xóa;
+  :Xác nhận xóa;
+  if (Sản phẩm có trong đơn hàng?) then (Có)
+    :Báo lỗi "Không thể xóa";
+  else (Không)
+    :Xóa khỏi CSDL;
+  endif
+end split
+
+|Hệ thống|
+:Cập nhật CSDL MongoDB;
+:Phản hồi kết quả cho Admin;
+
+|Quản trị viên|
+:Xem danh sách sản phẩm cập nhật;
+stop
+@enduml

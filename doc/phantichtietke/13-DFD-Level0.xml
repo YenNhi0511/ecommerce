@@ -1,36 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxfile host="app.diagrams.net" modified="2025-12-13T11:05:00.000Z"
-    agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
-    etag="13-DFD-Level0" version="21.0.0" type="device">
-    <diagram id="13-DFD-Level0" name="13-DFD-Level0">
-        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
-            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+<mxfile host="app.diagrams.net" modified="2025-12-13T11:20:00.000Z" agent="Mozilla/5.0"
+    version="21.6.8" type="device">
+    <diagram name="DFD Level 0" id="DFD-0">
+        <mxGraphModel dx="1422" dy="798" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0"
             shadow="0">
             <root>
-                <mxCell id="p13_0" />
-                <mxCell id="p13_1" parent="p13_0" />
-                <mxCell id="p13_proc" value="E-Commerce System"
-                    style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="p13_1">
-                    <mxGeometry x="350" y="200" width="120" height="120" as="geometry" />
+                <mxCell id="0" />
+                <mxCell id="1" parent="0" />
+
+                <!-- Process 0 -->
+                <mxCell id="System" value="0&#xa;E-Commerce&#xa;System"
+                    style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="360" y="200" width="140" height="140" as="geometry" />
                 </mxCell>
-                <mxCell id="p13_cust" value="Customer" style="rounded=0;whiteSpace=wrap;html=1;"
-                    vertex="1" parent="p13_1">
-                    <mxGeometry x="100" y="230" width="100" height="60" as="geometry" />
+
+                <!-- External Entities -->
+                <mxCell id="Customer" value="Customer"
+                    style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="80" y="240" width="120" height="60" as="geometry" />
                 </mxCell>
-                <mxCell id="p13_admin" value="Admin" style="rounded=0;whiteSpace=wrap;html=1;"
-                    vertex="1" parent="p13_1">
-                    <mxGeometry x="600" y="230" width="100" height="60" as="geometry" />
+
+                <mxCell id="Admin" value="Admin"
+                    style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="660" y="240" width="120" height="60" as="geometry" />
                 </mxCell>
-                <mxCell id="p13_f1" value="Orders, Info"
-                    style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;"
-                    edge="1" parent="p13_1" source="p13_cust" target="p13_proc">
+
+                <!-- Flows: Customer -> System -->
+                <mxCell id="f1" value="Order Details, Payment Info"
+                    style="endArrow=classic;html=1;entryX=0;entryY=0.3;entryDx=0;entryDy=0;entryPerimeter=0;"
+                    edge="1" parent="1" source="Customer" target="System">
                     <mxGeometry relative="1" as="geometry" />
                 </mxCell>
-                <mxCell id="p13_f2" value="Products, Reports"
-                    style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;"
-                    edge="1" parent="p13_1" source="p13_admin" target="p13_proc">
+                <mxCell id="f2" value="Login Credentials"
+                    style="endArrow=classic;html=1;entryX=0;entryY=0.7;entryDx=0;entryDy=0;entryPerimeter=0;"
+                    edge="1" parent="1" source="Customer" target="System">
                     <mxGeometry relative="1" as="geometry" />
                 </mxCell>
+
+                <!-- Flows: System -> Customer -->
+                <mxCell id="f3" value="Order Confirmation, Status"
+                    style="endArrow=classic;html=1;exitX=0.2;exitY=0.9;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.8;entryY=1;entryDx=0;entryDy=0;"
+                    edge="1" parent="1" source="System" target="Customer">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="280" y="360" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="f4" value="Product Info"
+                    style="endArrow=classic;html=1;exitX=0.2;exitY=0.1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.8;entryY=0;entryDx=0;entryDy=0;"
+                    edge="1" parent="1" source="System" target="Customer">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="280" y="180" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- Flows: Admin -> System -->
+                <mxCell id="f5" value="Product Updates"
+                    style="endArrow=classic;html=1;entryX=1;entryY=0.3;entryDx=0;entryDy=0;entryPerimeter=0;"
+                    edge="1" parent="1" source="Admin" target="System">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="f6" value="Order Status Updates"
+                    style="endArrow=classic;html=1;entryX=1;entryY=0.7;entryDx=0;entryDy=0;entryPerimeter=0;"
+                    edge="1" parent="1" source="Admin" target="System">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <!-- Flows: System -> Admin -->
+                <mxCell id="f7" value="Sales Reports"
+                    style="endArrow=classic;html=1;exitX=0.8;exitY=0.9;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.2;entryY=1;entryDx=0;entryDy=0;"
+                    edge="1" parent="1" source="System" target="Admin">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="580" y="360" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="f8" value="Low Stock Alerts"
+                    style="endArrow=classic;html=1;exitX=0.8;exitY=0.1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.2;entryY=0;entryDx=0;entryDy=0;"
+                    edge="1" parent="1" source="System" target="Admin">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="580" y="180" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
             </root>
         </mxGraphModel>
     </diagram>

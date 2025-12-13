@@ -1,0 +1,56 @@
+@startuml Flow-AddToCart
+title Lưu đồ Thêm vào Giỏ hàng (Add to Cart Flowchart)
+
+|Client|
+start
+:Người dùng chọn Sản phẩm & Số lượng;
+:Nhấn nút "Thêm vào giỏ";
+
+:Kiểm tra Số lượng hợp lệ (Min 1);
+
+if (Người dùng đã đăng nhập?) then (Có)
+  :Gửi Request POST /api/cart/add;
+  
+  |Server|
+  :Nhận Request {productId, quantity};
+  :Kiểm tra Tồn kho Sản phẩm;
+  
+  if (Đủ hàng?) then (Không)
+    :Trả về lỗi 400 "Hết hàng";
+    stop
+  else (Có)
+    :Tìm Giỏ hàng của User;
+    if (Sản phẩm đã có trong giỏ?) then (Có)
+      :Cập nhật số lượng (+quantity);
+    else (Không)
+      :Thêm Item mới vào mảng items;
+    endif
+    :Lưu Giỏ hàng vào DB;
+    :Trả về Giỏ hàng mới;
+  endif
+
+  |Client|
+  :Cập nhật State Giỏ hàng từ Server;
+
+else (Không - Guest)
+  |Client|
+  :Lấy Giỏ hàng từ LocalStorage;
+  :Kiểm tra Tồn kho (API check stock);
+  
+  if (Đủ hàng?) then (Có)
+    if (Sản phẩm đã có?) then (Có)
+      :Cập nhật số lượng Local;
+    else (Không)
+      :Thêm Item mới vào LocalStorage;
+    endif
+    :Lưu lại LocalStorage;
+    :Cập nhật UI Header Cart;
+  else (Không)
+    :Hiển thị lỗi "Hết hàng";
+    stop
+  endif
+endif
+
+:Hiển thị Toast "Đã thêm vào giỏ";
+stop
+@enduml

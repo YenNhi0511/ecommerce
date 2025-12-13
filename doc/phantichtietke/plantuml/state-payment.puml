@@ -1,0 +1,23 @@
+@startuml State-Payment
+title Biểu đồ Trạng thái Giao dịch Thanh toán (Payment Transaction State)
+
+[*] --> Created : Người dùng chọn thanh toán
+
+state Created {
+  [*] --> Pending : Chuyển sang cổng thanh toán
+}
+
+Pending --> Success : Thanh toán thành công (Callback)
+Pending --> Failed : Thanh toán thất bại / Hủy
+
+state Success {
+  [*] --> Completed : Tiền đã về tài khoản
+  Completed --> Refunded : Hoàn tiền (Full/Partial)
+}
+
+Failed --> [*]
+Refunded --> [*]
+
+note right of Pending : Chờ phản hồi từ Stripe/VNPay
+note right of Refunded : Xử lý khi hủy đơn đã thanh toán
+@enduml

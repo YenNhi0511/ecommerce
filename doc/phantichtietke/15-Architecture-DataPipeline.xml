@@ -1,51 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxfile host="app.diagrams.net" modified="2025-12-13T11:05:00.000Z"
-    agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
-    etag="15-Architecture-DataPipeline" version="21.0.0" type="device">
-    <diagram id="15-Architecture-DataPipeline" name="15-Architecture-DataPipeline">
-        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
-            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+<mxfile host="app.diagrams.net" modified="2025-12-13T11:30:00.000Z" agent="Mozilla/5.0"
+    version="21.6.8" type="device">
+    <diagram name="Data Pipeline" id="Data-Pipe">
+        <mxGraphModel dx="1422" dy="798" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0"
             shadow="0">
             <root>
-                <mxCell id="p15_0" />
-                <mxCell id="p15_1" parent="p15_0" />
-                <mxCell id="p15_src" value="Event Sources&#xa;(Web/Mobile)"
-                    style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="p15_1">
-                    <mxGeometry x="50" y="100" width="120" height="60" as="geometry" />
+                <mxCell id="0" />
+                <mxCell id="1" parent="0" />
+
+                <!-- Source -->
+                <mxCell id="Source" value="Client Browser&#xa;(User Actions)"
+                    style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="40" y="100" width="120" height="60" as="geometry" />
                 </mxCell>
-                <mxCell id="p15_ingest" value="Ingestion API"
-                    style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="p15_1">
+
+                <!-- Ingest -->
+                <mxCell id="Ingest" value="Ingestion API&#xa;(Next.js Route)"
+                    style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;"
+                    vertex="1" parent="1">
                     <mxGeometry x="220" y="100" width="120" height="60" as="geometry" />
                 </mxCell>
-                <mxCell id="p15_store" value="Raw Storage&#xa;(MongoDB)"
-                    style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;"
-                    vertex="1" parent="p15_1">
-                    <mxGeometry x="400" y="90" width="80" height="80" as="geometry" />
+
+                <!-- Store -->
+                <mxCell id="Store" value="MongoDB&#xa;(Raw Events)"
+                    style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="400" y="90" width="100" height="80" as="geometry" />
                 </mxCell>
-                <mxCell id="p15_agg" value="Aggregation&#xa;(Cron/Batch)"
-                    style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="p15_1">
-                    <mxGeometry x="550" y="100" width="120" height="60" as="geometry" />
+
+                <!-- Process -->
+                <mxCell id="Process" value="Aggregation&#xa;(MongoDB Pipeline)"
+                    style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="560" y="100" width="120" height="60" as="geometry" />
                 </mxCell>
-                <mxCell id="p15_dash" value="Dashboard UI" style="rounded=1;whiteSpace=wrap;html=1;"
-                    vertex="1" parent="p15_1">
-                    <mxGeometry x="720" y="100" width="120" height="60" as="geometry" />
+
+                <!-- Visualize -->
+                <mxCell id="Visualize" value="Admin Dashboard&#xa;(Recharts/UI)"
+                    style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="740" y="100" width="120" height="60" as="geometry" />
                 </mxCell>
-                <mxCell id="p15_f1" value="" style="endArrow=classic;html=1;" edge="1"
-                    parent="p15_1" source="p15_src" target="p15_ingest">
+
+                <!-- Flows -->
+                <mxCell id="f1" value="POST /api/events" style="endArrow=classic;html=1;" edge="1"
+                    parent="1" source="Source" target="Ingest">
                     <mxGeometry relative="1" as="geometry" />
                 </mxCell>
-                <mxCell id="p15_f2" value="" style="endArrow=classic;html=1;" edge="1"
-                    parent="p15_1" source="p15_ingest" target="p15_store">
+
+                <mxCell id="f2" value="Insert Doc" style="endArrow=classic;html=1;" edge="1"
+                    parent="1" source="Ingest" target="Store">
                     <mxGeometry relative="1" as="geometry" />
                 </mxCell>
-                <mxCell id="p15_f3" value="" style="endArrow=classic;html=1;" edge="1"
-                    parent="p15_1" source="p15_store" target="p15_agg">
+
+                <mxCell id="f3" value="Query/Agg" style="endArrow=classic;html=1;" edge="1"
+                    parent="1" source="Store" target="Process">
                     <mxGeometry relative="1" as="geometry" />
                 </mxCell>
-                <mxCell id="p15_f4" value="" style="endArrow=classic;html=1;" edge="1"
-                    parent="p15_1" source="p15_agg" target="p15_dash">
+
+                <mxCell id="f4" value="JSON Data" style="endArrow=classic;html=1;" edge="1"
+                    parent="1" source="Process" target="Visualize">
                     <mxGeometry relative="1" as="geometry" />
                 </mxCell>
+
             </root>
         </mxGraphModel>
     </diagram>

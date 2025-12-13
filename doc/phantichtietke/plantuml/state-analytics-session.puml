@@ -1,0 +1,37 @@
+@startuml State-Analytics-Session
+title Biểu đồ Trạng thái Phiên Người dùng (User Session State)
+
+[*] --> New : Người dùng truy cập
+
+state New {
+  [*] --> Initializing : Tạo Session ID
+  Initializing --> Active : Ghi nhận Event đầu tiên
+}
+
+state Active {
+  [*] --> Tracking : Người dùng tương tác
+  Tracking --> Idle : Không hoạt động (30p)
+  Idle --> Tracking : Tương tác lại
+  Tracking --> Converted : Thực hiện mua hàng
+}
+
+state Converted {
+  [*] --> PostPurchase : Tiếp tục xem sau mua
+}
+
+Active --> Expired : Hết hạn Session (Timeout)
+Converted --> Expired : Hết hạn Session
+
+Expired --> [*] : Lưu trữ & Kết thúc
+
+note right of Active
+  Trạng thái chính để
+  ghi nhận hành vi
+end note
+
+note right of Converted
+  Đánh dấu session thành công
+  (Conversion Goal Met)
+end note
+
+@enduml

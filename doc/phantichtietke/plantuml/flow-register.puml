@@ -1,0 +1,48 @@
+@startuml Flow-Register
+title Lưu đồ Quy trình Đăng ký Tài khoản (Registration Flowchart)
+
+|Client|
+start
+:Người dùng nhập thông tin Đăng ký;
+note right
+  - Tên
+  - Email
+  - Mật khẩu
+  - Số điện thoại
+end note
+
+if (Validate Form Client?) then (Lỗi)
+  :Hiển thị lỗi Validation;
+  stop
+else (OK)
+  :Gửi Request POST /api/auth/register;
+endif
+
+|Server|
+:Nhận Request;
+:Kiểm tra Email đã tồn tại?;
+
+if (Email tồn tại?) then (Có)
+  :Trả về lỗi 400 "Email đã được sử dụng";
+  stop
+else (Không)
+  :Mã hóa Mật khẩu (Bcrypt);
+  :Tạo User mới (Role: Customer);
+  :Lưu vào Database;
+  
+  if (Lưu thành công?) then (Có)
+    :Gửi Email chào mừng (Async);
+    :Trả về 201 Created;
+  else (Không)
+    :Trả về lỗi 500 Server Error;
+    stop
+  endif
+endif
+
+|Client|
+:Nhận phản hồi thành công;
+:Hiển thị thông báo "Đăng ký thành công";
+:Chuyển hướng sang trang Đăng nhập;
+
+stop
+@enduml

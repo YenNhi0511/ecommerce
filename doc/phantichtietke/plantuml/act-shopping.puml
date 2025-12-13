@@ -1,0 +1,40 @@
+@startuml Activity-Shopping
+title Quy trình Mua sắm (Tìm kiếm, Giỏ hàng, Thanh toán)
+
+start
+:Người dùng truy cập trang chủ;
+
+fork
+  :Tìm kiếm sản phẩm;
+fork again
+  :Duyệt danh mục sản phẩm;
+end fork
+
+:Xem chi tiết sản phẩm;
+
+if (Thêm vào giỏ hàng?) then (Có)
+  :Chọn số lượng;
+  :Nhấn "Thêm vào giỏ";
+  :Cập nhật trạng thái Giỏ hàng;
+else (Không)
+  stop
+endif
+
+:Người dùng xem Giỏ hàng;
+if (Tiến hành thanh toán?) then (Có)
+  if (Đã đăng nhập?) then (Không)
+    :Yêu cầu Đăng nhập/Đăng ký;
+    stop
+  else (Có)
+    :Nhập thông tin giao hàng;
+    :Chọn phương thức thanh toán;
+    :Xác nhận đơn hàng;
+    :Hệ thống tạo Đơn hàng (Pending);
+    :Hiển thị "Đặt hàng thành công";
+  endif
+else (Không)
+  :Tiếp tục mua sắm;
+endif
+
+stop
+@enduml

@@ -1,0 +1,23 @@
+@startuml State-Review
+title Biểu đồ Trạng thái Đánh giá Sản phẩm (Review State)
+
+[*] --> Submitted : Người dùng viết đánh giá
+
+state Submitted {
+  [*] --> Pending : Chờ duyệt (Nếu có kiểm duyệt)
+}
+
+Pending --> Published : Admin duyệt / Auto duyệt
+Pending --> Rejected : Vi phạm từ ngữ
+
+state Published {
+  [*] --> Visible : Hiển thị công khai
+  Visible --> Hidden : Admin ẩn (Reported)
+  Hidden --> Visible : Admin bỏ ẩn
+}
+
+Rejected --> [*]
+Published --> [*]
+
+note right of Pending : Hệ thống có thể lọc từ khóa xấu
+@enduml

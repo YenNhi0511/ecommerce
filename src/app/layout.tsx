@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import LayoutWrapper from "@/components/LayoutWrapper";
 import { CartProvider } from "@/context/CartContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { AnalyticsProvider } from "@/context/AnalyticsContext";
 import LocaleProvider from '@/context/LocaleContext';
-import TawkLoader from '@/components/TawkLoader'
 
 const inter = Inter({
   variable: "--font-inter",
@@ -43,12 +41,9 @@ export default function RootLayout({
           <AuthProvider>
             <AnalyticsProvider>
               <CartProvider>
-                <Header />
-                <main className="min-h-screen">
+                <LayoutWrapper>
                   {children}
-                </main>
-                <Footer />
-                <TawkLoader />
+                </LayoutWrapper>
               </CartProvider>
             </AnalyticsProvider>
           </AuthProvider>

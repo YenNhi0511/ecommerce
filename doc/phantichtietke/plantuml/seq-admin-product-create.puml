@@ -1,0 +1,27 @@
+@startuml Sequence-AdminProductCreate
+actor "Quản trị viên/Người bán" as Admin
+participant "Bảng điều khiển\n(Client)" as Client
+participant "API Sản Phẩm\n(/api/products)" as API
+participant "Model Sản Phẩm" as Model
+database MongoDB
+
+Admin -> Client: Gửi dữ liệu sản phẩm
+activate Client
+Client -> API: POST /api/products
+activate API
+
+API -> API: Kiểm tra xác thực & Quyền
+API -> Model: new Product(data)
+activate Model
+Model -> MongoDB: save()
+activate MongoDB
+MongoDB --> Model: Thành công
+deactivate MongoDB
+Model --> API: Đối tượng Sản phẩm
+deactivate Model
+
+API --> Client: 201 Created
+deactivate API
+Client --> Admin: Hiển thị thành công
+deactivate Client
+@enduml

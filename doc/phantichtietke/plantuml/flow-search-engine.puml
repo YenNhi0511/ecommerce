@@ -1,0 +1,54 @@
+@startuml Flow-Search-Engine
+title Lưu đồ Quy trình Tìm kiếm & Lọc Sản phẩm
+
+|Client|
+start
+:Người dùng nhập từ khóa / Chọn bộ lọc;
+
+:Debounce Input (300ms);
+:Xây dựng Query String;
+note right
+  ?keyword=iphone
+  &category=phone
+  &price_min=1000
+  &sort=price_asc
+end note
+:Gửi Request GET /api/products;
+
+|Server|
+:Nhận Query Parameters;
+
+fork
+  :Xây dựng Filter Object (MongoDB);
+  note right
+    {
+      name: { $regex: keyword },
+      category: category,
+      price: { $gte: min, $lte: max }
+    }
+  end note
+fork again
+  :Xây dựng Sort Option;
+end fork
+
+:Thực hiện Query Database;
+:Đếm tổng số kết quả (Pagination);
+
+if (Có kết quả?) then (Có)
+  :Format danh sách sản phẩm;
+  :Trả về JSON { data, total, page };
+else (Không)
+  :Trả về mảng rỗng;
+endif
+
+|Client|
+:Nhận dữ liệu;
+if (Kết quả > 0?) then (Có)
+  :Render danh sách sản phẩm;
+  :Cập nhật Phân trang;
+else (Không)
+  :Hiển thị "Không tìm thấy sản phẩm";
+endif
+
+stop
+@enduml

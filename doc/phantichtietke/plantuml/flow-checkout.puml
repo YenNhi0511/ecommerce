@@ -1,0 +1,68 @@
+@startuml Flow-Checkout
+title Lưu đồ Quy trình Thanh toán (Checkout Flowchart)
+
+start
+:Người dùng nhấn "Thanh toán";
+
+if (Đã đăng nhập?) then (Không)
+  :Chuyển hướng trang Đăng nhập;
+  :Người dùng đăng nhập;
+  if (Đăng nhập thành công?) then (Có)
+    :Quay lại trang Thanh toán;
+  else (Không)
+    stop
+  endif
+else (Có)
+endif
+
+:Load thông tin Giỏ hàng;
+if (Giỏ hàng rỗng?) then (Có)
+  :Hiển thị thông báo;
+  stop
+else (Không)
+endif
+
+:Kiểm tra Tồn kho (Real-time);
+if (Có sản phẩm hết hàng?) then (Có)
+  :Thông báo lỗi sản phẩm;
+  :Yêu cầu cập nhật giỏ hàng;
+  stop
+else (Không)
+endif
+
+:Người dùng nhập Thông tin Giao hàng;
+:Người dùng chọn Phương thức Thanh toán;
+
+if (Có mã giảm giá?) then (Có)
+  :Validate Mã giảm giá;
+  if (Hợp lệ?) then (Có)
+    :Áp dụng giảm giá;
+  else (Không)
+    :Báo lỗi mã;
+  endif
+else (Không)
+endif
+
+:Tính Tổng tiền cuối cùng;
+:Người dùng nhấn "Đặt hàng";
+
+if (Thanh toán Online?) then (Có)
+  :Chuyển hướng cổng thanh toán (Stripe/VNPay);
+  if (Thanh toán thành công?) then (Có)
+    :Cập nhật trạng thái: Đã thanh toán;
+  else (Không)
+    :Báo lỗi thanh toán;
+    stop
+  endif
+else (COD)
+  :Trạng thái: Chờ thanh toán;
+endif
+
+:Tạo Đơn hàng trong DB;
+:Trừ Tồn kho;
+:Xóa Giỏ hàng;
+:Gửi Email xác nhận;
+:Chuyển hướng trang "Cảm ơn";
+
+stop
+@enduml

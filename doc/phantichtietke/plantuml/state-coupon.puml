@@ -1,0 +1,26 @@
+@startuml State-Coupon
+title Biểu đồ Trạng thái Mã giảm giá (Coupon State Diagram)
+
+[*] --> Draft : Tạo mới
+
+state Draft {
+  [*] --> Editing : Nhập thông tin
+}
+
+Draft --> Active : Kích hoạt (Publish)
+
+state Active {
+  [*] --> Valid : Trong thời gian hiệu lực
+  Valid --> Paused : Tạm ngưng thủ công
+  Paused --> Valid : Kích hoạt lại
+}
+
+Active --> Expired : Hết hạn (End Date)
+Active --> Depleted : Hết lượt sử dụng (Usage Limit)
+
+Expired --> [*]
+Depleted --> [*]
+
+note right of Valid : Có thể áp dụng cho đơn hàng
+note right of Depleted : Không thể áp dụng nữa
+@enduml

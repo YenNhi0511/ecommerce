@@ -1,0 +1,41 @@
+@startuml Sequence-Analytics-Track
+title Quy trình Tracking Hành vi Người dùng (Real-time)
+
+actor "Người dùng (Guest/Customer)" as User
+participant "Frontend (Client)" as FE
+participant "Analytics API\n(/api/analytics)" as API
+participant "Analytics Service" as Service
+database "MongoDB\n(UserBehavior)" as DB
+
+User -> FE: Thực hiện hành động\n(Xem, Click, Thêm giỏ, Tìm kiếm...)
+activate FE
+
+FE -> FE: Thu thập Metadata\n(IP, UserAgent, SessionId, Time)
+FE -> API: POST /track\n{event, metadata, userId}
+activate API
+
+API -> Service: Validate & Process Data
+activate Service
+
+Service -> Service: Kiểm tra Session hợp lệ
+Service -> DB: Insert One (Log Event)
+activate DB
+DB --> Service: Success
+deactivate DB
+
+Service --> API: 200 OK
+deactivate Service
+
+API --> FE: 200 OK (Silent)
+deactivate API
+deactivate FE
+
+note right of DB
+  Dữ liệu được lưu bao gồm:
+  - Event Type (VIEW, CART_ADD...)
+  - Timestamp
+  - ProductId (nếu có)
+  - Device Info
+end note
+
+@enduml

@@ -1,88 +1,174 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxfile host="app.diagrams.net" modified="2025-12-13T11:05:00.000Z"
-    agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
-    etag="10-StateMachine-Order" version="21.0.0" type="device">
-    <diagram id="10-StateMachine-Order" name="10-StateMachine-Order">
-        <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
-            arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0"
+<mxfile host="app.diagrams.net" modified="2025-12-13T10:00:00.000Z" agent="Mozilla/5.0"
+    version="21.6.8" type="device">
+    <diagram name="State Machine Order" id="State-Order">
+        <mxGraphModel dx="1422" dy="798" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+            arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0"
             shadow="0">
             <root>
-                <mxCell id="p10_0" />
-                <mxCell id="p10_1" parent="p10_0" />
-                <mxCell id="p10_start" value=""
+                <mxCell id="0" />
+                <mxCell id="1" parent="0" />
+
+                <!-- Start -->
+                <mxCell id="Start" value=""
                     style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;"
-                    vertex="1" parent="p10_1">
-                    <mxGeometry x="100" y="40" width="30" height="30" as="geometry" />
+                    vertex="1" parent="1">
+                    <mxGeometry x="410" y="40" width="30" height="30" as="geometry" />
                 </mxCell>
-                <mxCell id="p10_s1" value="Pending"
+                <mxCell id="edge1" value="Create"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;"
+                    edge="1" parent="1" source="Start" target="Pending">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <!-- States -->
+                <mxCell id="Pending" value="Pending"
                     style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
-                    vertex="1" parent="p10_1">
-                    <mxGeometry x="65" y="120" width="100" height="40" as="geometry" />
+                    vertex="1" parent="1">
+                    <mxGeometry x="365" y="120" width="120" height="40" as="geometry" />
                 </mxCell>
-                <mxCell id="p10_s2" value="Processing"
+
+                <mxCell id="Processing" value="Processing"
                     style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
-                    vertex="1" parent="p10_1">
-                    <mxGeometry x="65" y="200" width="100" height="40" as="geometry" />
+                    vertex="1" parent="1">
+                    <mxGeometry x="365" y="220" width="120" height="40" as="geometry" />
                 </mxCell>
-                <mxCell id="p10_s3" value="Shipped"
+
+                <mxCell id="Shipped" value="Shipped"
                     style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
-                    vertex="1" parent="p10_1">
-                    <mxGeometry x="65" y="280" width="100" height="40" as="geometry" />
+                    vertex="1" parent="1">
+                    <mxGeometry x="365" y="320" width="120" height="40" as="geometry" />
                 </mxCell>
-                <mxCell id="p10_s4" value="Delivered"
+
+                <mxCell id="Delivered" value="Delivered"
                     style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
-                    vertex="1" parent="p10_1">
-                    <mxGeometry x="65" y="360" width="100" height="40" as="geometry" />
+                    vertex="1" parent="1">
+                    <mxGeometry x="365" y="420" width="120" height="40" as="geometry" />
                 </mxCell>
-                <mxCell id="p10_s5" value="Cancelled"
+
+                <mxCell id="Cancelled" value="Cancelled"
                     style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
-                    vertex="1" parent="p10_1">
-                    <mxGeometry x="250" y="200" width="100" height="40" as="geometry" />
+                    vertex="1" parent="1">
+                    <mxGeometry x="160" y="220" width="120" height="40" as="geometry" />
                 </mxCell>
-                <mxCell id="p10_end" value=""
-                    style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;"
-                    vertex="1" parent="p10_1">
-                    <mxGeometry x="100" y="450" width="30" height="30" as="geometry" />
+
+                <mxCell id="OnHold" value="On-Hold"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="570" y="220" width="120" height="40" as="geometry" />
                 </mxCell>
-                <mxCell id="p10_e1" value=""
-                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
-                    edge="1" parent="p10_1" source="p10_start" target="p10_s1">
+
+                <mxCell id="Failed" value="Failed"
+                    style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="160" y="120" width="120" height="40" as="geometry" />
+                </mxCell>
+
+                <!-- Transitions -->
+
+                <!-- Pending -> Processing -->
+                <mxCell id="tr1" value="Confirm"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;"
+                    edge="1" parent="1" source="Pending" target="Processing">
                     <mxGeometry relative="1" as="geometry" />
                 </mxCell>
-                <mxCell id="p10_e2" value="Confirm"
-                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
-                    edge="1" parent="p10_1" source="p10_s1" target="p10_s2">
-                    <mxGeometry relative="1" as="geometry" />
-                </mxCell>
-                <mxCell id="p10_e3" value="Ship"
-                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
-                    edge="1" parent="p10_1" source="p10_s2" target="p10_s3">
-                    <mxGeometry relative="1" as="geometry" />
-                </mxCell>
-                <mxCell id="p10_e4" value="Deliver"
-                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
-                    edge="1" parent="p10_1" source="p10_s3" target="p10_s4">
-                    <mxGeometry relative="1" as="geometry" />
-                </mxCell>
-                <mxCell id="p10_e5" value=""
-                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
-                    edge="1" parent="p10_1" source="p10_s4" target="p10_end">
-                    <mxGeometry relative="1" as="geometry" />
-                </mxCell>
-                <mxCell id="p10_e6" value="Cancel"
-                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;"
-                    edge="1" parent="p10_1" source="p10_s1" target="p10_s5">
-                    <mxGeometry relative="1" as="geometry" />
-                </mxCell>
-                <mxCell id="p10_e7" value=""
-                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;entryX=1;entryY=0.5;entryDx=0;entryDy=0;"
-                    edge="1" parent="p10_1" source="p10_s5" target="p10_end">
+
+                <!-- Pending -> Cancelled -->
+                <mxCell id="tr2" value="User Cancel"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;entryX=0.5;entryY=0;"
+                    edge="1" parent="1" source="Pending" target="Cancelled">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="300" y="465" />
+                            <mxPoint x="220" y="140" />
                         </Array>
                     </mxGeometry>
                 </mxCell>
+
+                <!-- Pending -> Failed -->
+                <mxCell id="tr3" value="Payment Fail"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;"
+                    edge="1" parent="1" source="Pending" target="Failed">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <!-- Processing -> Shipped -->
+                <mxCell id="tr4" value="Ship"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;"
+                    edge="1" parent="1" source="Processing" target="Shipped">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <!-- Shipped -> Delivered -->
+                <mxCell id="tr5" value="Deliver"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;"
+                    edge="1" parent="1" source="Shipped" target="Delivered">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <!-- Processing -> OnHold -->
+                <mxCell id="tr6" value="Issue"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;"
+                    edge="1" parent="1" source="Processing" target="OnHold">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+
+                <!-- OnHold -> Processing -->
+                <mxCell id="tr7" value="Resolve"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;entryX=1;entryY=0.5;"
+                    edge="1" parent="1" source="OnHold" target="Processing">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="630" y="280" />
+                            <mxPoint x="485" y="280" />
+                            <mxPoint x="485" y="240" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- OnHold -> Cancelled -->
+                <mxCell id="tr8" value="Cancel"
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;entryX=1;entryY=0.5;"
+                    edge="1" parent="1" source="OnHold" target="Cancelled">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="630" y="300" />
+                            <mxPoint x="280" y="300" />
+                            <mxPoint x="280" y="240" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- End -->
+                <mxCell id="End" value=""
+                    style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;"
+                    vertex="1" parent="1">
+                    <mxGeometry x="410" y="520" width="30" height="30" as="geometry" />
+                </mxCell>
+                <mxCell id="edgeEnd1" value=""
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;"
+                    edge="1" parent="1" source="Delivered" target="End">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="edgeEnd2" value=""
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;"
+                    edge="1" parent="1" source="Cancelled" target="End">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="220" y="535" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edgeEnd3" value=""
+                    style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;"
+                    edge="1" parent="1" source="Failed" target="End">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="100" y="140" />
+                            <mxPoint x="100" y="535" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
             </root>
         </mxGraphModel>
     </diagram>

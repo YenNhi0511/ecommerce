@@ -1,0 +1,44 @@
+@startuml Activity-Analytics-Tracking
+title Luồng Xử lý Tracking Hành vi (Activity Diagram)
+
+|Client (Frontend)|
+start
+:Người dùng tương tác;
+:Xác định loại sự kiện (Event Type);
+note right
+  Ví dụ:
+  - PRODUCT_VIEW
+  - ADD_TO_CART
+  - CHECKOUT
+end note
+
+:Thu thập thông tin ngữ cảnh;
+note right
+  - Session ID
+  - User ID (nếu login)
+  - URL hiện tại
+  - Device/Browser
+end note
+
+:Gửi Request API (Async);
+
+|Server (Backend)|
+:Nhận Request Tracking;
+if (Dữ liệu hợp lệ?) then (Có)
+  :Chuẩn hóa dữ liệu;
+  :Gán Timestamp server;
+  
+  |Database|
+  :Lưu vào Collection UserBehavior;
+  
+  |Server (Backend)|
+  :Phản hồi 200 OK;
+else (Không)
+  :Ghi log lỗi;
+  :Phản hồi 400 Bad Request;
+endif
+
+|Client (Frontend)|
+stop
+
+@enduml
