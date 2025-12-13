@@ -3,6 +3,9 @@ import connectDB from '@/lib/mongodb';
 import UserBehavior from '@/models/UserBehavior';
 import Product from '@/models/Product';
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);

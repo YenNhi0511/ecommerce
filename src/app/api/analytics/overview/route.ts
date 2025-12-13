@@ -3,6 +3,9 @@ import connectDB from '@/lib/mongodb';
 import UserBehavior from '@/models/UserBehavior';
 import Order from '@/models/Order';
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest) {
   try {
     await connectDB();

@@ -1,8 +1,11 @@
 "use client"
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 
-export default function MoMoTestPage() {
+// Prevent static export for this dynamic page
+export const dynamic = 'force-dynamic';
+
+function MoMoTestContent() {
   const search = useSearchParams();
   const orderId = search.get('orderId');
   const [copied, setCopied] = useState(false);
@@ -55,5 +58,13 @@ export default function MoMoTestPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function MoMoTestPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gray-50 py-10 flex items-center justify-center">Loading...</div>}>
+      <MoMoTestContent />
+    </Suspense>
   )
 }

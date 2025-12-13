@@ -3,6 +3,9 @@ import dbConnect from '@/lib/mongodb';
 import WebhookEvent from '@/models/WebhookEvent';
 import { getUserFromRequest } from '@/lib/auth';
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: Request) {
   const user = await getUserFromRequest(req as any);
   if (!user || user.role !== 'admin') return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

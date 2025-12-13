@@ -1,10 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useAnalytics } from '@/context/AnalyticsContext';
+
+// Prevent static export for this dynamic page
+export const dynamic = 'force-dynamic';
 
 interface Product {
   _id: string;
@@ -18,7 +21,7 @@ interface Product {
   brand: string;
 }
 
-export default function SearchPage() {
+function SearchContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
   const [results, setResults] = useState<Product[]>([]);
@@ -132,5 +135,13 @@ export default function SearchPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gray-50 py-10 flex items-center justify-center">Loading...</div>}>
+      <SearchContent />
+    </Suspense>
   );
 }
