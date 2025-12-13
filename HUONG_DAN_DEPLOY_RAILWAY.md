@@ -244,6 +244,21 @@ Bạn sẽ thấy trang chủ e-commerce.
 - Bạn chưa muốn dùng thanh toán Stripe
 - Chỉ cần set `STRIPE_SECRET_KEY` nếu muốn dùng
 
+### ❌ Lỗi: Railpack "Connection reset by peer" hoặc "error decoding response body"
+
+**Nguyên nhân:** Lỗi network tạm thời khi Railpack download Node.js
+
+**Cách sửa:**
+1. **Retry Deploy** - Click nút **"Redeploy"** trong Railway (lỗi network thường tự hết)
+2. **Đợi 5-10 phút** rồi thử lại
+3. **Kiểm tra Railway Status:** [status.railway.app](https://status.railway.app) - có thể Railway đang maintenance
+4. Nếu vẫn lỗi sau 3 lần, thử:
+   - Vào **Settings** → **Service Settings**
+   - Tìm "Builder" hoặc refresh trang Railway
+   - Click **"Redeploy"** lại
+
+**Lưu ý:** Railpack mới và đang beta, lỗi network này thường tự hết sau vài lần retry.
+
 ---
 
 ## 📊 XEM LOGS VÀ MONITOR
