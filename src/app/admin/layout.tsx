@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
@@ -64,7 +64,7 @@ export default function AdminLayout({
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Đang kiểm tra...</p>
+          <p className="text-black">Đang kiểm tra...</p>
         </div>
       </div>
     );
@@ -192,7 +192,7 @@ export default function AdminLayout({
                 href="http://localhost:3000"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 text-sm text-gray-600 hover:text-blue-600 transition"
+                className="px-4 py-2 text-sm text-black hover:text-blue-600 transition"
               >
                 🏠 Xem trang User
               </a>
@@ -207,7 +207,7 @@ export default function AdminLayout({
 
         {/* Footer */}
         <footer className="bg-white border-t px-6 py-4">
-          <p className="text-sm text-gray-600 text-center">
+          <p className="text-sm text-black text-center">
             © 2025 TechZone Admin Panel. All rights reserved.
           </p>
         </footer>

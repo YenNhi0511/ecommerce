@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
@@ -66,7 +66,7 @@ function JourneyContent() {
       <div className="text-center py-12">
         <div className="text-6xl mb-4">🔍</div>
         <h3 className="text-xl font-bold mb-2">Chưa chọn Session</h3>
-        <p className="text-gray-600 mb-4">Vui lòng chọn session từ Event Explorer</p>
+        <p className="text-black mb-4">Vui lòng chọn session từ Event Explorer</p>
         <Link href="/admin/analytics/events" className="text-blue-600 hover:underline">
           ← Quay lại Events
         </Link>
@@ -80,7 +80,7 @@ function JourneyContent() {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-3xl font-bold mb-2">🗺️ User Journey</h1>
-          <p className="text-gray-600">Hành trình của người dùng</p>
+          <p className="text-black">Hành trình của người dùng</p>
         </div>
         <Link href="/admin/analytics/events" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
           ← Events
@@ -93,15 +93,15 @@ function JourneyContent() {
           <h3 className="font-bold text-lg mb-4">📋 Thông tin Session</h3>
           <div className="grid grid-cols-4 gap-4">
             <div>
-              <div className="text-sm text-gray-500">Session ID</div>
+              <div className="text-sm text-black">Session ID</div>
               <div className="font-mono text-sm mt-1">{sessionId?.substring(0, 20)}...</div>
             </div>
             <div>
-              <div className="text-sm text-gray-500">Tổng Events</div>
+              <div className="text-sm text-black">Tổng Events</div>
               <div className="text-2xl font-bold text-blue-600">{events.length}</div>
             </div>
             <div>
-              <div className="text-sm text-gray-500">Thời gian</div>
+              <div className="text-sm text-black">Thời gian</div>
               <div className="text-sm mt-1">
                 {events.length > 0 && (
                   <>
@@ -113,14 +113,14 @@ function JourneyContent() {
               </div>
             </div>
             <div>
-              <div className="text-sm text-gray-500">Trạng thái</div>
+              <div className="text-sm text-black">Trạng thái</div>
               <div className="mt-1">
                 {events.some(e => e.event === 'ORDER_COMPLETE') ? (
                   <span className="text-green-600 font-bold">✅ Đã mua</span>
                 ) : events.some(e => e.event.includes('CART')) ? (
                   <span className="text-orange-600 font-bold">🛒 Có giỏ hàng</span>
                 ) : (
-                  <span className="text-gray-600">👁️ Đang xem</span>
+                  <span className="text-black">👁️ Đang xem</span>
                 )}
               </div>
             </div>
@@ -132,13 +132,13 @@ function JourneyContent() {
       {loading ? (
         <div className="text-center py-12">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Đang tải journey...</p>
+          <p className="mt-4 text-black">Đang tải journey...</p>
         </div>
       ) : events.length === 0 ? (
         <div className="text-center py-12 bg-white rounded-lg shadow">
           <div className="text-6xl mb-4">📭</div>
           <h3 className="text-xl font-bold mb-2">Không có dữ liệu</h3>
-          <p className="text-gray-600">Session này chưa có events</p>
+          <p className="text-black">Session này chưa có events</p>
         </div>
       ) : (
         <div className="bg-white rounded-lg shadow p-6">
@@ -164,7 +164,7 @@ function JourneyContent() {
                         <span className="text-2xl">{getEventIcon(event.event)}</span>
                         <span className="font-bold text-lg">{event.event}</span>
                       </div>
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-black">
                         {new Date(event.timestamp).toLocaleTimeString('vi-VN')}
                       </div>
                     </div>
@@ -214,7 +214,7 @@ function JourneyContent() {
                   
                   {/* Time difference to next event */}
                   {index < events.length - 1 && (
-                    <div className="absolute left-8 -bottom-3 bg-white px-2 py-1 text-xs text-gray-500 border rounded">
+                    <div className="absolute left-8 -bottom-3 bg-white px-2 py-1 text-xs text-black border rounded">
                       ⏱️ {Math.round((new Date(events[index].timestamp).getTime() - new Date(events[index + 1].timestamp).getTime()) / 1000)}s
                     </div>
                   )}
@@ -228,7 +228,7 @@ function JourneyContent() {
             <h4 className="font-bold mb-4">📊 Tổng kết</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
               <div className="bg-blue-50 p-4 rounded-lg">
-                <div className="text-sm text-gray-600">Tổng thời gian</div>
+                <div className="text-sm text-black">Tổng thời gian</div>
                 <div className="text-2xl font-bold text-blue-600">
                   {events.length > 1 ? (
                     <>
@@ -238,19 +238,19 @@ function JourneyContent() {
                 </div>
               </div>
               <div className="bg-green-50 p-4 rounded-lg">
-                <div className="text-sm text-gray-600">Sản phẩm xem</div>
+                <div className="text-sm text-black">Sản phẩm xem</div>
                 <div className="text-2xl font-bold text-green-600">
                   {events.filter(e => e.event.includes('VIEW')).length}
                 </div>
               </div>
               <div className="bg-purple-50 p-4 rounded-lg">
-                <div className="text-sm text-gray-600">Thêm giỏ</div>
+                <div className="text-sm text-black">Thêm giỏ</div>
                 <div className="text-2xl font-bold text-purple-600">
                   {events.filter(e => e.event === 'CART_ADD').length}
                 </div>
               </div>
               <div className="bg-red-50 p-4 rounded-lg">
-                <div className="text-sm text-gray-600">Kết quả</div>
+                <div className="text-sm text-black">Kết quả</div>
                 <div className="text-xl font-bold text-red-600">
                   {events.some(e => e.event === 'ORDER_COMPLETE') ? '✅ Đã mua' : '❌ Chưa mua'}
                 </div>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -137,31 +137,31 @@ export default function AnalyticsPage() {
                   <div className="text-2xl font-bold text-purple-600">
                     {timelineData.reduce((sum, d) => sum + (d.total || 0), 0)}
                   </div>
-                  <div className="text-xs text-gray-600">Tổng sự kiện</div>
+                  <div className="text-xs text-black">Tổng sự kiện</div>
                 </div>
                 <div className="text-center p-3 bg-blue-50 rounded-lg">
                   <div className="text-2xl font-bold text-blue-600">
                     {timelineData.reduce((sum, d) => sum + (d.views || 0), 0)}
                   </div>
-                  <div className="text-xs text-gray-600">Lượt xem</div>
+                  <div className="text-xs text-black">Lượt xem</div>
                 </div>
                 <div className="text-center p-3 bg-green-50 rounded-lg">
                   <div className="text-2xl font-bold text-green-600">
                     {timelineData.reduce((sum, d) => sum + (d.carts || 0), 0)}
                   </div>
-                  <div className="text-xs text-gray-600">Giỏ hàng</div>
+                  <div className="text-xs text-black">Giỏ hàng</div>
                 </div>
                 <div className="text-center p-3 bg-red-50 rounded-lg">
                   <div className="text-2xl font-bold text-red-600">
                     {timelineData.reduce((sum, d) => sum + (d.orders || 0), 0)}
                   </div>
-                  <div className="text-xs text-gray-600">Đơn hàng</div>
+                  <div className="text-xs text-black">Đơn hàng</div>
                 </div>
                 <div className="text-center p-3 bg-orange-50 rounded-lg">
                   <div className="text-2xl font-bold text-orange-600">
                     {timelineData.reduce((sum, d) => sum + (d.searches || 0), 0)}
                   </div>
-                  <div className="text-xs text-gray-600">Tìm kiếm</div>
+                  <div className="text-xs text-black">Tìm kiếm</div>
                 </div>
               </div>
 
@@ -318,7 +318,7 @@ export default function AnalyticsPage() {
                   <div key={index} className="relative">
                     <div className="flex items-center justify-between mb-1">
                       <span className="font-semibold">{stage.stage}</span>
-                      <span className="text-sm text-gray-600">
+                      <span className="text-sm text-black">
                         {stage.count.toLocaleString()} ({typeof stage.percentage === 'string' ? stage.percentage : stage.percentage.toFixed(1)}%)
                       </span>
                     </div>
@@ -374,7 +374,7 @@ export default function AnalyticsPage() {
                   </BarChart>
                 </ResponsiveContainer>
               ) : (
-                <div className="text-gray-500 text-center py-12">Chưa có dữ liệu</div>
+                <div className="text-black text-center py-12">Chưa có dữ liệu</div>
               )}
             </div>
 
@@ -402,7 +402,7 @@ export default function AnalyticsPage() {
                   </PieChart>
                 </ResponsiveContainer>
               ) : (
-                <div className="text-gray-500 text-center py-12">Chưa có dữ liệu</div>
+                <div className="text-black text-center py-12">Chưa có dữ liệu</div>
               )}
             </div>
           </div>

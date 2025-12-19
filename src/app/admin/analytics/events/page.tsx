@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
@@ -73,7 +73,7 @@ export default function EventExplorerPage() {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-3xl font-bold mb-2">📋 Event Explorer</h1>
-          <p className="text-gray-600">Nhật ký chi tiết mọi hành vi người dùng</p>
+          <p className="text-black">Nhật ký chi tiết mọi hành vi người dùng</p>
         </div>
         <Link href="/admin/analytics" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
           ← Dashboard
@@ -234,12 +234,12 @@ export default function EventExplorerPage() {
           <table className="w-full">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Thời gian</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Event</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Session</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">User</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Chi tiết</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Hành động</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase">Thời gian</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase">Event</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase">Session</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase">User</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase">Chi tiết</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase">Hành động</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
@@ -251,7 +251,7 @@ export default function EventExplorerPage() {
                 </tr>
               ) : events.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="px-6 py-12 text-center text-gray-500">
+                  <td colSpan={6} className="px-6 py-12 text-center text-black">
                     Không có dữ liệu
                   </td>
                 </tr>
@@ -266,14 +266,14 @@ export default function EventExplorerPage() {
                         {getEventIcon(event.event)} {event.event}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-600">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-black">
                       {event.sessionId.substring(0, 12)}...
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm">
                       {event.userId ? (
                         <span className="text-green-600 font-medium">Logged in</span>
                       ) : (
-                        <span className="text-gray-400">Anonymous</span>
+                        <span className="text-black">Anonymous</span>
                       )}
                     </td>
                     <td className="px-6 py-4 text-sm">
@@ -281,10 +281,10 @@ export default function EventExplorerPage() {
                         <div className="text-black">{event.metadata.productName}</div>
                       )}
                       {event.metadata?.query && (
-                        <div className="text-gray-600">Query: {event.metadata.query}</div>
+                        <div className="text-black">Query: {event.metadata.query}</div>
                       )}
                       {event.metadata?.orderId && (
-                        <div className="text-gray-600">Order: {event.metadata.orderId}</div>
+                        <div className="text-black">Order: {event.metadata.orderId}</div>
                       )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm">
@@ -312,7 +312,7 @@ export default function EventExplorerPage() {
                 <h3 className="text-xl font-bold">Chi tiết Event</h3>
                 <button
                   onClick={() => setSelectedEvent(null)}
-                  className="text-gray-500 hover:text-black"
+                  className="text-black hover:text-black"
                 >
                   ✕
                 </button>
@@ -320,7 +320,7 @@ export default function EventExplorerPage() {
               
               <div className="space-y-4">
                 <div>
-                  <div className="text-sm font-medium text-gray-500">Event Type</div>
+                  <div className="text-sm font-medium text-black">Event Type</div>
                   <div className="mt-1">
                     <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getEventColor(selectedEvent.event)}`}>
                       {getEventIcon(selectedEvent.event)} {selectedEvent.event}
@@ -329,37 +329,37 @@ export default function EventExplorerPage() {
                 </div>
 
                 <div>
-                  <div className="text-sm font-medium text-gray-500">Timestamp</div>
+                  <div className="text-sm font-medium text-black">Timestamp</div>
                   <div className="mt-1 text-sm">{new Date(selectedEvent.timestamp).toLocaleString('vi-VN')}</div>
                 </div>
 
                 <div>
-                  <div className="text-sm font-medium text-gray-500">Session ID</div>
+                  <div className="text-sm font-medium text-black">Session ID</div>
                   <div className="mt-1 text-sm font-mono bg-gray-100 p-2 rounded">{selectedEvent.sessionId}</div>
                 </div>
 
                 {selectedEvent.userId && (
                   <div>
-                    <div className="text-sm font-medium text-gray-500">User ID</div>
+                    <div className="text-sm font-medium text-black">User ID</div>
                     <div className="mt-1 text-sm font-mono bg-gray-100 p-2 rounded">{selectedEvent.userId}</div>
                   </div>
                 )}
 
                 <div>
-                  <div className="text-sm font-medium text-gray-500">Metadata (Properties)</div>
+                  <div className="text-sm font-medium text-black">Metadata (Properties)</div>
                   <pre className="mt-1 text-xs bg-gray-900 text-green-400 p-4 rounded overflow-x-auto">
                     {JSON.stringify(selectedEvent.metadata, null, 2)}
                   </pre>
                 </div>
 
                 <div>
-                  <div className="text-sm font-medium text-gray-500">IP Address</div>
+                  <div className="text-sm font-medium text-black">IP Address</div>
                   <div className="mt-1 text-sm">{selectedEvent.ipAddress}</div>
                 </div>
 
                 <div>
-                  <div className="text-sm font-medium text-gray-500">User Agent</div>
-                  <div className="mt-1 text-sm text-gray-600">{selectedEvent.userAgent}</div>
+                  <div className="text-sm font-medium text-black">User Agent</div>
+                  <div className="mt-1 text-sm text-black">{selectedEvent.userAgent}</div>
                 </div>
 
                 <div className="flex gap-2 pt-4">

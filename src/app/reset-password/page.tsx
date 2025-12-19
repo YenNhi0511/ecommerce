@@ -81,7 +81,7 @@ export default function ResetPasswordPage() {
       <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-2xl p-8">
         <h1 className="text-3xl font-bold mb-6 text-center">🔐 Reset Password</h1>
 
-        <p className="text-gray-600 mb-6 text-center">
+        <p className="text-black mb-6 text-center">
           Bấm button dưới để reset password admin/seller:
         </p>
 

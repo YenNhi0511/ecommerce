@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 
@@ -82,7 +82,7 @@ export default function FunnelPage() {
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">📊 Phễu Chuyển Đổi</h1>
-        <p className="text-gray-600">Tạo và phân tích funnel tùy chỉnh</p>
+        <p className="text-black">Tạo và phân tích funnel tùy chỉnh</p>
       </div>
 
       {/* Controls */}
@@ -150,13 +150,13 @@ export default function FunnelPage() {
       {loading ? (
         <div className="text-center py-12 bg-white rounded-lg shadow">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Đang phân tích funnel...</p>
+          <p className="mt-4 text-black">Đang phân tích funnel...</p>
         </div>
       ) : funnelData.length === 0 ? (
         <div className="text-center py-12 bg-white rounded-lg shadow">
           <div className="text-6xl mb-4">📭</div>
           <h3 className="text-xl font-bold mb-2">Chưa có dữ liệu</h3>
-          <p className="text-gray-600">Chọn các bước và nhấn Làm mới để xem funnel</p>
+          <p className="text-black">Chọn các bước và nhấn Làm mới để xem funnel</p>
         </div>
       ) : (
         <div className="space-y-6">
@@ -171,7 +171,7 @@ export default function FunnelPage() {
                       <span className="text-lg font-bold text-black">{index + 1}.</span>
                       <span className="font-medium">{step.label}</span>
                     </div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-black">
                       {step.count.toLocaleString()} users
                       {index > 0 && (
                         <span className="ml-2 text-green-600">
@@ -259,14 +259,14 @@ export default function FunnelPage() {
                     <td className="py-3 px-4 text-right font-medium">{step.count.toLocaleString()}</td>
                     <td className="py-3 px-4 text-right">
                       {index === 0 ? (
-                        <span className="text-gray-400">-</span>
+                        <span className="text-black">-</span>
                       ) : (
                         <span className="text-green-600 font-medium">{step.conversionRate.toFixed(1)}%</span>
                       )}
                     </td>
                     <td className="py-3 px-4 text-right">
                       {index === funnelData.length - 1 ? (
-                        <span className="text-gray-400">-</span>
+                        <span className="text-black">-</span>
                       ) : (
                         <span className="text-red-600 font-medium">{step.dropoffRate.toFixed(1)}%</span>
                       )}

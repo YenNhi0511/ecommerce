@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
@@ -132,27 +132,27 @@ export default function AdminOrdersPage() {
       {/* Statistics */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 mb-6">
         <div className="bg-blue-50 p-4 rounded-lg">
-          <div className="text-xs text-gray-600">Tổng đơn</div>
+          <div className="text-xs text-black">Tổng đơn</div>
           <div className="text-2xl font-bold text-blue-600">{orders.length}</div>
         </div>
         <div className="bg-yellow-50 p-4 rounded-lg">
-          <div className="text-xs text-gray-600">Chờ xử lý</div>
+          <div className="text-xs text-black">Chờ xử lý</div>
           <div className="text-2xl font-bold text-yellow-600">{statusCounts.pending}</div>
         </div>
         <div className="bg-indigo-50 p-4 rounded-lg">
-          <div className="text-xs text-gray-600">Đang xử lý</div>
+          <div className="text-xs text-black">Đang xử lý</div>
           <div className="text-2xl font-bold text-indigo-600">{statusCounts.processing}</div>
         </div>
         <div className="bg-purple-50 p-4 rounded-lg">
-          <div className="text-xs text-gray-600">Đang giao</div>
+          <div className="text-xs text-black">Đang giao</div>
           <div className="text-2xl font-bold text-purple-600">{statusCounts.shipped}</div>
         </div>
         <div className="bg-green-50 p-4 rounded-lg">
-          <div className="text-xs text-gray-600">Hoàn thành</div>
+          <div className="text-xs text-black">Hoàn thành</div>
           <div className="text-2xl font-bold text-green-600">{statusCounts.delivered}</div>
         </div>
         <div className="bg-red-50 p-4 rounded-lg">
-          <div className="text-xs text-gray-600">Đã hủy</div>
+          <div className="text-xs text-black">Đã hủy</div>
           <div className="text-2xl font-bold text-red-600">{statusCounts.cancelled}</div>
         </div>
       </div>
@@ -197,10 +197,10 @@ export default function AdminOrdersPage() {
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <div className="font-semibold">Đơn #{o._id.slice(-6)}</div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-black">
                     Khách: {o.user?.name || 'N/A'} ({o.user?.email || 'N/A'})
                   </div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-black">
                     Ngày: {new Date(o.createdAt).toLocaleString('vi-VN')}
                   </div>
                 </div>
@@ -208,12 +208,12 @@ export default function AdminOrdersPage() {
                   <div className="text-xl font-bold text-red-600">
                     {o.totalAmount.toLocaleString('vi-VN')}₫
                   </div>
-                  <div className="text-xs text-gray-500">{o.paymentMethod}</div>
+                  <div className="text-xs text-black">{o.paymentMethod}</div>
                 </div>
               </div>
 
               {o.shippingAddress && (
-                <div className="text-sm text-gray-600 mb-3 p-2 bg-gray-50 rounded">
+                <div className="text-sm text-black mb-3 p-2 bg-gray-50 rounded">
                   📍 {o.shippingAddress.name} - {o.shippingAddress.phone}<br/>
                   {o.shippingAddress.address}, {o.shippingAddress.city}
                 </div>

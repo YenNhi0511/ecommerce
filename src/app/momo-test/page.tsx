@@ -30,16 +30,16 @@ function MoMoTestContent() {
       <div className="max-w-[1400px] mx-auto px-[4%]">
         <div className="bg-white rounded shadow p-6 max-w-3xl mx-auto">
           <h1 className="text-2xl font-bold mb-3">Hỗ trợ kiểm thử MoMo (Sandbox)</h1>
-          <p className="text-sm text-gray-600 mb-4">Bạn đã chọn thanh toán bằng ATM / MoMo. Ở môi trường phát triển, bạn có thể dùng hướng dẫn sandbox của MoMo để mô phỏng thanh toán.</p>
+          <p className="text-sm text-black mb-4">Bạn đã chọn thanh toán bằng ATM / MoMo. Ở môi trường phát triển, bạn có thể dùng hướng dẫn sandbox của MoMo để mô phỏng thanh toán.</p>
 
           {orderId && (
             <div className="mb-4 p-3 border rounded bg-gray-50">
-              <div className="text-xs text-gray-500">Order ID</div>
+              <div className="text-xs text-black">Order ID</div>
               <div className="flex items-center justify-between">
                 <div className="font-mono font-medium">{orderId}</div>
                 <button onClick={copy} className="ml-4 px-3 py-1 border rounded bg-blue-600 text-white">{copied ? 'Copied' : 'Copy'}</button>
               </div>
-              <div className="text-xs text-gray-500 mt-2">Sử dụng Order ID này khi bạn thử nghiệm hoặc gửi cho bộ phận test.</div>
+              <div className="text-xs text-black mt-2">Sử dụng Order ID này khi bạn thử nghiệm hoặc gửi cho bộ phận test.</div>
             </div>
           )}
 

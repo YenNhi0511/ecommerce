@@ -35,7 +35,7 @@ export default function SeedPage() {
       <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-2xl p-8">
         <h1 className="text-3xl font-bold mb-6 text-center">🌱 Khởi Tạo Dữ Liệu</h1>
 
-        <p className="text-gray-600 mb-6 text-center">
+        <p className="text-black mb-6 text-center">
           Nhấn nút bên dưới để tạo dữ liệu mẫu (sản phẩm, admin, seller):
         </p>
 

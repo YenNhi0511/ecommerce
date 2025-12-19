@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -101,7 +101,7 @@ export default function AdminLoginPage() {
 
           {/* Info */}
           <div className="mt-6 pt-6 border-t text-center">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-black">
               Chỉ dành cho quản trị viên
             </p>
           </div>

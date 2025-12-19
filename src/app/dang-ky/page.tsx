@@ -113,7 +113,7 @@ export default function RegisterPage() {
               disabled={isLoading}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
             />
-            <p className="text-xs text-gray-500 mt-1">Mật khẩu phải có ít nhất 6 ký tự</p>
+            <p className="text-xs text-black mt-1">Mật khẩu phải có ít nhất 6 ký tự</p>
           </div>
           <div>
             <label className="block text-sm font-medium mb-1">Xác nhận mật khẩu</label>
@@ -137,7 +137,7 @@ export default function RegisterPage() {
         </form>
 
         <div className="mt-6 text-center">
-          <p className="text-gray-600">
+          <p className="text-black">
             Đã có tài khoản?{' '}
             <Link href="/dang-nhap" className="text-blue-600 hover:underline">
               Đăng nhập

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -88,7 +88,7 @@ export default function AdminDashboardPage() {
     return (
       <div className="text-center py-12">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-        <p className="mt-4 text-gray-600">Đang tải dữ liệu...</p>
+        <p className="mt-4 text-black">Đang tải dữ liệu...</p>
       </div>
     );
   }

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
@@ -145,23 +145,23 @@ export default function AdminUsersPage() {
       {/* Statistics */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
         <div className="bg-blue-50 p-4 rounded-lg">
-          <div className="text-sm text-gray-600">Tổng người dùng</div>
+          <div className="text-sm text-black">Tổng người dùng</div>
           <div className="text-2xl font-bold text-blue-600">{users.length}</div>
         </div>
         <div className="bg-green-50 p-4 rounded-lg">
-          <div className="text-sm text-gray-600">Khách hàng</div>
+          <div className="text-sm text-black">Khách hàng</div>
           <div className="text-2xl font-bold text-green-600">
             {users.filter(u => u.role === 'customer').length}
           </div>
         </div>
         <div className="bg-purple-50 p-4 rounded-lg">
-          <div className="text-sm text-gray-600">Người bán</div>
+          <div className="text-sm text-black">Người bán</div>
           <div className="text-2xl font-bold text-purple-600">
             {users.filter(u => u.role === 'seller').length}
           </div>
         </div>
         <div className="bg-orange-50 p-4 rounded-lg">
-          <div className="text-sm text-gray-600">Admin</div>
+          <div className="text-sm text-black">Admin</div>
           <div className="text-2xl font-bold text-orange-600">
             {users.filter(u => u.role === 'admin').length}
           </div>
@@ -177,22 +177,22 @@ export default function AdminUsersPage() {
             <table className="min-w-[700px] w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Người dùng
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Email
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Role
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Ngày tạo
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Trạng thái
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Thao tác
                   </th>
                 </tr>
@@ -210,7 +210,7 @@ export default function AdminUsersPage() {
                       </div>
                     </div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-black">
                     {u.email}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
@@ -228,7 +228,7 @@ export default function AdminUsersPage() {
                       <option value="admin">Quản trị viên</option>
                     </select>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-black">
                     {new Date(u.createdAt).toLocaleDateString('vi-VN')}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">

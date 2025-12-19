@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
@@ -32,8 +32,8 @@ export default function AdminWebhooks() {
           <div key={ev._id} className="p-3 border rounded bg-white">
             <div className="flex justify-between">
               <div>
-                <div className="text-sm font-medium">{ev.type} <span className="text-xs text-gray-400">{ev.provider}</span></div>
-                <div className="text-xs text-gray-500">{new Date(ev.receivedAt).toLocaleString()}</div>
+                <div className="text-sm font-medium">{ev.type} <span className="text-xs text-black">{ev.provider}</span></div>
+                <div className="text-xs text-black">{new Date(ev.receivedAt).toLocaleString()}</div>
               </div>
               <div className="text-right">
                 <div className={`text-sm ${ev.processed ? 'text-green-600' : 'text-red-600'}`}>{ev.processed ? 'Processed' : 'Pending'}</div>

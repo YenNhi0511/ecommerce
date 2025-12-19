@@ -130,7 +130,7 @@ export default function CheckoutPage() {
               <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 text-gray-500 font-bold">
                 3
               </div>
-              <span className="ml-2 text-sm font-medium text-gray-400">Hoàn tất</span>
+              <span className="ml-2 text-sm font-medium text-black">Hoàn tất</span>
             </div>
           </div>
         </div>
