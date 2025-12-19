@@ -206,7 +206,7 @@ export default function AdminUsersPage() {
                         {u.name.charAt(0).toUpperCase()}
                       </div>
                       <div className="ml-3">
-                        <div className="text-sm font-medium text-gray-900">{u.name}</div>
+                        <div className="text-sm font-medium text-black">{u.name}</div>
                       </div>
                     </div>
                   </td>

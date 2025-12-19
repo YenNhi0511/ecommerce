@@ -44,7 +44,7 @@ function MoMoTestContent() {
           )}
 
           <h2 className="font-semibold">Các bước kiểm thử nhanh</h2>
-          <ol className="list-decimal list-inside mt-2 space-y-2 text-sm text-gray-700">
+          <ol className="list-decimal list-inside mt-2 space-y-2 text-sm text-black">
             <li>Đọc hướng dẫn sandbox chính thức: <a className="text-blue-600" href="https://github.com/momo-wallet/payment/" target="_blank" rel="noreferrer">MoMo payment sandbox</a>.</li>
             <li>Chuẩn bị thông tin theo hướng dẫn (app id, secret sandbox nếu cần).</li>
             <li>Sử dụng Order ID phía trên để liên kết thử nghiệm thanh toán với đơn hàng này.</li>

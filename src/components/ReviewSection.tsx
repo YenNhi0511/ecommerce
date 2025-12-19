@@ -218,7 +218,7 @@ export default function ReviewSection({ productId }: ReviewSectionProps) {
                   <span key={star}>{star <= review.rating ? '⭐' : '☆'}</span>
                 ))}
               </div>
-              <p className="text-gray-700">{review.comment}</p>
+              <p className="text-black">{review.comment}</p>
             </div>
           ))
         )}

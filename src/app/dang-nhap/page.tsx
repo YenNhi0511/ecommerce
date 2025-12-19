@@ -94,7 +94,7 @@ export default function LoginPage() {
         </form>
 
         <div className="mt-6 text-center">
-          <p className="text-gray-600">
+          <p className="text-black">
             Chưa có tài khoản?{' '}
             <Link href="/dang-ky" className="text-blue-600 hover:underline">
               Đăng ký ngay

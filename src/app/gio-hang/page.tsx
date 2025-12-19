@@ -14,8 +14,8 @@ export default function CartPage() {
         <div className="max-w-[1400px] mx-auto px-[4%] py-16">
           <div className="max-w-lg mx-auto bg-white rounded-lg shadow-sm p-12 text-center">
             <div className="text-7xl mb-4">🛒</div>
-            <h1 className="text-2xl font-bold mb-3 text-gray-800">Giỏ hàng trống</h1>
-            <p className="text-gray-500 mb-8">Chưa có sản phẩm nào trong giỏ hàng của bạn</p>
+            <h1 className="text-2xl font-bold mb-3 text-black">Giỏ hàng trống</h1>
+            <p className="text-black mb-8">Chưa có sản phẩm nào trong giỏ hàng của bạn</p>
             <Link href="/" className="inline-block bg-gradient-to-r from-blue-600 to-violet-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition">
               Tiếp tục mua sắm
             </Link>
@@ -30,7 +30,7 @@ export default function CartPage() {
       <div className="max-w-[1400px] mx-auto px-[4%] py-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold text-gray-800">Giỏ hàng ({cart.length} sản phẩm)</h1>
+          <h1 className="text-2xl font-bold text-black">Giỏ hàng ({cart.length} sản phẩm)</h1>
           <button 
             onClick={clearCart} 
             className="text-red-600 hover:text-red-700 font-medium text-sm"
@@ -57,21 +57,21 @@ export default function CartPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <Link href={`/san-pham/${item._id}`}>
-                      <h3 className="font-medium text-gray-800 hover:text-blue-600 text-sm line-clamp-2 mb-2">{item.name}</h3>
+                      <h3 className="font-medium text-black hover:text-blue-600 text-sm line-clamp-2 mb-2">{item.name}</h3>
                     </Link>
                     <p className="text-red-600 font-bold text-base">{item.price.toLocaleString()}₫</p>
                   </div>
                   <div className="flex items-center space-x-2 bg-gray-50 rounded px-2">
                     <button
                       onClick={() => updateQuantity(item._id, item.quantity - 1)}
-                      className="w-7 h-7 flex items-center justify-center hover:bg-gray-200 rounded transition text-gray-600"
+                      className="w-7 h-7 flex items-center justify-center hover:bg-gray-200 rounded transition text-black"
                     >
                       −
                     </button>
                     <span className="w-10 text-center font-medium text-sm">{item.quantity}</span>
                     <button
                       onClick={() => updateQuantity(item._id, item.quantity + 1)}
-                      className="w-7 h-7 flex items-center justify-center hover:bg-gray-200 rounded transition text-gray-600"
+                      className="w-7 h-7 flex items-center justify-center hover:bg-gray-200 rounded transition text-black"
                     >
                       +
                     </button>
@@ -92,16 +92,16 @@ export default function CartPage() {
           {/* Order summary */}
           <div className="lg:sticky lg:top-20 h-fit">
             <div className="bg-white rounded-lg shadow-sm p-6">
-              <h2 className="text-lg font-bold mb-4 text-gray-800">Thông tin đơn hàng</h2>
+              <h2 className="text-lg font-bold mb-4 text-black">Thông tin đơn hàng</h2>
               <div className="space-y-3 mb-4 pb-4 border-b">
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Tạm tính ({cart.length} sản phẩm)</span>
+                  <span className="text-black">Tạm tính ({cart.length} sản phẩm)</span>
                   <span className="font-medium">{total.toLocaleString()}₫</span>
                 </div>
                 {/* shipping removed: totals are based on products only */}
               </div>
               <div className="flex justify-between mb-6">
-                <span className="text-base font-bold text-gray-800">Tổng cộng</span>
+                <span className="text-base font-bold text-black">Tổng cộng</span>
                 <span className="text-xl font-bold text-red-600">{total.toLocaleString()}₫</span>
               </div>
               <Link 
@@ -112,7 +112,7 @@ export default function CartPage() {
               </Link>
               <Link 
                 href="/" 
-                className="w-full bg-gray-100 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-200 transition text-center block"
+                className="w-full bg-gray-100 text-black py-3 rounded-lg font-medium hover:bg-gray-200 transition text-center block"
               >
                 Tiếp tục mua sắm
               </Link>
@@ -120,7 +120,7 @@ export default function CartPage() {
 
             {/* Policies */}
             <div className="bg-white rounded-lg shadow-sm p-4 mt-4">
-              <div className="space-y-3 text-xs text-gray-600">
+              <div className="space-y-3 text-xs text-black">
                 {/* shipping policy hidden since shipping cost removed */}
                 <div className="flex items-center space-x-2">
                   <span>✓</span>

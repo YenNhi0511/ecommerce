@@ -94,7 +94,7 @@ export default function AccountPage() {
                   <div className="mt-6 border-t pt-6">
                     <h3 className="text-lg font-semibold mb-4 text-blue-600">Nâng cấp tài khoản</h3>
                     <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-                      <p className="text-gray-700 mb-3">
+                      <p className="text-black mb-3">
                         Nâng cấp tài khoản của bạn lên Người bán để có thể bán sản phẩm trên sàn thương mại điện tử của chúng tôi.
                       </p>
                       <button
@@ -191,8 +191,8 @@ export default function AccountPage() {
                       <span className="font-semibold">Đơn hàng #12345</span>
                       <span className="text-green-600">Đã giao</span>
                     </div>
-                    <p className="text-gray-600">Ngày đặt: 15/11/2025</p>
-                    <p className="text-gray-600">Tổng tiền: 30.000.000đ</p>
+                    <p className="text-black">Ngày đặt: 15/11/2025</p>
+                    <p className="text-black">Tổng tiền: 30.000.000đ</p>
                   </div>
                 </div>
               </div>

@@ -66,7 +66,7 @@ export default function WishlistButton({ productId }: { productId: string }) {
   };
 
   return (
-    <button onClick={toggle} disabled={loading} className={`px-4 py-2 rounded border ${inWishlist ? 'bg-pink-50 text-pink-600 border-pink-200' : 'bg-white text-gray-700'}`}>
+    <button onClick={toggle} disabled={loading} className={`px-4 py-2 rounded border ${inWishlist ? 'bg-pink-50 text-pink-600 border-pink-200' : 'bg-white text-black'}`}>
       {inWishlist ? '❤️ Yêu thích' : '♡ Thêm yêu thích'}
     </button>
   );

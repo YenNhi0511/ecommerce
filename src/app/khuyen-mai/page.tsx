@@ -17,12 +17,12 @@ export default async function PromotionsPage() {
               <div key={c._id} className="bg-white p-4 rounded shadow">
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="font-semibold text-lg">{c.code}</div>
-                    <div className="text-sm text-gray-600">{c.description || 'Giảm giá đặc biệt'}</div>
+                    <div className="font-semibold text-lg text-black">{c.code}</div>
+                    <div className="text-sm text-black">{c.description || 'Giảm giá đặc biệt'}</div>
                   </div>
                   <div className="text-indigo-600 font-bold">{c.amount}{c.type === 'percent' ? '%' : 'đ'}</div>
                 </div>
-                <div className="mt-3 text-sm text-gray-500">HSD: {new Date(c.expiresAt || c.endDate || Date.now()).toLocaleDateString()}</div>
+                <div className="mt-3 text-sm text-black">HSD: {new Date(c.expiresAt || c.endDate || Date.now()).toLocaleDateString()}</div>
               </div>
             ))}
           </div>
@@ -35,8 +35,8 @@ export default async function PromotionsPage() {
   } catch (e) {
     return (
       <div className="max-w-[1400px] mx-auto px-[4%] p-6">
-        <h1 className="text-2xl font-bold mb-4">Khuyến mãi</h1>
-        <div className="bg-white p-6 rounded shadow">Không thể tải khuyến mãi. Vui lòng thử lại sau.</div>
+        <h1 className="text-2xl font-bold mb-4 text-black">Khuyến mãi</h1>
+        <div className="bg-white p-6 rounded shadow text-black">Không thể tải khuyến mãi. Vui lòng thử lại sau.</div>
       </div>
     );
   }

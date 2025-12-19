@@ -48,12 +48,12 @@ export default async function ProductDetailPage({ params }: PageProps) {
       
       <div className="max-w-[1400px] mx-auto px-[4%] py-6">
         {/* Breadcrumb */}
-        <div className="flex items-center space-x-2 text-sm text-gray-600 mb-4">
+        <div className="flex items-center space-x-2 text-sm text-black mb-4">
           <Link href="/" className="hover:text-blue-600">Trang chủ</Link>
           <span>›</span>
           <Link href={`/danh-muc/${prod.category}`} className="hover:text-blue-600 capitalize">{prod.category}</Link>
           <span>›</span>
-          <span className="text-gray-800 line-clamp-1">{prod.name}</span>
+          <span className="text-black line-clamp-1">{prod.name}</span>
         </div>
 
         {/* Main product section */}
@@ -97,15 +97,15 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 <span className="inline-block px-3 py-1 bg-red-50 text-red-600 text-xs font-semibold rounded-full mb-3">
                   {prod.brand || 'Chính hãng'}
                 </span>
-                <h1 className="text-2xl font-bold mb-3 leading-tight">{prod.name}</h1>
+                <h1 className="text-2xl font-bold mb-3 leading-tight text-black">{prod.name}</h1>
                 <div className="flex items-center space-x-4 text-sm mb-4">
                   <div className="flex items-center">
                     <span className="text-yellow-400">⭐</span>
                     <span className="ml-1 font-medium">{prod.rating || 5}</span>
-                    <span className="ml-1 text-gray-500">({prod.reviews || 0} đánh giá)</span>
+                    <span className="ml-1 text-black">({prod.reviews || 0} đánh giá)</span>
                   </div>
                   <div className="h-4 w-px bg-gray-300"></div>
-                  <span className="text-gray-600">Đã bán {prod.sold || 0}</span>
+                  <span className="text-black">Đã bán {prod.sold || 0}</span>
                 </div>
               </div>
 
@@ -119,24 +119,24 @@ export default async function ProductDetailPage({ params }: PageProps) {
                     );
                   })()}
                 </div>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-black">
                   {prod.stock > 0 ? `Tồn kho: ${prod.stock}` : 'Hết hàng'}
                 </div>
               </div>
 
               {/* Description */}
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">Mô tả sản phẩm</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{prod.description}</p>
+                <h3 className="font-semibold text-black mb-2">Mô tả sản phẩm</h3>
+                <p className="text-black text-sm leading-relaxed">{prod.description}</p>
               </div>
 
               {/* Features */}
               {prod.features && prod.features.length > 0 && (
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-2">Tính năng nổi bật</h3>
+                  <h3 className="font-semibold text-black mb-2">Tính năng nổi bật</h3>
                   <ul className="space-y-2">
                     {prod.features.map((feature: string, index: number) => (
-                      <li key={index} className="flex items-start text-sm text-gray-600">
+                      <li key={index} className="flex items-start text-sm text-black">
                         <span className="text-green-500 mr-2 mt-0.5">✓</span>
                         {feature}
                       </li>
@@ -162,15 +162,15 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 <div className="grid grid-cols-3 gap-4 text-xs text-center">
                   <div className="flex flex-col items-center">
                     <div className="text-2xl mb-1">🚚</div>
-                    <span className="text-gray-600">Giao hàng miễn phí</span>
+                    <span className="text-black">Giao hàng miễn phí</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <div className="text-2xl mb-1">↩️</div>
-                    <span className="text-gray-600">Đổi trả trong 7 ngày</span>
+                    <span className="text-black">Đổi trả trong 7 ngày</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <div className="text-2xl mb-1">✓</div>
-                    <span className="text-gray-600">Bảo hành chính hãng</span>
+                    <span className="text-black">Bảo hành chính hãng</span>
                   </div>
                 </div>
               </div>
@@ -185,8 +185,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {Object.entries(prod.specifications).map(([key, value]) => (
                 <div key={key} className="flex border-b border-gray-100 py-3">
-                  <span className="font-medium text-gray-700 w-1/2">{key}</span>
-                  <span className="text-gray-600 w-1/2">{String(value)}</span>
+                  <span className="font-medium text-black w-1/2">{key}</span>
+                  <span className="text-black w-1/2">{String(value)}</span>
                 </div>
               ))}
             </div>
@@ -233,9 +233,9 @@ export default async function ProductDetailPage({ params }: PageProps) {
                   <div className="flex items-center justify-between text-xs">
                     <div className="flex items-center">
                       <span className="text-yellow-400">⭐</span>
-                      <span className="ml-1 text-gray-600">{relProd.rating || 5}</span>
+                      <span className="ml-1 text-black">{relProd.rating || 5}</span>
                     </div>
-                    <span className="text-gray-400">Đã bán {relProd.sold || 0}</span>
+                    <span className="text-black">Đã bán {relProd.sold || 0}</span>
                   </div>
                 </div>
               </Link>

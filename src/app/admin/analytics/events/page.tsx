@@ -64,7 +64,7 @@ export default function EventExplorerPage() {
     if (eventType.includes('CART')) return 'bg-green-100 text-green-800';
     if (eventType.includes('SEARCH')) return 'bg-purple-100 text-purple-800';
     if (eventType.includes('ORDER')) return 'bg-red-100 text-red-800';
-    return 'bg-gray-100 text-gray-800';
+    return 'bg-gray-100 text-black';
   };
 
   return (
@@ -278,7 +278,7 @@ export default function EventExplorerPage() {
                     </td>
                     <td className="px-6 py-4 text-sm">
                       {event.metadata?.productName && (
-                        <div className="text-gray-900">{event.metadata.productName}</div>
+                        <div className="text-black">{event.metadata.productName}</div>
                       )}
                       {event.metadata?.query && (
                         <div className="text-gray-600">Query: {event.metadata.query}</div>
@@ -312,7 +312,7 @@ export default function EventExplorerPage() {
                 <h3 className="text-xl font-bold">Chi tiết Event</h3>
                 <button
                   onClick={() => setSelectedEvent(null)}
-                  className="text-gray-500 hover:text-gray-700"
+                  className="text-gray-500 hover:text-black"
                 >
                   ✕
                 </button>

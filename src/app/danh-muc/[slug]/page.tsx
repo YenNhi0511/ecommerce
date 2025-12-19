@@ -107,14 +107,14 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-[1400px] mx-auto px-[4%] py-6">
         {/* Breadcrumb */}
-        <div className="flex items-center space-x-2 text-sm text-gray-600 mb-4">
+        <div className="flex items-center space-x-2 text-sm text-black mb-4">
           <Link href="/" className="hover:text-blue-600">Trang chủ</Link>
           <span>›</span>
-          <span className="text-gray-800 font-medium">{categoryName}</span>
+          <span className="text-black font-medium">{categoryName}</span>
         </div>
 
         {/* Page title */}
-        <h1 className="text-2xl font-bold mb-4">{categoryName}</h1>
+        <h1 className="text-2xl font-bold mb-4 text-black">{categoryName}</h1>
 
         <div className="flex gap-4">
           {/* Sidebar filters */}
@@ -134,11 +134,11 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
           <div className="flex-1">
             {/* Sort bar */}
             <div className="bg-white rounded-lg shadow-sm p-4 mb-4 flex items-center justify-between">
-              <div className="text-gray-600">
-                Hiển thị <span className="font-bold text-gray-800">{products.length}</span> / {total} sản phẩm
+              <div className="text-black">
+                Hiển thị <span className="font-bold text-black">{products.length}</span> / {total} sản phẩm
               </div>
               <div className="flex items-center space-x-4">
-                <span className="text-gray-600 text-sm">Sắp xếp:</span>
+                <span className="text-black text-sm">Sắp xếp:</span>
                 <Link 
                   href={`?sort=newest`}
                   className={`px-3 py-1 rounded-full text-sm ${!sort || sort === 'newest' ? 'bg-blue-600 text-white' : 'bg-gray-100 hover:bg-gray-200'}`}
@@ -164,8 +164,8 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
             {products.length === 0 ? (
               <div className="bg-white rounded-lg shadow-sm text-center py-12">
                 <div className="text-6xl mb-4">📦</div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">Không tìm thấy sản phẩm</h3>
-                <p className="text-gray-600">Vui lòng thử lại với bộ lọc khác</p>
+                <h3 className="text-xl font-bold text-black mb-2">Không tìm thấy sản phẩm</h3>
+                <p className="text-black">Vui lòng thử lại với bộ lọc khác</p>
               </div>
             ) : (
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
@@ -199,9 +199,9 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                         <div className="flex items-center justify-between text-xs">
                           <div className="flex items-center">
                             <span className="text-yellow-400">⭐</span>
-                            <span className="ml-1 text-gray-600">{product.rating || 5}</span>
+                            <span className="ml-1 text-black">{product.rating || 5}</span>
                           </div>
-                          <span className="text-gray-400">Đã bán {product.sold || 0}</span>
+                          <span className="text-black">Đã bán {product.sold || 0}</span>
                         </div>
                     </div>
                   </Link>

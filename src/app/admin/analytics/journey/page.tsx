@@ -174,37 +174,37 @@ function JourneyContent() {
                       <div className="mt-3 space-y-2">
                         {event.metadata.productName && (
                           <div className="flex items-center gap-2">
-                            <span className="text-sm font-medium text-gray-700">Sản phẩm:</span>
+                            <span className="text-sm font-medium text-black">Sản phẩm:</span>
                             <span className="text-sm text-blue-600">{event.metadata.productName}</span>
                           </div>
                         )}
                         {event.metadata.query && (
                           <div className="flex items-center gap-2">
-                            <span className="text-sm font-medium text-gray-700">Tìm kiếm:</span>
+                            <span className="text-sm font-medium text-black">Tìm kiếm:</span>
                             <span className="text-sm text-purple-600">"{event.metadata.query}"</span>
                           </div>
                         )}
                         {event.metadata.price && (
                           <div className="flex items-center gap-2">
-                            <span className="text-sm font-medium text-gray-700">Giá:</span>
+                            <span className="text-sm font-medium text-black">Giá:</span>
                             <span className="text-sm text-green-600">{event.metadata.price.toLocaleString()}₫</span>
                           </div>
                         )}
                         {event.metadata.quantity && (
                           <div className="flex items-center gap-2">
-                            <span className="text-sm font-medium text-gray-700">Số lượng:</span>
+                            <span className="text-sm font-medium text-black">Số lượng:</span>
                             <span className="text-sm">{event.metadata.quantity}</span>
                           </div>
                         )}
                         {event.metadata.resultsCount !== undefined && (
                           <div className="flex items-center gap-2">
-                            <span className="text-sm font-medium text-gray-700">Kết quả:</span>
+                            <span className="text-sm font-medium text-black">Kết quả:</span>
                             <span className="text-sm">{event.metadata.resultsCount} sản phẩm</span>
                           </div>
                         )}
                         {event.metadata.totalAmount && (
                           <div className="flex items-center gap-2">
-                            <span className="text-sm font-medium text-gray-700">Tổng tiền:</span>
+                            <span className="text-sm font-medium text-black">Tổng tiền:</span>
                             <span className="text-sm text-red-600 font-bold">{event.metadata.totalAmount.toLocaleString()}₫</span>
                           </div>
                         )}

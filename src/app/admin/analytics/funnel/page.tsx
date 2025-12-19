@@ -168,7 +168,7 @@ export default function FunnelPage() {
                 <div key={index}>
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
-                      <span className="text-lg font-bold text-gray-700">{index + 1}.</span>
+                      <span className="text-lg font-bold text-black">{index + 1}.</span>
                       <span className="font-medium">{step.label}</span>
                     </div>
                     <div className="text-sm text-gray-600">
@@ -254,7 +254,7 @@ export default function FunnelPage() {
               <tbody>
                 {funnelData.map((step, index) => (
                   <tr key={index} className="border-b hover:bg-gray-50">
-                    <td className="py-3 px-4 font-bold text-gray-700">{index + 1}</td>
+                    <td className="py-3 px-4 font-bold text-black">{index + 1}</td>
                     <td className="py-3 px-4">{step.label}</td>
                     <td className="py-3 px-4 text-right font-medium">{step.count.toLocaleString()}</td>
                     <td className="py-3 px-4 text-right">

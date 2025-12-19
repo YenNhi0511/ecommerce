@@ -105,7 +105,7 @@ export default function OrdersPage() {
                   <div className="font-semibold">
                     Đơn hàng #{order._id}
                   </div>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-sm text-black">
                     Ngày đặt:{" "}
                     {order.createdAt
                       ? new Date(order.createdAt).toLocaleString(
@@ -140,7 +140,7 @@ export default function OrdersPage() {
                 </div>
               </div>
 
-              <div className="text-sm text-gray-600 mb-2">
+              <div className="text-sm text-black mb-2">
                 Phương thức thanh toán:{" "}
                 {order.paymentMethod?.toUpperCase?.() ||
                   order.paymentMethod ||
@@ -148,7 +148,7 @@ export default function OrdersPage() {
               </div>
 
               <div className="flex justify-between items-center mt-2">
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-black">
                   Số sản phẩm: {order.items?.length ?? 0}
                 </div>
                 <Link

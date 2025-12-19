@@ -44,8 +44,8 @@ export default function SellerProductsPage() {
 
   return (
     <div className="max-w-[1400px] mx-auto px-[4%] p-4">
-      <h1 className="text-2xl font-bold mb-4">Quản lý sản phẩm của tôi</h1>
-      <p className="text-gray-600 mb-4">Quản lý tồn kho và thông tin sản phẩm của bạn</p>
+      <h1 className="text-2xl font-bold mb-4 text-black">Quản lý sản phẩm của tôi</h1>
+      <p className="text-black mb-4">Quản lý tồn kho và thông tin sản phẩm của bạn</p>
       <div className="grid grid-cols-3 gap-4">
         <div className="col-span-1">
           <SellerProductForm initial={editing || {}} onSaved={onSaved} onCancel={onCancel} />
@@ -58,14 +58,14 @@ export default function SellerProductsPage() {
                 <div className="flex items-center gap-3">
                   <img src={p.images?.[0] || '/favicon.svg'} className="w-16 h-16 object-cover rounded" />
                   <div>
-                    <div className="font-semibold">{p.name}</div>
-                    <div className="text-sm text-gray-600">{p.brand} • {p.category}</div>
+                    <div className="font-semibold text-black">{p.name}</div>
+                    <div className="text-sm text-black">{p.brand} • {p.category}</div>
                     <div className="text-red-600 font-bold">{Number(p.price).toLocaleString()}₫</div>
                     <div className="text-sm mt-1">
                       <span className={`px-2 py-0.5 rounded ${(p.stock || 0) > 10 ? 'bg-green-100 text-green-700' : (p.stock || 0) > 0 ? 'bg-yellow-100 text-yellow-700' : 'bg-red-100 text-red-700'}`}>
                         Tồn kho: {p.stock || 0}
                       </span>
-                      <span className="ml-2 text-gray-500">Đã bán: {p.sold || 0}</span>
+                      <span className="ml-2 text-black">Đã bán: {p.sold || 0}</span>
                     </div>
                   </div>
                 </div>

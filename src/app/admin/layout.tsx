@@ -178,7 +178,7 @@ export default function AdminLayout({
         <header className="bg-white shadow-sm border-b sticky top-0 z-10">
           <div className="px-6 py-4 flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <h2 className="text-xl font-bold text-gray-800">
+              <h2 className="text-xl font-bold text-black">
                 {pathname === '/admin/dashboard' || pathname === '/admin' ? 'Dashboard' :
                  pathname?.startsWith('/admin/products') ? 'Quản lý sản phẩm' :
                  pathname?.startsWith('/admin/orders') ? 'Quản lý đơn hàng' :

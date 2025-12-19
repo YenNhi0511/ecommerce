@@ -61,10 +61,10 @@ function SearchContent() {
       <div className="max-w-[1400px] mx-auto px-[4%] py-8">
         {/* Search header */}
         <div className="mb-6">
-          <h1 className="text-2xl font-bold text-gray-800 mb-2">
+          <h1 className="text-2xl font-bold text-black mb-2">
             Kết quả tìm kiếm cho: <span className="text-blue-600">"{query}"</span>
           </h1>
-          <p className="text-gray-600">
+          <p className="text-black">
             {loading ? 'Đang tìm kiếm...' : `Tìm thấy ${results.length} sản phẩm`}
           </p>
         </div>
@@ -73,15 +73,15 @@ function SearchContent() {
         {loading && (
           <div className="text-center py-12">
             <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-            <p className="mt-4 text-gray-600">Đang tìm kiếm...</p>
+            <p className="mt-4 text-black">Đang tìm kiếm...</p>
           </div>
         )}
 
         {!loading && results.length === 0 && query && (
           <div className="text-center py-12 bg-white rounded-lg shadow">
             <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-xl font-bold text-gray-800 mb-2">Không tìm thấy kết quả</h3>
-            <p className="text-gray-600 mb-6">Thử tìm kiếm với từ khóa khác</p>
+            <h3 className="text-xl font-bold text-black mb-2">Không tìm thấy kết quả</h3>
+            <p className="text-black mb-6">Thử tìm kiếm với từ khóa khác</p>
             <Link href="/" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">
               Về trang chủ
             </Link>
@@ -124,9 +124,9 @@ function SearchContent() {
                   <div className="flex items-center justify-between text-xs">
                     <div className="flex items-center">
                       <span className="text-yellow-400">⭐</span>
-                      <span className="ml-1 text-gray-600">{product.rating || 5}</span>
+                      <span className="ml-1 text-black">{product.rating || 5}</span>
                     </div>
-                    <span className="text-gray-400">Đã bán {product.sold || 0}</span>
+                    <span className="text-black">Đã bán {product.sold || 0}</span>
                   </div>
                 </div>
               </Link>
